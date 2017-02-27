@@ -1,0 +1,15 @@
+{
+  "name": "100-national-sites-of-Bulgaria",
+  "description": "Web application for tourists in Bulgaria",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "P.Boyanov",
+  "license": "HelloWorld",
+  "dependencies": {
+    "systemjs": "^0.19.39",
+    "systemjs-plugin-babel": "0.0.16"
+  }
+}

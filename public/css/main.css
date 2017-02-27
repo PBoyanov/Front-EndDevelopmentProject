@@ -1,0 +1,32 @@
+.hidden{
+    display: none;
+}
+
+.shown-when-logged-in{
+    display: none !important;
+}
+
+.shown-when-logged-out{
+    
+}
+
+.list-style-none{
+    list-style-type: none;
+}
+
+.material-info{
+    margin: 3em;
+}
+
+.smaller-image{
+    height: 15em;
+}
+
+.comment{
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.sort *{
+    display: inline-block;
+}

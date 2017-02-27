@@ -1,0 +1,35 @@
+<div class="container" id="material-profile" data-id="{{id}}">
+    <h3>{{title}}</h3>
+    <img src="{{img}}" alt="" class="img-responsive">
+    <div class="material-description">{{description}}</div>
+    <div>Created by <a href="#/profiles/{{user.username}}">{{user.username}}</a></div> 
+    <div class="smaller-font">Created on {{createdOn}}</div>
+
+    <form class="state-form">
+        <button class="btn btn-info change-state-btn" data-type="want-to-watch">Want to watch</button>
+        <button class="btn btn-info change-state-btn" data-type="watched">Watched</button>
+        <button class="btn btn-info change-state-btn" data-type="watching">Wacthing</button>
+     </form>
+
+    <h4>Comments</h4>
+    {{#if comments.length}}
+        <ul class="comments list-style-none">
+        {{#comments}}
+            <li class="comment">
+                <div>{{text}}</div>
+                <div>Created by <a href="#/profiles/{{user.username}}">{{user.username}}</a></div> 
+            </li>
+        {{/comments}}
+        </ul>
+     {{else}}
+            <h5>No comments yet!</h5>
+     {{/if}}
+     
+     <form class="add-comment-form">
+         <div class="form-group">
+            <label for="new-comment">Comment:</label>
+            <textarea class="form-control" id="new-comment" rows="3"></textarea>
+         </div>
+        <button type="submit" class="btn btn-success" id="add-comment-btn">Add</button>
+     </form>
+</div>

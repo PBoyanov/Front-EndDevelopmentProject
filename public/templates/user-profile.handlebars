@@ -1,0 +1,25 @@
+<div class="container">
+<h2>{{username}}</h2>
+<h4>Your materials</h4>
+<div class="sort">
+    <h3><a class="btn btn-warning" href="#/profiles/{{username}}">All</a></h3>
+    <h3><a class="btn btn-warning" href="#/profiles/{{username}}/want-to-watch">Want to watch</a></h3>
+    <h3><a class="btn btn-warning" href="#/profiles/{{username}}/watched">Watched</a></h3>
+    <h3><a class="btn btn-warning" href="#/profiles/{{username}}/watching">Watching</a></h3>
+</div>
+{{#if userMaterials.length}}
+    {{#categories}}
+    <h3><a href="#/profiles/{{username}}/{{category}}">{{category}}</a></h3>
+    <ul class="list-style-none">
+        {{#materials}}
+        <li class="material-info" data-id="{{id}}">
+            <h3><a href="#/materials/{{id}}">{{title}}</a></h3>
+            <h5>{{category}}</h5>
+        </li>
+        {{/materials}}
+    </ul>
+    {{/categories}}
+{{else}}
+    <h5>No materials yet!</h5>
+{{/if}}
+</div>
