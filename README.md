@@ -41,6 +41,3 @@ Front-End Development Project
   - Shows the profile of user with the `username` passed in the URL
   - `#/profiles/john` should show the profile of the user `john`
   - Available to all users, logged-in or not
-
-## Server routes
-See the [SERVER_ROUTES.md](./SERVER_ROUTES.md) file
