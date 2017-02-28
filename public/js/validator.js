@@ -24,6 +24,12 @@ let validator =(() => {
         // }
     }
 
+    function validateConfirmPassword(password, confirmPassword) {
+        if(password !== confirmPassword) {
+            throw new Error("Паролите не съвпадат!");
+        }
+    }
+
      function validateTitle(title){
         if(typeof title !== "string" || title.length < 6 || title.length > 100){
             throw new Error("Invalid title length");
@@ -39,6 +45,7 @@ let validator =(() => {
     return{
         validateUsername,
         validatePassword,
+        validateConfirmPassword,
         validateTitle,
         validateDescription
     }

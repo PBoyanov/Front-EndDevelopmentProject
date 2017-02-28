@@ -10,7 +10,9 @@ let router = (() => {
 
             this.get("#/home", controllers.home.renderPage);
 
-            this.get("#/login", controllers.auth.renderPage);
+            this.get('#/register', controllers.auth.register);
+
+            this.get("#/login", controllers.auth.login);
 
             this.get("#/logout", controllers.logout.execute);
 

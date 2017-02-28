@@ -20,6 +20,7 @@ let data = (() => {
     function registerUser(user) {
         validator.validateUsername(user.username);
         validator.validatePassword(user.password);
+        validator.validateConfirmPassword(user.password, user.confirmPassword);
 
         return requester.postJSON("api/register", user);
     }
