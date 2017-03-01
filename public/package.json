@@ -11,5 +11,8 @@
   "dependencies": {
     "systemjs": "^0.19.39",
     "systemjs-plugin-babel": "0.0.16"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
