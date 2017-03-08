@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Nexa Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Nexa Regular'), url('./fonts/nexa-light-webfont.woff') format('woff');
+}
+
+body{
+    font-family: 'Nexa Regular'
+}
+
 .hidden{
     display: none;
 }
