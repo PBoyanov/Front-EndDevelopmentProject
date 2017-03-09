@@ -106,6 +106,20 @@ img {
     max-width: 100%;
 }
 
+.hidden{
+    display: none;
+}
+
+.shown-when-logged-in{
+    display: none !important;
+}
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+    padding: 0;
+}
+
 #root {
     min-height: 100%;
     position: relative;
@@ -152,33 +166,76 @@ img {
     opacity: 1;
 }
 
-.hidden{
-    display: none;
+#navigation-wrap {
+    height: 70px;
+    position: relative;
 }
 
-.shown-when-logged-in{
-    display: none !important;
+#navigation-inner {
+    position: relative;
+    z-index: 5;
+    padding-right: 0;
 }
 
-.shown-when-logged-out{
-    
+#navigation {
+    height: 70px;
+    position: relative;
+    padding-left: 80px;
+    background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
 }
 
-.list-style-none{
-    list-style-type: none;
+#navigation .nav-main > li {
+    display: block;
+    float: left;
+    background: url('../imgs/nav-divider.png') right center no-repeat;
+    padding-right: 24px;
+    margin-right: 24px;
 }
 
-.material-info{
-    margin: 3em;
+#navigation .nav-main > li:hover > a,
+#navigation .nav-main > li > a:hover,
+#navigation .nav-main > .current-menu-item > a,
+#navigation .nav-main > .current-menu-item > a:hover,
+#navigation .nav-right > li > a:hover {
+    color: #fff;
+    border-bottom: 3px solid #f26c4f;
 }
 
-.smaller-image{
-    height: 15em;
+#navigation .nav-main a,
+#navigation .nav-right a {
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    height: 67px;
+    line-height: 67px;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
 }
 
-.comment{
-    border: 1px solid black;
-    padding: 1em;
+#nav-extend {
+    z-index: 1;
+    height: 70px;
+    background: #474747;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+}
+
+#menu-right {
+    float: right !important;
+}
+
+#menu-right li{
+    display: block;
+    float: left;
+}
+
+#menu-right li.no-divider {
+    background-image: none;
 }
 
 .sort *{

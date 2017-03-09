@@ -4,7 +4,7 @@
 <head>
     <title>100 национални туристически обекта</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />  
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -25,74 +25,81 @@
 <body>
     <header>
         <header id="main-header">
-        <div id="top-bar-wrap">
-            <div id="top-bar-inner" class="container">
-                <div id="logo">
-                    <img src="../imgs/good-inc-logo.png" alt="Good Inc.">
-                </div>
-                <div id="top-bar-right" class="not-visible-on-mobile">
-                    <ul id="header-social">
-                        <li>
-                            <a href="#" title="Fecebook us">
-                                <img src="../imgs/facebook.png" alt="Facebook">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Follow us">
-                                <img src="../imgs/twitter.png" alt="Twitter">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Youtube channel">
-                                <img src="../imgs/youtube.png" alt="Youtube">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/PBoyanov/Front-EndDevelopmentProject" title="Github">
-                                <img src="../imgs/github.png" alt="Github">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="RSS Feed">
-                                <img src="../imgs/rss.png" alt="RSS">
-                            </a>
-                        </li>                      
-                    </ul>
+            <div id="top-bar-wrap">
+                <div id="top-bar-inner" class="container">
+                    <div id="logo">
+                        <img src="../imgs/good-inc-logo.png" alt="Good Inc.">
+                    </div>
+                    <div id="top-bar-right" class="not-visible-on-mobile">
+                        <ul id="header-social">
+                            <li>
+                                <a href="#" title="Fecebook us">
+                                    <img src="../imgs/facebook.png" alt="Facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Follow us">
+                                    <img src="../imgs/twitter.png" alt="Twitter">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Youtube channel">
+                                    <img src="../imgs/youtube.png" alt="Youtube">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/PBoyanov/Front-EndDevelopmentProject" title="Github">
+                                    <img src="../imgs/github.png" alt="Github">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="RSS Feed">
+                                    <img src="../imgs/rss.png" alt="RSS">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#/home">Home<span class="sr-only">(current)</span></a></li>
-                    <li><a id="create-link" href="#/create" class="hidden">Create Material</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a id="profile-link" class="hidden" href="">Profile</a></li>
-                    <li><a id="login-link" href="#/login">Login or register</a></li>
-                    <li><a id="logout-link" href="#/logout" class="hidden">Logout</a></li>
-                </ul>
+            <div id="navigation-wrap">
+                <div id="navigation-inner" class="container">
+                    <nav id="navigation">
+                        <div class="menu-main-container">
+                            <ul id="menu-main" class="nav-main">
+                                <li class="current-menu-item"><a href="#/home">Начало</a></li>
+                                <li><a href="#/home">Обекти</a></li>
+                                <li><a href="#/home">Новини</a></li>
+                                <li><a id="create-link" href="#/create" class="hidden">Create Material</a></li>
+                            </ul>
+                            <ul id="menu-right" class="nav-right">
+                                <li><a id="profile-link" class="hidden" href="">Profile</a></li>
+                                <li class="no-divider"><a id="login-link" href="#/login">Вход или регистрация</a></li>
+                                <li><a id="logout-link" href="#/logout" class="hidden">Logout</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div id="nav-extend"></div>
             </div>
-        </nav>
-    <main>
-        <div id="content">
+            <main>
+                <div id="content">
 
-        </div>
-    </main>
+                </div>
+            </main>
 
-    <!--Scripts-->
-    <!--<script src="./js/requester.js"></script>-->
-    <!--<script src="./js/templates.js"></script>-->
-    <!--<script src="./js/data.js"></script>-->
-    <!--<script src="./js/home.js"></script>-->
-    <!--<script src="./js/login.js"></script>
+            <!--Scripts-->
+            <!--<script src="./js/requester.js"></script>-->
+            <!--<script src="./js/templates.js"></script>-->
+            <!--<script src="./js/data.js"></script>-->
+            <!--<script src="./js/home.js"></script>-->
+            <!--<script src="./js/login.js"></script>
     <script src="./js/logout.js"></script>-->
-    <!--<script src="./js/validator.js"></script>-->
-    <script src="./js/material-profile.js"></script>
-    <script src="./js/user-profile.js"></script>
-    <script src="./js/create-material.js"></script>
-    <!--<script src="./js/controllers.js"></script>-->
-    <!--<script src="./js/app.js"></script>-->
+            <!--<script src="./js/validator.js"></script>-->
+            <script src="./js/material-profile.js"></script>
+            <script src="./js/user-profile.js"></script>
+            <script src="./js/create-material.js"></script>
+            <!--<script src="./js/controllers.js"></script>-->
+            <!--<script src="./js/app.js"></script>-->
 </body>
 
 </html>
