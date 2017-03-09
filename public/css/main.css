@@ -114,10 +114,9 @@ img {
     display: none !important;
 }
 
-.container {
+.basic-container {
     width: 940px;
     margin: 0 auto;
-    padding: 0;
 }
 
 #root {
@@ -174,7 +173,6 @@ img {
 #navigation-inner {
     position: relative;
     z-index: 5;
-    padding-right: 0;
 }
 
 #navigation {
@@ -197,8 +195,7 @@ img {
 #navigation .nav-main > .current-menu-item > a,
 #navigation .nav-main > .current-menu-item > a:hover,
 #navigation .nav-right > li > a:hover {
-    color: #fff;
-    border-bottom: 3px solid #f26c4f;
+    border-bottom: 4px solid #f26c4f;
 }
 
 #navigation .nav-main a,
@@ -206,13 +203,13 @@ img {
     display: block;
     color: #fff;
     font-weight: 500;
-    height: 67px;
-    line-height: 67px;
+    height: 70px;
+    line-height: 70px;
     font-size: 13px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
 }
 
 #nav-extend {
@@ -232,10 +229,15 @@ img {
 #menu-right li{
     display: block;
     float: left;
+    background: url('../imgs/nav-divider.png') left center no-repeat;
+    padding-left: 24px;
+    margin-left: 24px;
 }
 
 #menu-right li.no-divider {
     background-image: none;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 .sort *{
