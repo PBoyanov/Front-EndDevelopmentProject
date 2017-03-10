@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
     <link rel="stylesheet" href="./css/main.css">
 
-    
+
 
     <script>
         System.import('app');
@@ -69,20 +69,26 @@
             </div>
             <div id="navigation-wrap">
                 <div id="navigation-inner" class="basic-container">
-                    <nav id="navigation">
-                        <div class="menu-main-container">
-                            <ul id="menu-main" class="nav-main">
-                                <li class="current-menu-item"><a href="#/home">Начало</a></li>
-                                <li><a href="#/home">Обекти</a></li>
+                    <nav id="navigation" class="navbar navbar-toggleable-md navbar-light">
+                        <!--Responsive nav-->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="menu-container collapse navbar-collapse" id="navbarTogglerDemo01">
+                            <ul id="main-menu" class="nav nav-main navbar-nav mr-auto mt-lg-0">
+                                <li class="nav-item current-menu-item"><a href="#/home">Начало</a></li>
+                                <li class="nav-item"><a href="#/home">Обекти</a></li>
                                 <li><a href="#/home">Новини</a></li>
-                                <li id="create-link" class="hidden"><a href="#/create">Create Material</a></li>
+                                <li id="create-link" class="nav-item hidden"><a href="#/create">Create Material</a></li>
                             </ul>
-                            <ul id="menu-right" class="nav-right">
-                                <li id="login-link" class="no-divider"><a href="#/login">Вход или регистрация</a></li>
-                                <li id="profile-link" class="no-divider hidden"><a href="">Профил</a></li>
-                                <li id="logout-link" class="hidden"><a href="#/logout">Изход</a></li>
+                            <ul id="menu-right" class="nav nav-right justify-content-end">
+                                <li id="login-link" class="nav-item no-divider"><a href="#/login">Вход или регистрация</a></li>
+                                <li id="profile-link" class="nav-item no-divider hidden"><a href="">Профил</a></li>
+                                <li id="logout-link" class="nav-item hidden"><a href="#/logout">Изход</a></li>
                             </ul>
                         </div>
+                        <!--Responsive nav-->
                     </nav>
                 </div>
                 <div id="nav-extend"></div>

@@ -179,6 +179,7 @@ img {
     height: 70px;
     position: relative;
     padding-left: 80px;
+    padding-right: 0px;
     background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
 }
 
@@ -223,14 +224,7 @@ img {
     top: 0px;
 }
 
-.nav-right {
-    float: right !important;
-}
-
 .nav-right li {
-    --display: block;
-    list-style-type: none;   
-    float: left;
     background: url('../imgs/nav-divider.png') left center no-repeat;
     padding-left: 24px;
     margin-left: 24px;
@@ -246,11 +240,154 @@ img {
     display: inline-block;
 }
 
-@media (max-width: 765px) {
+@media only screen and (max-width: 991px) {
+	/*home slider*/
+	#featured-flexslider { height: auto; }
+	#featured-flexslider .slider-video embed, #featured-flexslider .slider-video iframe { height: auto; width: 100%; }
+	#featured-flexslider .featured-flexslider-img { width: 100%; height: auto; float: none; }
+	#featured-flexslider .featured-flexslider-img img { height: auto; }
+	#featured-flexslider .img-caption { top: 0; left: 0; right: auto; height: auto; bottom: auto; display: none; }
+	#featured-flexslider .text-caption { width: 100%; border-left: none; height: auto; padding: 40px; }
+	#featured-flexslider .text-caption:before { display: none; }
+	#featured-flexslider .text-caption h2 { margin-bottom: 15px; }
+	#featured-flexslider .text-caption .slider-meta  { display: none; }
+	#featured-flexslider .featured-flexslider-img { height: auto; width: 100%; }
+	#featured-flexslider .flex-direction-nav,
+	.wpex-widget-featured-posts-slider .flex-direction-nav,
+	.gallery-entry-slider .flex-direction-nav { display: none !important; }
+	#featured-flexslider .flex-control-nav,
+	.gallery-entry-slider .flex-control-nav { display: block; }
+	#posts-carousel-wrap { display: none !important; }
+	#related-posts { display: none !important; }
+	#featured-flexslider { margin-bottom: 20px; }
+	/*nav toggles*/
+	#responsive-toggles { background: #474747; padding: 0 40px; -webkit-touch-callout: none; -webkit-user-select: none;-khtml-user-select: none;-moz-user-select: moz-none; -ms-user-select: none; user-select: none; }
+	#responsive-toggles span:hover { opacity: 0.8; }
+	/*navigation*/
+	#navigation-wrap { height: auto; }
+
+	#navigation { 
+        height: auto;
+        line-height: normal;
+        background-image: none;
+        padding: 0;
+    }
+
+	#nav-extend {
+         display: none;
+    }
+
+	#menu-right { 
+        display: inline;
+    }
+
+	#navigation .navbar-toggler { 
+        display: block; 
+        float: left; 
+        margin: 18px;
+        border-color: #fff;
+        background-color: grey;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+	/*responsive menu*/
+    .menu-container {
+        background: -o-linear-gradient(top, #3e3e3e, #383838);
+        background: -ms-linear-gradient(top, #3e3e3e, #383838);
+        background: -moz-linear-gradient(top, #3e3e3e, #383838); 
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3e3e3e), color-stop(1, #383838));
+        background: -webkit-linear-gradient(#3e3e3e, #383838); 
+        background: linear-gradient(top, #3e3e3e, #383838);
+    }
+
+    #navigation .nav-main > li,
+    #navigation .nav-right > li {
+        background-image: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #navigation .nav-main > li:hover > a, 
+    #navigation .nav-main > li > a:hover, 
+    #navigation .nav-main > .current-menu-item > a, 
+    #navigation .nav-main > .current-menu-item > a:hover, 
+    #navigation .nav-right > li > a:hover {
+        border-bottom: none;
+    }
+
+	#main-menu li a,
+    #menu-right li a { 
+        font-weight: 400; 
+        display: block; 
+        padding: 6px 20px; 
+        border-top: 1px solid #484848; 
+        border-bottom: 1px solid #2e2e2e; 
+        text-decoration: none; 
+        text-shadow: 0 -1px 2px #222; 
+        color: #f7f7f7; 
+    }
+
+	#main-menu li a:active,
+    #menu-right li a:active { 
+        padding-top: 0.55em; 
+        padding-bottom: 0.45em; 
+    }
+}
+
+/* Tablet (Portrait)
+================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.basic-container { width: 700px; }
+}
+
+/* Mobile (Portrait)
+================================================== */
+@media only screen and (max-width: 767px) {
     .visible-on-mobile {
         display: block;
     }
     .not-visible-on-mobile {
         display: none !important;
     }
+
+	.basic-container { 
+        width: 100% 
+    }
+
+	#wrap { margin: 0 auto; }
+	.col { width: 100% !important; margin-left: 0; margin-right: 0; max-width: 100%; }
+	#sidebar { width: 100%; max-width: 100%; }
+	#mobile-search { width: 100%; height: 70px; line-height: 70px; margin-bottom: 20px; }
+	#sidebar { margin-top: 50px; padding: 0 40px; }
+	#comments { padding: 0 40px; }
+	#footer-copy { padding: 0 40px; }
+	#logo h2 { margin-left: 40px; }
+	.single-format-status #post { margin-bottom: 0; }
+	.single #post-status { padding: 10px 40px 0; margin-bottom: 0; }
+	.quote-entry { border-left: 0; }
+	.post-entry { margin-bottom: 40px; }
+	#comments .children { margin-left: 0; }
+	#single-nav { display: none; }
+	#footer-logo { display: none; }
+	.footer-nav-links { float: left; margin-left: 20px; }
+	#page-heading { margin-top: 20px; }
+	#archive-post-count { position: inherit; top: auto; left: auto; right: auto; margin-top: 10px; display: inline-block; }
+	.contributor-entry { padding-left: 0; padding-bottom: 40px; border-bottom: 1px solid #ebebeb; }
+	.contributor-entry-desc { padding-left: 0; border-left: 0; }
+	.contributor-entry-desc:before { display: none; }
+	.contributor-entry-avatar { position: inherit; top: auto; left: auto; margin-bottom: 20px; }
+	.contributor-entry-footer li { float: none; }
+	#mobile-search input[type="search"] { font-size: 14px; }
+	.comment-details { margin-left: 0; margin-right: 0; }
+	.comment-details:before { display: none; }
+	.comment-author { display: none; }
+
+}
+
+/* Mobile (Landscape)
+================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#mobile-search input[type="search"] { font-size: 18px; }
 }
