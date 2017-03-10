@@ -182,8 +182,9 @@ img {
     background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
 }
 
-#navigation .nav-main > li:not(.hidden) {
-    display: block;
+#navigation .nav-main > li {
+    --display: block;
+    list-style-type: none;
     float: left;
     background: url('../imgs/nav-divider.png') right center no-repeat;
     padding-right: 24px;
@@ -226,8 +227,9 @@ img {
     float: right !important;
 }
 
-.nav-right li:not(.hidden) {
-    display: block;
+.nav-right li {
+    --display: block;
+    list-style-type: none;   
     float: left;
     background: url('../imgs/nav-divider.png') left center no-repeat;
     padding-left: 24px;
