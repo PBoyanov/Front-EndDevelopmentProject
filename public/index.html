@@ -5,18 +5,24 @@
     <title>100 национални туристически обекта</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
-    <link rel="stylesheet" href="./css/main.css">
 
     <!--Libs-->
     <script src="./bower_components/jquery/dist/jquery.js"></script>
     <script src="./bower_components/sammy/lib/sammy.js"></script>
     <script src="./bower_components/toastr/toastr.js"></script>
     <script src="./bower_components/handlebars/handlebars.js"></script>
+    <script src="./bower_components/tether/dist/js/tether.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./systemjs.config.js"></script>
+
+    <!--Styles-->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    
+
     <script>
         System.import('app');
     </script>
@@ -69,7 +75,7 @@
                                 <li class="current-menu-item"><a href="#/home">Начало</a></li>
                                 <li><a href="#/home">Обекти</a></li>
                                 <li><a href="#/home">Новини</a></li>
-                                <li><a id="create-link" href="#/create" class="hidden">Create Material</a></li>
+                                <li id="create-link" class="hidden"><a href="#/create">Create Material</a></li>
                             </ul>
                             <ul id="menu-right" class="nav-right">
                                 <li id="login-link" class="no-divider"><a href="#/login">Вход или регистрация</a></li>

@@ -106,12 +106,12 @@ img {
     max-width: 100%;
 }
 
-.hidden{
-    display: none;
-}
-
 .shown-when-logged-in{
     display: none !important;
+}
+
+.hidden {
+    display: none;
 }
 
 .basic-container {
@@ -182,7 +182,7 @@ img {
     background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
 }
 
-#navigation .nav-main > li {
+#navigation .nav-main > li:not(.hidden) {
     display: block;
     float: left;
     background: url('../imgs/nav-divider.png') right center no-repeat;
@@ -222,11 +222,11 @@ img {
     top: 0px;
 }
 
-#menu-right {
+.nav-right {
     float: right !important;
 }
 
-#menu-right li{
+.nav-right li:not(.hidden) {
     display: block;
     float: left;
     background: url('../imgs/nav-divider.png') left center no-repeat;
@@ -234,7 +234,7 @@ img {
     margin-left: 24px;
 }
 
-#menu-right li.no-divider {
+.nav-right li.no-divider {
     background-image: none;
     padding-left: 0;
     margin-left: 0;
