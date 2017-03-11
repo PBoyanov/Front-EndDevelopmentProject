@@ -249,19 +249,10 @@ img {
 
 #featured-flexslider {
     position: relative;
-    margin: 0;
     min-height: 60px;
     background: #373737;
     height: 390px;
     margin-bottom: 20px;
-}
-
-.slides,
-.flex-control-nav,
-.flex-direction-nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
 #featured-flexslider .featured-flexslider-img {
@@ -275,20 +266,6 @@ img {
     bottom: 0;
     right: 310px;
     max-width: 70%;
-    background: #000;
-    background: rgba(0,0,0,0.6);
-    padding: 20px 30px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-#featured-flexslider .img-caption {
-    position: absolute;
-    bottom: 0;
-    right: 310px;
-    max-width: 70%;
-    background: #000;
     background: rgba(0,0,0,0.6);
     padding: 20px 30px;
     color: #fff;
@@ -342,7 +319,6 @@ img {
 
 #featured-flexslider .text-caption .slider-readmore {
     display: block;
-    text-indent: -9999px;
     float: left;
     height: 21px;
     width: 15px;
@@ -356,6 +332,7 @@ img {
     height: 21px;
     background: url('../imgs/gray-clock.png') left center no-repeat;
     padding-left: 26px;
+    padding-top: 2px;
 }
 
 #featured-flexslider .flex-control-nav {
@@ -407,9 +384,9 @@ img {
     position: absolute;
     bottom: 0;
     cursor: pointer;
-    transition: all .3s ease;
+    /*transition: all .3s ease;
     -moz-transition: all .3s ease;
-    -webkit-transition: all .3s ease;
+    -webkit-transition: all .3s ease;*/
     text-align: center;
     background: #535353;
 }
