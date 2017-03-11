@@ -102,6 +102,10 @@ body{
     font-family: 'Nexa Regular'
 }
 
+ul, ol {
+    list-style-type: none;
+}
+
 img {
     max-width: 100%;
 }
@@ -123,6 +127,8 @@ img {
     min-height: 100%;
     position: relative;
 }
+
+/*header*/
 
 #top-bar-wrap {
     background-color: #373737
@@ -236,6 +242,178 @@ img {
     margin-left: 0;
 }
 
+/*home page*/
+#wrap {
+    margin: 20px auto;
+}
+
+#featured-flexslider {
+    position: relative;
+    margin: 0;
+    min-height: 60px;
+    background: #373737;
+    height: 390px;
+    margin-bottom: 20px;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#featured-flexslider .featured-flexslider-img {
+    width: 630px;
+    height: 390px;
+    float: left;
+}
+
+#featured-flexslider .img-caption {
+    position: absolute;
+    bottom: 0;
+    right: 310px;
+    max-width: 70%;
+    background: #000;
+    background: rgba(0,0,0,0.6);
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#featured-flexslider .img-caption {
+    position: absolute;
+    bottom: 0;
+    right: 310px;
+    max-width: 70%;
+    background: #000;
+    background: rgba(0,0,0,0.6);
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#featured-flexslider .text-caption {
+    position: relative;
+    height: 390px;
+    width: 310px;
+    float: right;
+    color: #a7a7a7;
+    font-size: 13px;
+    padding: 35px;
+    border-left: 10px solid #f26c4f;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#featured-flexslider .text-caption:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 14px solid #f26c4f;
+}
+
+#featured-flexslider .text-caption h2 {
+    color: #fff;
+    font-weight: 400;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+#featured-flexslider .text-caption h2 a {
+    color: #fff;
+}
+
+#featured-flexslider .text-caption .slider-meta {
+    margin-top: 25px;
+    height: 21px;
+    line-height: 21px;
+}
+
+#featured-flexslider .text-caption .slider-readmore {
+    display: block;
+    text-indent: -9999px;
+    float: left;
+    height: 21px;
+    width: 15px;
+    background: url('../imgs/white-plus.png') center center no-repeat;
+}
+
+#featured-flexslider .text-caption .date {
+    font-size: 13px;
+    color: #a7a7a7;
+    float: right;
+    height: 21px;
+    background: url('../imgs/gray-clock.png') left center no-repeat;
+    padding-left: 26px;
+}
+
+#featured-flexslider .flex-control-nav {
+    display: none;
+}
+
+#featured-flexslider .flex-control-nav {
+    height: 8px;
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+}
+
+#featured-flexslider .flex-control-nav li:first-child {
+    margin: 0;
+}
+
+#featured-flexslider .flex-control-nav li {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    zoom: 1;
+}
+
+#featured-flexslider .flex-control-nav li a {
+    width: 8px;
+    height: 8px;
+    display: block;
+    background: url('../imgs/bullets.png') no-repeat 0 0;
+    cursor: pointer;
+    text-indent: -9999px;
+    transition: none;
+}
+
+.flex-direction-nav .flex-prev {
+    right: 30px;
+}
+
+.flex-direction-nav .flex-next {
+    right: 0;
+}
+
+.flex-direction-nav a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    text-align: center;
+    background: #535353;
+}
+
 .sort *{
     display: inline-block;
 }
@@ -271,10 +449,6 @@ img {
         line-height: normal;
         background-image: none;
         padding: 0;
-    }
-
-	#nav-extend {
-         display: none;
     }
 
 	#menu-right { 
@@ -356,7 +530,10 @@ img {
         width: 100% 
     }
 
-	#wrap { margin: 0 auto; }
+	#wrap {
+        margin: 0 auto;
+    }
+
 	.col { width: 100% !important; margin-left: 0; margin-right: 0; max-width: 100%; }
 	#sidebar { width: 100%; max-width: 100%; }
 	#mobile-search { width: 100%; height: 70px; line-height: 70px; margin-bottom: 20px; }

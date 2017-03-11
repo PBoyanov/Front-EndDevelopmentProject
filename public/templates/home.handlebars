@@ -1,32 +1,34 @@
-<div class="container">
-    {{!--<h2>Materials</h2>
-    <form class="search">
-       <div class="form-group">
-            <label for="title">Title: </label>
-            <input type="text" class="form-control" id="title" placeholder="title">
-            <button class="btn btn-info" id="title-btn">Search by title</button>
-        </div>
-        <div class="form-group">
-            <label for="description">Description: </label>
-            <input type="text" class="form-control" id="description" placeholder="title">
-            <button class="btn btn-info" id="description-btn">Search by description</button>
-        </div>
-        <div class="form-group">
-            <label for="user">User: </label>
-            <input type="text" class="form-control" id="user" placeholder="title">
-            <button class="btn btn-info" id="user-btn">Search by user</button>
-        </div>
-    </form>
-    <ul id="materials-list" class="list-style-none">
-        {{#materials}}
-            <li class="material-info" data-id="{{id}}">
-                <h3><a href="#/materials/{{id}}">{{title}}</a></h3>
-                <img src="{{img}}" alt="" class="img-responsive smaller-image">
-                <div class="material-description">{{description}}</div>
-                <div class="smaller-font">Created on {{createdOn}}</div>
-                <div>Created by <a href="#/profiles/{{user.username}}">{{user.username}}</a></div>
+<div id="wrap" class="basic-container">
+    <div id="featured-flexslider" class="flexsider">
+        <ul class="sides">
+            <li class="featured-flexslider">
+                <div class="featured-flexslider-img">
+                    <a href="http://wpexplorer-demos.com/goodinc/a-casual-sunday/" title="A Casual Sunday">
+                        <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/2637410214_8665f09546_f-630x390.jpg" alt="A Casual Sunday">
+                    </a>
+                </div>
+                <div class="img-caption">
+                    Welcome to GoodInc
+                </div>
+                <article class="text-caption">
+                    <h2><a href="http://wpexplorer-demos.com/goodinc/a-casual-sunday/" title="A Casual Sunday" rel="bookmark">A Casual Sunday</a></h2>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum
+                    at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante,…
+                    <div class="slider-meta">
+                        <a href="http://wpexplorer-demos.com/goodinc/a-casual-sunday/" title="A Casual Sunday" class="slider-readmore">read more</a>
+                        <div class="date">July 14, 2013</div>
+                    </div>
+                </article>
             </li>
-        {{/materials}}
-    </ul>--}}
-    Hello. It`s me!
+        </ul>
+        <ol class="flex-control-nav flex-control-paging">
+            <li><a class="">1</a></li>
+            <li><a class="flex-active">2</a></li>
+            <li><a class="">3</a></li>
+        </ol>
+        <ul class="flex-direction-nav">
+            <li><a class="flex-prev" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+            <li><a class="flex-next" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
 </div>

@@ -15,17 +15,16 @@
     <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./systemjs.config.js"></script>
+    <script>
+        System.import('app');
+    </script>
 
     <!--Styles-->
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
     <link rel="stylesheet" href="./css/main.css">
 
-
-
-    <script>
-        System.import('app');
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -91,7 +90,7 @@
                         <!--Responsive nav-->
                     </nav>
                 </div>
-                <div id="nav-extend"></div>
+                <div id="nav-extend" class="not-visible-on-mobile"></div>
             </div>
             <main>
                 <div id="content">
