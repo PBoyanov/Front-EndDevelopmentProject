@@ -1,58 +1,20 @@
 import { templateLoader } from './template-loader';
+import { data } from './data';
 
 let home = (() => {
     function getHome(context) {
-        let materials;
-        // data.getMaterials()
-        //     .then((result) => {
-        //         materials = result.result;
-        templateLoader.get("home")
-            //})
-            .then((template) => {
-                // let filterProp;
-                // let filterValue;
-                // if (context.params["title"]) {
-                //     filterProp = "title";
-                //     filterValue = context.params["title"];
-                // } else if (context.params["description"]) {
-                //     filterProp = "description";
-                //     filterValue = context.params["description"];
-                // } else if (context.params["user"]) {
-                //     filterProp = "user";
-                //     filterValue = context.params["user"];
-                // }
+        let serverResponse;
+        let templateItems = { };
 
-                // if (filterProp === "user") {
-                //     materials = materials.filter(m => m.user.username.toLowerCase() === filterValue);
-                // }
-                // else if (filterProp) {
-                //     materials = materials.filter(m => {
-                //         let value = m[filterProp].toLowerCase();
-                //         return value.indexOf(filterValue) >= 0
-                //     });
-                // }
-
-                // materials.forEach((m)=>{
-                //     let date = new Date(m.createdOn);
-                //     m.createdOn = date.toLocaleString();
-                // });
-                // console.log(materials);
-                context.$element().html(template({ /*materials*/ }));
-
-                let properties = ["title", "description", "user"];
-                properties.forEach((property) => {
-                    $(`#${property}-btn`).on("click", function (ev) {
-                        let value = $(`#${property}`).val().toLowerCase();
-                        if (value === "") {
-                            toastr.error(`Empty {property}`);
-                        } else {
-                            context.redirect(`#/home?${property}=${value}`);
-                        }
-                        ev.preventDefault();
-                        return false;
-                    });
-                });
-
+        Promise.all([data.getSites(), templateLoader.get("home")])
+            .then(([serverResponse, template]) => {
+                let sites = serverResponse.data;
+                for (let site of sites) {
+                    site.description = site.description.slice(0, 100) + "...";
+                }
+                templateItems.sites = sites;
+                let homeHtml = template(templateItems);
+                context.$element().html(homeHtml);
             });
     }
 

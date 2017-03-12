@@ -1,26 +1,27 @@
 <div id="wrap" class="basic-container">
     <div id="featured-flexslider" class="flexsider">
         <ul class="sides">
+            {{#each sites}}
             <li class="featured-flexslider">
                 <div class="featured-flexslider-img">
-                    <a href="http://wpexplorer-demos.com/goodinc/a-casual-sunday/" title="A Casual Sunday">
-                        <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/2637410214_8665f09546_f-630x390.jpg" alt="A Casual Sunday">
+                    <a href="#" title="{{name}}">
+                        <img src="{{imgUrl}}" alt="{{name}}">
                     </a>
                     <div class="img-caption">
-                        Welcome to GoodInc
+                        {{town}}
                     </div>
                 </div>
 
                 <article class="text-caption">
-                    <h2><a href="#" title="A Casual Sunday" rel="bookmark">A Casual Sunday</a></h2>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum
-                    at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante,…
+                    <h2><a href="#" title="{{name}}" rel="bookmark">{{name}}</a></h2>
+                    {{{description}}}
                     <div class="slider-meta">
                         <a href="#" title="Прочети повече" class="slider-readmore"></a>
                         <div class="date">July 14, 2013</div>
                     </div>
                 </article>
             </li>
+            {{/each}}
         </ul>
         {{!--<ol class="flex-control-nav flex-control-paging">
             <li><a class="">1</a></li>

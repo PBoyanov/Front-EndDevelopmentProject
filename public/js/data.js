@@ -5,8 +5,8 @@ let data = (() => {
     const USERNAME_KEY = "username";
     const AUTH_KEY = "auth-key";
 
-    function getMaterials() {
-        return requester.getJSON("api/materials");
+    function getSites() {
+        return requester.getJSON("api/sites");
     }
 
     function getMaterialById(id) {
@@ -110,7 +110,7 @@ let data = (() => {
     }
 
     return {
-        getMaterials,
+        getSites,
         getMaterialById,
         getUserByUsername,
         loginUser,
