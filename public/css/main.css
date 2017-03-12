@@ -99,7 +99,11 @@ body {
 }
 
 body{
-    font-family: 'Nexa Regular'
+    background: #ebebeb;
+     font-family: 'Nexa Regular', 'Helvetica', sans-serif;
+    font-size: 14px;
+    --line-height: 1.75em;
+    --color: #949494;
 }
 
 ul, ol {
@@ -342,15 +346,15 @@ img {
     padding-top: 2px;
 }
 
-#featured-flexslider .flex-control-nav {
+/*#featured-flexslider .flex-control-nav {
     display: none;
 }
 
 #featured-flexslider .flex-control-nav {
     height: 8px;
     position: absolute;
-    left: 40px;
-    bottom: 30px;
+    left: 43%;
+    bottom: 12px;
 }
 
 #featured-flexslider .flex-control-nav li:first-child {
@@ -372,6 +376,11 @@ img {
     text-indent: -9999px;
     transition: none;
 }
+
+#featured-flexslider .flex-control-nav li a.flex-active {
+    background-position: -9px 0;
+    cursor: default;
+}*/
 
 .flex-direction-nav .flex-prev {
     right: 30px;
@@ -497,7 +506,8 @@ img {
         width: 100%;
         border-left: none;
         height: auto;
-        padding: 40px;
+        padding: 30px 40px;
+        text-align: center;
     }
 
 	#featured-flexslider .text-caption:before {
@@ -508,14 +518,17 @@ img {
         margin-bottom: 15px;
     }
 
-	#featured-flexslider .text-caption .slider-meta  {
+	#featured-flexslider .text-caption .slider-meta {
         display: none;
     }
 
-	#featured-flexslider .flex-direction-nav,
 	.wpex-widget-featured-posts-slider .flex-direction-nav,
 	.gallery-entry-slider .flex-direction-nav {
         display: none !important;
+    }
+
+    .flex-direction-nav .flex-prev {
+        left: 0;
     }
 
 	#featured-flexslider .flex-control-nav,
