@@ -1,11 +1,11 @@
 <div id="wrap" class="basic-container">
-    <div id="featured-flexslider" class="flexsider">
-        <ul class="sides">
+    <div id="featured-flexslider" class="flexslider">
+        <ul class="slides">
             {{#each sites}}
-            <li class="featured-flexslider">
+            <li>
                 <div class="featured-flexslider-img">
-                    <a href="#" title="{{name}}">
-                        <img src="{{imgUrl}}" alt="{{name}}">
+                    <a href="/api/sites/{{_id}}" title="{{name}}">
+                        <img src="{{imgUrl}}" alt="{{name}}" height="200" width="300">
                     </a>
                     <div class="img-caption">
                         {{town}}
@@ -13,7 +13,7 @@
                 </div>
 
                 <article class="text-caption">
-                    <h2><a href="#" title="{{name}}" rel="bookmark">{{name}}</a></h2>
+                    <h2><a href="/api/sites/{{_id}}" title="{{name}}" rel="bookmark">{{name}}</a></h2>
                     {{{description}}}
                     <div class="slider-meta">
                         <a href="#" title="Прочети повече" class="slider-readmore"></a>
@@ -22,15 +22,6 @@
                 </article>
             </li>
             {{/each}}
-        </ul>
-        {{!--<ol class="flex-control-nav flex-control-paging">
-            <li><a class="">1</a></li>
-            <li><a class="flex-active">2</a></li>
-            <li><a class="">3</a></li>
-        </ol>--}}
-        <ul class="flex-direction-nav">
-            <li><a class="flex-prev" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-            <li><a class="flex-next" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
         </ul>
     </div>
 </div>

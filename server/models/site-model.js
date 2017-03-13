@@ -1,6 +1,7 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('Site', {
+    _id: String,
     number: String,
     name: String,
     town: String,

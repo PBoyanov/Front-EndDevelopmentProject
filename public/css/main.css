@@ -373,6 +373,7 @@ img {
     -moz-transition: all .3s ease;
     -webkit-transition: all .3s ease;*/
     text-align: center;
+    z-index: 999;
 }
 
 .sort *{
@@ -454,7 +455,6 @@ img {
 	/*home slider*/
 	#featured-flexslider {
          height: auto;
-         overflow: hidden; 
     }
 
 	#featured-flexslider .slider-video embed, #featured-flexslider .slider-video iframe { height: auto; width: 100%; }
@@ -501,7 +501,7 @@ img {
 
 	#featured-flexslider .flex-control-nav,
 	.gallery-entry-slider .flex-control-nav {
-        display: block;
+        display: none;
     }
 
 	#posts-carousel-wrap { display: none !important; }

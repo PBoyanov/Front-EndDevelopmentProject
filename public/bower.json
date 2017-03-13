@@ -20,7 +20,8 @@
     "mocha": "^3.1.0",
     "chai": "^3.5.0",
     "sinonjs": "^1.17.1",
-    "systemjs": "*"
+    "systemjs": "*",
+    "flexslider": "^2.6.3"
   },
   "resolutions": {
     "jquery": "^3.1.1"
