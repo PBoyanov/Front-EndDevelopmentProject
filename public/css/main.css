@@ -207,7 +207,7 @@ img {
 #navigation .nav-main > li:hover > a,
 #navigation .nav-main > li > a:hover,
 #navigation .nav-main > .current-menu-item > a,
-#navigation .nav-main > .current-menu-item > a:hover,
+#navigation .nav-right > .current-menu-item > a,
 #navigation .nav-right > li > a:hover {
     border-bottom: 4px solid #f26c4f;
 }
