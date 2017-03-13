@@ -131,6 +131,14 @@ img {
     position: relative;
 }
 
+#content.loading {
+    display: list-item;
+    list-style-type: none;
+    height: 390px;
+    margin: 20px auto;
+    background: #373737 url("../imgs/home-flex-loader.gif") center center no-repeat;
+}
+
 /*header*/
 
 #top-bar-wrap {
