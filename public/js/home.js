@@ -18,6 +18,7 @@ let home = (() => {
                 let homeHtml = template(templateItems);
                 context.$element().html(homeHtml);
                 animations.homePageFlex();
+                animations.homePageCarousel();
 
                 $(".slider-readmore").on("click", function() {
                     $(".description-container").toggleClass("large");
