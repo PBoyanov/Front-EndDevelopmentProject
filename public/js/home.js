@@ -11,13 +11,17 @@ let home = (() => {
             .then(([serverResponse, template]) => {
                 let sites = serverResponse.data;
                 for (let site of sites) {
-                    site.description = site.description.slice(0, 100) + "...";
+                    site.description = site.description.slice(0, 400) + "...";
                 }
                 templateItems.sites = sites;
-                
+
                 let homeHtml = template(templateItems);
                 context.$element().html(homeHtml);
                 animations.homePageFlex();
+
+                $(".slider-readmore").on("click", function() {
+                    $(".description-container").toggleClass("large");
+                });
             });
     }
 
