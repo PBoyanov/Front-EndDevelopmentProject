@@ -94,6 +94,7 @@ let auth = (() => {
         $("#create-link").removeClass("hidden");
         $("#profile-link").removeClass("hidden")
             .attr("href", `#/profiles/${username}`);
+        $("#home-link").addClass("current-menu-item");
     }
 
     return {
