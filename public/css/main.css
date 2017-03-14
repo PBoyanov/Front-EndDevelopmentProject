@@ -351,14 +351,21 @@ img {
     background: url('../imgs/white-plus.png') center center no-repeat;
 }
 
-#featured-flexslider .text-caption .date {
+#featured-flexslider .text-caption .visits-icon {
+    font-size: 22px;
+}
+
+#featured-flexslider .text-caption .visits {
     font-size: 13px;
     color: #a7a7a7;
     float: right;
     height: 21px;
-    background: url('../imgs/gray-clock.png') left center no-repeat;
     padding-left: 26px;
     padding-top: 2px;
+}
+
+#featured-flexslider .text-caption .visits strong {
+    font-size: 21px;
 }
 
 .flex-direction-nav .flex-prev {
