@@ -18,11 +18,23 @@ let home = (() => {
                 let homeHtml = template(templateItems);
                 context.$element().html(homeHtml);
                 animations.homePageFlex();
-                animations.homePageCarousel();
 
-                $(".slider-readmore").on("click", function() {
+                $(".slider-readmore").on("click", function () {
                     $(".description-container").toggleClass("large");
                 });
+
+                animations.homePageCarousel();
+
+                $(".sites-carousel-item").hover(
+                    function mouseIn() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.addClass("hover");
+                    },
+                    function mouseOut() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.removeClass("hover");
+                    }
+                );
             });
     }
 
