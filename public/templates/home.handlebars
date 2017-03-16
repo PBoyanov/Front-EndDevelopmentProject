@@ -1,7 +1,7 @@
 <div id="wrap" class="basic-container">
     <div id="featured-flexslider" class="flexslider">
         <ul class="slides">
-            {{#each sites}}
+            {{#each topSites}}
             <li>
                 <div class="featured-flexslider-img">
                     <a href="/api/sites/{{_id}}" title="{{name}}">
@@ -33,76 +33,20 @@
         <div id="sites-carousel-inner" class="basic-container">
             <div id="carousel-wrap">
                 <ul id="sites-carousel" class="slides">
+                    {{#each popularSites}}
                     <li class="sites-carousel-item">
-                        <a href="http://wpexplorer-demos.com/goodinc/getting-some-fresh-air/" title="Getting Some Fresh Air" class="posts-carousel-item">
-                            <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/3303349658_3af2a93bde_b-300x190.jpg" alt="Getting Some Fresh Air">
+                        <a href="/api/sites/{{_id}}" title="{{name}}" class="posts-carousel-item">
+                            <img src="{{imgUrl}}" alt="{{name}}">
                             <i class="overlay-plus"></i>
                         </a>
                         <article class="sites-carousel-article">
                             <h2>
-                                <a href="http://wpexplorer-demos.com/goodinc/getting-some-fresh-air/" title="Getting Some Fresh Air">
-										Getting Some Fresh Air                                    	</a>
+                                <a href="/api/sites/{{_id}}" title="Getting Some Fresh Air">{{name}}<span> - {{town}}</span></a>
                             </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim…
-                            </p>
+                            <p>{{description}}</p>
                         </article>
                     </li>
-                    <li class="sites-carousel-item">
-                        <a href="http://wpexplorer-demos.com/goodinc/vintage-vixen/" title="Vintage Vixen" class="posts-carousel-item">
-                            <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/6366908073_f18541ac16_b-300x190.jpg" alt="Vintage Vixen">
-                            <i class="overlay-plus"></i>
-                        </a>
-                        <article class="sites-carousel-article">
-                            <h2>
-                                <a href="http://wpexplorer-demos.com/goodinc/vintage-vixen/" title="Vintage Vixen">
-										Vintage Vixen                                    	</a>
-                            </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim…
-                            </p>
-                        </article>
-                    </li>
-                    <li class="sites-carousel-item">
-                        <a href="http://wpexplorer-demos.com/goodinc/freedom/" title="Freedom" class="posts-carousel-item">
-                            <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/3734950049_e17fcfede5_b-300x190.jpg" alt="Freedom">
-                            <i class="overlay-plus"></i>
-                        </a>
-                        <article class="sites-carousel-article">
-                            <h2>
-                                <a href="http://wpexplorer-demos.com/goodinc/freedom/" title="Freedom">
-										Freedom                                    	</a>
-                            </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim…
-                            </p>
-                        </article>
-                    </li>
-                    <li class="sites-carousel-item">
-                        <a href="http://wpexplorer-demos.com/goodinc/just-happy-to-be/" title="Just Happy To Be" class="posts-carousel-item">
-                            <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/7824209576_6b29cf06e4_b-300x190.jpg" alt="Just Happy To Be">
-                            <i class="overlay-plus"></i>
-                        </a>
-                        <article class="sites-carousel-article">
-                            <h2>
-                                <a href="http://wpexplorer-demos.com/goodinc/just-happy-to-be/" title="Just Happy To Be">
-										Just Happy To Be                                    	</a>
-                            </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim…
-                            </p>
-                        </article>
-                    </li>
-                    <li class="sites-carousel-item">
-                        <a href="http://wpexplorer-demos.com/goodinc/an-audition/" title="An Audition" class="posts-carousel-item">
-                            <img src="http://wpexplorer-demos.com/goodinc/wp-content/uploads/sites/61/2013/07/3758820243_610d12d01a_b-300x190.jpg" alt="An Audition">
-                            <i class="overlay-plus"></i>
-                        </a>
-                        <article class="sites-carousel-article">
-                            <h2>
-                                <a href="http://wpexplorer-demos.com/goodinc/an-audition/" title="An Audition">
-										An Audition                                    	</a>
-                            </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim…
-                            </p>
-                        </article>
-                    </li>
+                    {{/each}}
                 </ul>
             </div>
         </div>

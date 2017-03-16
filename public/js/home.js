@@ -10,10 +10,23 @@ let home = (() => {
         Promise.all([data.getSites(), templateLoader.get("home")])
             .then(([serverResponse, template]) => {
                 let sites = serverResponse.data;
+
                 for (let site of sites) {
                     site.description = site.description.slice(0, 400) + "...";
                 }
-                templateItems.sites = sites;
+
+                sites.sort(sortSitesByVisits);
+
+                function sortSitesByVisits(a, b) {
+                    return b.numberOfVisits - a.numberOfVisits;
+                }
+
+                templateItems.topSites = sites.slice(0, 3);
+                templateItems.popularSites = sites.slice(3, 9);
+
+                for (let site of templateItems.popularSites) {
+                    site.description = site.description.slice(0, 60) + "...";
+                }
 
                 let homeHtml = template(templateItems);
                 context.$element().html(homeHtml);
