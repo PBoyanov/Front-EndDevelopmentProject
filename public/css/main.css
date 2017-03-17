@@ -502,9 +502,9 @@ h2 a:hover span {
     background-color: lightblue;
 }
 
-.news-item {
+.news-item .news-item-wrap {
     background: #fff;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     position: relative;
     padding: 30px;
     border-left: 5px solid #d9d9d9;
@@ -514,8 +514,15 @@ h2 a:hover span {
     -webkit-transition: all 0.3s linear;
 }
 
-.news-item.active {
+.news-item .news-item-wrap.hover {
     border-left: 5px solid #f26c4f;
+    padding: 35px 30px;
+}
+
+.news-item .news-item-wrap.active {
+    background: #f26c4f;
+    color: #fff;
+    border-left: 5px solid #ce4e32;
     padding: 35px 30px;
 }
 
@@ -528,6 +535,10 @@ h2 a:hover span {
 .news-item .news-item-info {
     color: #8f8f8f;
     font-weight: 300;
+}
+
+.news-item .news-item-wrap.active .news-item-info {
+    color: #fff;
 }
 
 .news-item .news-item-info span {
@@ -543,8 +554,14 @@ h2 a:hover span {
     margin-left: 35px;
 }
 
-.news-item .news-item-content {
+.news-item .news-item-wrap .news-item-content {
+    display: none;
     padding-top: 15px;
+}
+
+.news-item .news-item-wrap.hover .news-item-content,
+.news-item .news-item-wrap.active .news-item-content {
+    display: block;
 }
 
 #ads {

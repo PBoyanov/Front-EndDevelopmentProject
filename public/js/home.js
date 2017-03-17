@@ -51,18 +51,27 @@ let home = (() => {
 
                 $(".news-item").hover(
                     function mouseIn() {
-                        let item = $(this);
-                        item.addClass("active");
-                        let newsContent = item.find(".news-item-content");
-                        newsContent.removeClass("hidden");
+                        let itemWrap = $(this).find(".news-item-wrap");
+                        itemWrap.addClass("hover");
                     },
                     function mouseOut() {
-                        let item = $(this);
-                        item.removeClass("active");
-                        let newsContent = item.find(".news-item-content");
-                        newsContent.addClass("hidden");
+                        let itemWrap = $(this).find(".news-item-wrap");
+                        itemWrap.removeClass("hover");
                     }
                 );
+
+                $("#news-list").on("click", ".news-item", function (event) {
+                    let activeItem = $("#news-list").find(".active");
+                    activeItem.removeClass("active");
+
+                    let target = $(event.target);
+                    if (target.hasClass("news-item-wrap")) {
+                        target.addClass("active");
+                    } else {
+                        let itemWrap = target.parentsUntil(".news-item", ".news-item-wrap");
+                        itemWrap.addClass("active");
+                    }
+                });
             });
     }
 
