@@ -48,6 +48,21 @@ let home = (() => {
                         plusItem.removeClass("hover");
                     }
                 );
+
+                $(".news-item").hover(
+                    function mouseIn() {
+                        let item = $(this);
+                        item.addClass("active");
+                        let newsContent = item.find(".news-item-content");
+                        newsContent.removeClass("hidden");
+                    },
+                    function mouseOut() {
+                        let item = $(this);
+                        item.removeClass("active");
+                        let newsContent = item.find(".news-item-content");
+                        newsContent.addClass("hidden");
+                    }
+                );
             });
     }
 

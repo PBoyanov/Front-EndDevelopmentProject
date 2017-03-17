@@ -267,7 +267,7 @@ h2 a:hover span {
     margin-left: 0;
 }
 
-/*Home page
+/*Home Page
 ================================================== */
 #wrap {
     margin: 20px auto;
@@ -496,6 +496,63 @@ h2 a:hover span {
     background: url("../imgs/home-carousel-arrow-right.png") center center no-repeat;
 }
 
+/*Main Content
+================================================== */
+#news {
+    background-color: lightblue;
+}
+
+.news-item {
+    background: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 30px;
+    border-left: 5px solid #d9d9d9;
+    position: relative;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+
+.news-item.active {
+    border-left: 5px solid #f26c4f;
+    padding: 35px 30px;
+}
+
+.news-item h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px;
+}
+
+.news-item .news-item-info {
+    color: #8f8f8f;
+    font-weight: 300;
+}
+
+.news-item .news-item-info span {
+    font-style: italic;
+    font-size: 10px;
+}
+
+.news-item .news-item-info .date {
+    margin-right: 35px;
+}
+
+.news-item .news-item-info .comments {
+    margin-left: 35px;
+}
+
+.news-item .news-item-content {
+    padding-top: 15px;
+}
+
+#ads {
+    height: 900px;
+    background-color: lightsalmon;
+}
+
+
 @media only screen and (max-width: 991px) {
     /*nav toggles*/
 
@@ -528,7 +585,7 @@ h2 a:hover span {
         cursor: pointer;
     }
 
-	/*Responsive menu
+	/*Responsive Menu
     ================================================== */
     .menu-container {
         background: -o-linear-gradient(top, #3e3e3e, #383838);
@@ -573,7 +630,7 @@ h2 a:hover span {
         padding-bottom: 0.45em; 
     }
 
-	/*Home slider
+	/*Home Slider
     ================================================== */
 	#featured-flexslider {
          height: auto;
