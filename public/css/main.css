@@ -705,7 +705,7 @@ h2 a:hover span {
 }
 
 #footer .nav-extend {
-    height: 67px;
+    height: 65px;
 }
 
 #footer-navigation {
@@ -722,8 +722,8 @@ h2 a:hover span {
 #footer-navigation .footer-menu-container a {
     display: block;
     color: #fff;
-    height: 67px;
-    line-height: 67px;
+    height: 65px;
+    line-height: 65px;
     font-size: 13px;
     text-decoration: none;
 }
