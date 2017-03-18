@@ -577,22 +577,9 @@ h2 a:hover span {
 
 /*Home Page Ads
 ================================================== */
-#ads {
-    height: 900px;
-}
-
 .main-ad-box {
     position: relative;
-}
-
-.main-ad-box:after {
-    display: block;
-    width: 100%;
-    content: "";
-    height: 2px;
-    background: #d9d9d9;
-    margin-top: 30px;
-    border-bottom: 1px solid #fff;
+    margin-bottom: 40px;
 }
 
 .main-ad-box img {
@@ -626,6 +613,58 @@ h2 a:hover span {
     color: #fff;
     margin-bottom: 25px;
 }
+
+.ad-item + .ad-item:before {
+    display: block;
+    width: 100%;
+    content: "";
+    height: 2px;
+    background: #d9d9d9;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 30px;
+}
+
+
+
+.ad-box {
+    font-size: 13px;
+    color: #a7a7a7;
+    line-height: 1.8em;
+    text-shadow: 1px 1px 1px rgba(255,255,255,1);
+    padding-bottom: 40px;
+}
+
+.ad-box .title {
+    display: block;
+    color: #474747;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 1.4em;
+}
+
+.ad-box .title:hover{
+    color: #f26c4f;
+    text-decoration: none;
+}
+
+.ad-box .title h2 {
+    font-size: 21px;
+}
+
+.ad-box .ad-box-content {
+    margin-bottom: 20px;
+}
+
+.ad-box .readmore {
+    position: absolute;
+    background: url("../imgs/gray-plus.png") 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+    text-indent: -9999px;
+}
+
+
 
 
 @media only screen and (max-width: 991px) {
@@ -757,8 +796,26 @@ h2 a:hover span {
          display: none !important;
     }
 
-	#related-posts { display: none !important; }
-	#featured-flexslider { margin-bottom: 20px; }
+    .main-ad-box .main-ad-content,
+    .ad-box {
+        text-align: center;
+    }
+
+    .main-ad-box .overlay-plus {
+        display: none !important;
+    }
+
+    .ad-box {
+        padding-bottom: 25px;
+    }
+
+    .ad-box .ad-box-content {
+        margin-bottom: 0;
+    }
+
+    .ad-box .readmore {
+        display: none !important;
+    }
 }
 
 /* Tablet (Portrait)
@@ -785,7 +842,10 @@ h2 a:hover span {
         margin: 0 auto;
     }
 
-	.col { width: 100% !important; margin-left: 0; margin-right: 0; max-width: 100%; }
+    #news, #ads {
+        padding: 0 10%;
+    }
+
 	#sidebar { width: 100%; max-width: 100%; }
 	#mobile-search { width: 100%; height: 70px; line-height: 70px; margin-bottom: 20px; }
 	#sidebar { margin-top: 50px; padding: 0 40px; }
