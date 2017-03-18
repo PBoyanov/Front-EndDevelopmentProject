@@ -515,10 +515,11 @@ h2 a:hover span {
     -moz-transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
     cursor: pointer;
+    box-shadow: 0 1px 1px #cacaca;
 }
 
 .news-item .news-item-wrap.hover {
-    border-left: 5px solid #f26c4f;
+    border-color: #f26c4f;
     padding: 35px 30px;
 }
 
@@ -531,7 +532,6 @@ h2 a:hover span {
 
 .news-item h2 {
     font-size: 24px;
-    font-weight: 700;
     margin: 0 0 15px;
 }
 
@@ -605,6 +605,7 @@ h2 a:hover span {
     color: #fff;
     font-size: 13px;
     color: #bbb;
+    box-shadow: 0 1px 1px #cacaca;
 }
 
 .main-ad-box .main-ad-content h2 {
@@ -623,8 +624,6 @@ h2 a:hover span {
     border-bottom: 1px solid #fff;
     margin-bottom: 30px;
 }
-
-
 
 .ad-box {
     font-size: 13px;
@@ -647,7 +646,7 @@ h2 a:hover span {
     text-decoration: none;
 }
 
-.ad-box .title h2 {
+.ad-box .title {
     font-size: 21px;
 }
 
@@ -665,6 +664,34 @@ h2 a:hover span {
 }
 
 
+/*Home Page Side Menu
+================================================== */
+.side-menu-wrap {
+    margin-bottom: 45px;
+}
+
+.side-menu-wrap .side-menu-button {
+    display: block;
+    background: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    color: #474747;
+    text-decoration: none;
+    margin-bottom: 8px;
+    padding: 16px 20px;
+    border-left: 3px solid #cacaca;
+    box-shadow: 0 1px 1px #cacaca;
+    --border-bottom: 1px solid #c8c8c8;
+    -webkit-transition: background .3s linear;
+    -moz-transition: background .3s linear;
+    transition: background .3s linear;
+}
+
+.side-menu-wrap .side-menu-button:hover {
+    background: #f26c4f;
+    color: #fff;
+    border-color: #dc3410;
+}
 
 
 @media only screen and (max-width: 991px) {
