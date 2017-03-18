@@ -168,7 +168,7 @@ h2 a:hover span {
     position: relative;
 }
 
-#logo {
+.logo {
     display: inline-block;
 }
 
@@ -227,7 +227,9 @@ h2 a:hover span {
 #navigation .nav-main > li > a:hover,
 #navigation .nav-main > .current-menu-item > a,
 #navigation .nav-right > .current-menu-item > a,
-#navigation .nav-right > li > a:hover {
+#navigation .nav-right > li > a:hover,
+#footer-navigation .nav-right > li > a:hover,
+#footer-navigation .nav-right > .current-menu-item > a {
     border-bottom: 4px solid #f26c4f;
 }
 
@@ -235,17 +237,13 @@ h2 a:hover span {
 #navigation .nav-right a {
     display: block;
     color: #fff;
-    font-weight: 500;
     height: 70px;
     line-height: 70px;
     font-size: 13px;
     text-decoration: none;
-    text-align: left;
-    cursor: pointer;
-    border-bottom: 4px solid transparent;
 }
 
-#nav-extend {
+.nav-extend {
     z-index: 1;
     height: 70px;
     background: #474747;
@@ -681,16 +679,73 @@ h2 a:hover span {
     padding: 16px 20px;
     border-left: 3px solid #cacaca;
     box-shadow: 0 1px 1px #cacaca;
-    --border-bottom: 1px solid #c8c8c8;
-    -webkit-transition: background .3s linear;
-    -moz-transition: background .3s linear;
     transition: background .3s linear;
+    -moz-transition: background .3s linear;
+    -webkit-transition: background .3s linear;
 }
 
 .side-menu-wrap .side-menu-button:hover {
     background: #f26c4f;
     color: #fff;
     border-color: #dc3410;
+}
+
+/*Footer
+================================================== */
+#footer-wrap {
+    width: 100%;
+    background-color: #373737;
+    position: relative;
+}
+
+#footer {
+    background: #373737;
+    color: #7e7e7e;
+    padding-bottom: 200px;
+}
+
+#footer .nav-extend {
+    height: 67px;
+}
+
+#footer-navigation {
+    background: #474747;
+    padding: 0;
+    z-index: 5;
+}
+
+#footer-navigation .footer-menu-container {
+    position: absolute;
+    right: 0;
+}
+
+#footer-navigation .footer-menu-container a {
+    display: block;
+    color: #fff;
+    height: 67px;
+    line-height: 67px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+#footer-content {
+    margin-top: 55px;
+    font-size: 12px;
+}
+
+#footer-content .footer-content-links {
+    margin-bottom: 25px;
+}
+
+#footer-content .footer-content-item {
+    float: left;
+    color: #fff;
+    padding-right: 20px;
+}
+
+#footer-content .footer-content-item a {
+    color: #fff;
+    text-decoration: none;
 }
 
 
@@ -798,38 +853,17 @@ h2 a:hover span {
         text-align: center;
     }
 
-	#featured-flexslider .text-caption:before {
-        display: none;
-    }
-
 	#featured-flexslider .text-caption h2 {
         margin-bottom: 15px;
-    }
-
-	#featured-flexslider .text-caption .slider-meta {
-        display: none;
-    }
-
-	.wpex-widget-featured-posts-slider .flex-direction-nav,
-	.gallery-entry-slider .flex-direction-nav {
-        display: none !important;
     }
 
     .flex-direction-nav .flex-prev {
         left: 0;
     }
 
-	#sites-carousel-section {
-         display: none !important;
-    }
-
     .main-ad-box .main-ad-content,
     .ad-box {
         text-align: center;
-    }
-
-    .main-ad-box .overlay-plus {
-        display: none !important;
     }
 
     .ad-box {
@@ -840,6 +874,10 @@ h2 a:hover span {
         margin-bottom: 0;
     }
 
+    #featured-flexslider .text-caption:before,
+    #featured-flexslider .text-caption .slider-meta,
+    #sites-carousel-section,
+    .main-ad-box .overlay-plus,
     .ad-box .readmore {
         display: none !important;
     }
@@ -871,6 +909,10 @@ h2 a:hover span {
 
     #news, #ads {
         padding: 0 10%;
+    }
+
+    #footer-content .footer-content-item { 
+        padding-right: 20%
     }
 
 	#sidebar { width: 100%; max-width: 100%; }
