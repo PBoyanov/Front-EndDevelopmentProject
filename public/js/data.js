@@ -9,6 +9,10 @@ let data = (() => {
         return requester.getJSON("api/sites");
     }
 
+    function getNews() {
+        return requester.getJSON("api/news");
+    }
+
     function getMaterialById(id) {
         return requester.getJSON(`api/materials/${id}`);
     }
@@ -111,6 +115,7 @@ let data = (() => {
 
     return {
         getSites,
+        getNews,
         getMaterialById,
         getUserByUsername,
         loginUser,

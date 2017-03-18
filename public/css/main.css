@@ -498,8 +498,10 @@ h2 a:hover span {
 
 /*Main Content
 ================================================== */
-#news {
-    background-color: lightblue;
+#news-header {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .news-item .news-item-wrap {
@@ -558,6 +560,14 @@ h2 a:hover span {
 .news-item .news-item-wrap .news-item-content {
     display: none;
     padding-top: 15px;
+}
+
+.news-item .news-item-wrap .news-item-content .readmore {
+    color: #ce4e32;
+}
+
+.news-item .news-item-wrap.active .news-item-content .readmore {
+    color: #474747;
 }
 
 .news-item .news-item-wrap.hover .news-item-content,

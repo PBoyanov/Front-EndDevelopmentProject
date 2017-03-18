@@ -55,35 +55,23 @@
         <div class="basic-container">
             <div class="row">
                 <section id="news" class="col col-12 col-lg-8">
+                    <h2 id="news-header">Последни новини</h2>
                     <ul id="news-list">
+                        {{#each news}}
                         <li class="news-item">
                             <div class="news-item-wrap">
-                                <h2>This is header</h2>
+                                <h2>{{heading}}</h2>
                                 <div class="news-item-info">
-                                    <span class="date">12 March 2017</span> |
-                                    <span class="comments">2 comments</span>
+                                    <span class="date">{{date}}</span> |
+                                    <span class="comments">{{commentsLength}} comments</span>
                                 </div>
                                 <div class="news-item-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae placeat quis iure natus fugiat voluptatem, necessitatibus
-                                    culpa, nihil aliquid suscipit debitis dignissimos optio soluta eaque accusamus doloremque
-                                    dicta sit asperiores.
+                                    {{{content}}}
+                                    <a href="/api/news/{{_id}}" title="Прочети повече" class="readmore">Прочети повече</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="news-item">
-                            <div class="news-item-wrap">
-                                <h2>This is header2</h2>
-                                <div class="news-item-info">
-                                    <span class="date">12 March 2017</span> |
-                                    <span class="comments">3 comments</span>
-                                </div>
-                                <div class="news-item-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae placeat quis iure natus fugiat voluptatem, necessitatibus
-                                    culpa, nihil aliquid suscipit debitis dignissimos optio soluta eaque accusamus doloremque
-                                    dicta sit asperiores.
-                                </div>
-                            </div>
-                        </li>
+                        {{/each}}
                     </ul>
                 </section>
                 <aside id="ads" class="col col-12 col-lg-4">

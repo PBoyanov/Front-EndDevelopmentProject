@@ -13,8 +13,9 @@ module.exports = function(connectionString) {
     // register all models
     let User = require("../models/user-model");
     let Site = require("../models/site-model");
+    let News = require("../models/news-model");
 
-    let models = { User, Site };
+    let models = { User, Site, News };
 
     let data = {};
     fs.readdirSync(__dirname)

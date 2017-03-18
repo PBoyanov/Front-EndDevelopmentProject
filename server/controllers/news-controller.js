@@ -4,19 +4,19 @@ module.exports = function(params) {
     let { data } = params;
 
     return {
-        getAllSites(req, res) {
-            data.getAllSites()
-                .then(allSites => {
-                    res.json({ data: allSites })
+        getAllNews(req, res) {
+            data.getAllNews()
+                .then(allNews => {
+                    res.json({ data: allNews })
                 })
                 .catch(err => {
                     res.json(err);
                 });
         },
-        getNewsById(req, res) {
-            data.getSiteById(req.params.id)
-                .then((site) => {
-                    res.json({ data: site });
+        getNewsItemById(req, res) {
+            data.getNewsItemById(req.params.id)
+                .then((newsItem) => {
+                    res.json({ data: newsItem });
                 })
                 .catch(err => {
                     res.json(err);

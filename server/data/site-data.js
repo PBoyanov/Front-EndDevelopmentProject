@@ -1,7 +1,7 @@
 /* globals module */
 let dataUtils = require('./utils/data-utils');
 
-module.exports = function(models, validator) {
+module.exports = function(models) {
     let { Site } = models;
 
     return {

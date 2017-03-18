@@ -3,30 +3,19 @@ import { data } from './data';
 import { animations } from './animations';
 
 let home = (() => {
+    let templateItems = {};
+
     function getHome(context) {
-        let serverResponse;
-        let templateItems = {};
+        let serverResponseSites,
+            serverResponseNews;
 
-        Promise.all([data.getSites(), templateLoader.get("home")])
-            .then(([serverResponse, template]) => {
-                let sites = serverResponse.data;
+        Promise.all([data.getSites(), data.getNews(), templateLoader.get("home")])
+            .then(([serverResponseSites, serverResponseNews, template]) => {
+                let sites = serverResponseSites.data;
+                processSitesData(sites);
 
-                for (let site of sites) {
-                    site.description = site.description.slice(0, 400) + "...";
-                }
-
-                sites.sort(sortSitesByVisits);
-
-                function sortSitesByVisits(a, b) {
-                    return b.numberOfVisits - a.numberOfVisits;
-                }
-
-                templateItems.topSites = sites.slice(0, 3);
-                templateItems.popularSites = sites.slice(3, 9);
-
-                for (let site of templateItems.popularSites) {
-                    site.description = site.description.slice(0, 60) + "...";
-                }
+                let news = serverResponseNews.data;
+                processNewsData(news);
 
                 let homeHtml = template(templateItems);
                 context.$element().html(homeHtml);
@@ -71,7 +60,7 @@ let home = (() => {
                         itemWrap = target.parentsUntil(".news-item", ".news-item-wrap");
                     }
 
-                    if(!itemWrap.hasClass("active")) {
+                    if (!itemWrap.hasClass("active")) {
                         previousActiveItem.removeClass("active");
                         itemWrap.addClass("active");
                     } else {
@@ -79,6 +68,54 @@ let home = (() => {
                     }
                 });
             });
+    }
+
+    function processSitesData(sites) {
+        for (let site of sites) {
+            site.description = site.description.slice(0, 400) + "...";
+        }
+
+        sites.sort(sortSitesByVisits);
+        templateItems.topSites = sites.slice(0, 3);
+        templateItems.popularSites = sites.slice(3, 9);
+
+        for (let site of templateItems.popularSites) {
+            site.description = site.description.slice(0, 60) + "...";
+        }
+    }
+
+    function processNewsData(news) {
+        for (let newsItem of news) {
+            newsItem.content = newsItem.content.slice(0, 200) + "...";
+            newsItem.date = formatDate(new Date(newsItem.date));
+            newsItem.commentsLength = newsItem.comments.length;
+        }
+
+        //sites.sort(sortNewsByDate);
+        templateItems.news = news.slice(0, 6);
+    }
+
+    function sortSitesByVisits(a, b) {
+        return b.numberOfVisits - a.numberOfVisits;
+    }
+
+    function sortNewsByDate(a, b) {
+        return b.date - a.date;
+    }
+
+    function formatDate(date) {
+        let monthNames = [
+            "Януари", "Февруари", "Март",
+            "Април", "Май", "Юни", "Юли",
+            "Август", "Септевмри", "Октомври",
+            "Ноември", "Декевмври"
+        ];
+
+        let day = date.getDate();
+        let monthIndex = date.getMonth();
+        let year = date.getFullYear();
+
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
     }
 
     return {
