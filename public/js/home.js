@@ -61,15 +61,21 @@ let home = (() => {
                 );
 
                 $("#news-list").on("click", ".news-item", function (event) {
-                    let activeItem = $("#news-list").find(".active");
-                    activeItem.removeClass("active");
+                    let previousActiveItem = $("#news-list").find(".active");
+                    let itemWrap;
 
                     let target = $(event.target);
                     if (target.hasClass("news-item-wrap")) {
-                        target.addClass("active");
+                        itemWrap = target;
                     } else {
-                        let itemWrap = target.parentsUntil(".news-item", ".news-item-wrap");
+                        itemWrap = target.parentsUntil(".news-item", ".news-item-wrap");
+                    }
+
+                    if(!itemWrap.hasClass("active")) {
+                        previousActiveItem.removeClass("active");
                         itemWrap.addClass("active");
+                    } else {
+                        itemWrap.removeClass("active");
                     }
                 });
             });

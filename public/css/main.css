@@ -512,6 +512,7 @@ h2 a:hover span {
     transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
+    cursor: pointer;
 }
 
 .news-item .news-item-wrap.hover {
