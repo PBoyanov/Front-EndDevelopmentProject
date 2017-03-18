@@ -496,7 +496,7 @@ h2 a:hover span {
     background: url("../imgs/home-carousel-arrow-right.png") center center no-repeat;
 }
 
-/*Main Content
+/*Home Page News
 ================================================== */
 #news-header {
     font-size: 26px;
@@ -575,9 +575,56 @@ h2 a:hover span {
     display: block;
 }
 
+/*Home Page Ads
+================================================== */
 #ads {
     height: 900px;
-    background-color: lightsalmon;
+}
+
+.main-ad-box {
+    position: relative;
+}
+
+.main-ad-box:after {
+    display: block;
+    width: 100%;
+    content: "";
+    height: 2px;
+    background: #d9d9d9;
+    margin-top: 30px;
+    border-bottom: 1px solid #fff;
+}
+
+.main-ad-box img {
+    width: 100%;
+}
+
+.main-ad-box .overlay-plus {
+    width: 74px;
+    height: 74px;
+    background: url("../imgs/carousel-overlay.png") 0 0 no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.main-ad-box .overlay-plus.hover {
+    background: url("../imgs/carousel-overlay-hover.png") 0 0 no-repeat;
+}
+
+.main-ad-box .main-ad-content {
+    background: #373737;
+    padding: 30px 30px 50px;
+    color: #fff;
+    font-size: 13px;
+    color: #bbb;
+}
+
+.main-ad-box .main-ad-content h2 {
+    font-size: 25px;
+    --line-height: 1.2em;
+    color: #fff;
+    margin-bottom: 25px;
 }
 
 

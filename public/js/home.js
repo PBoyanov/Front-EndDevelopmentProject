@@ -27,16 +27,8 @@ let home = (() => {
 
                 animations.homePageCarousel();
 
-                $(".sites-carousel-item").hover(
-                    function mouseIn() {
-                        let plusItem = $(this).find(".overlay-plus");
-                        plusItem.addClass("hover");
-                    },
-                    function mouseOut() {
-                        let plusItem = $(this).find(".overlay-plus");
-                        plusItem.removeClass("hover");
-                    }
-                );
+                hoverOverlayPlusItem(".sites-carousel-item");
+                hoverOverlayPlusItem(".main-ad-box");
 
                 $(".news-item").hover(
                     function mouseIn() {
@@ -85,13 +77,19 @@ let home = (() => {
     }
 
     function processNewsData(news) {
+        news.sort(sortNewsByDate);
         for (let newsItem of news) {
             newsItem.content = newsItem.content.slice(0, 200) + "...";
-            newsItem.date = formatDate(new Date(newsItem.date));
+            newsItem.date = new Date(newsItem.date);
             newsItem.commentsLength = newsItem.comments.length;
         }
 
-        //sites.sort(sortNewsByDate);
+        news.sort(sortNewsByDate);
+
+        for (let newsItem of news) {
+            newsItem.date = formatDate(newsItem.date);
+        }
+
         templateItems.news = news.slice(0, 6);
     }
 
@@ -116,6 +114,19 @@ let home = (() => {
         let year = date.getFullYear();
 
         return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+    function hoverOverlayPlusItem(selector) {
+        $(selector).hover(
+            function mouseIn() {
+                let plusItem = $(this).find(".overlay-plus");
+                plusItem.addClass("hover");
+            },
+            function mouseOut() {
+                let plusItem = $(this).find(".overlay-plus");
+                plusItem.removeClass("hover");
+            }
+        );
     }
 
     return {
