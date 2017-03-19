@@ -223,6 +223,12 @@ h2 a:hover span {
     margin-right: 24px;
 }
 
+#navigation .nav-main li.no-divider {
+    background-image: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+
 #navigation .nav-main > li:hover > a,
 #navigation .nav-main > li > a:hover,
 #navigation .nav-main > .current-menu-item > a,
@@ -254,15 +260,13 @@ h2 a:hover span {
 }
 
 .nav-right li {
-    background: url('../imgs/nav-divider.png') left center no-repeat;
-    padding-left: 24px;
-    margin-left: 24px;
+    background: url('../imgs/nav-divider.png') right center no-repeat;
+    padding-right: 24px;
+    margin-right: 24px;
 }
 
-.nav-right li.no-divider {
-    background-image: none;
-    padding-left: 0;
-    margin-left: 0;
+.nav-right li.last {
+    margin-right: 0;
 }
 
 /*Home Page
@@ -719,6 +723,12 @@ h2 a:hover span {
     right: 0;
 }
 
+#footer-navigation .nav-right li.last {
+    background-image: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+
 #footer-navigation .footer-menu-container a {
     display: block;
     color: #fff;
@@ -803,7 +813,8 @@ h2 a:hover span {
     #navigation .nav-main > li:hover > a, 
     #navigation .nav-main > li > a:hover, 
     #navigation .nav-main > .current-menu-item > a, 
-    #navigation .nav-main > .current-menu-item > a:hover, 
+    #navigation .nav-main > .current-menu-item > a:hover,
+    #navigation .nav-right > .current-menu-item > a, 
     #navigation .nav-right > li > a:hover {
         border-bottom: none;
     }
