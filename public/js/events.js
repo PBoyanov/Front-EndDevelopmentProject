@@ -13,6 +13,10 @@ $("#navbarTogglerDemo01").on("click", ".nav-item", function (event) {
     }
 });
 
+$("#navbarTogglerDemo01").on("click", "a", function () {
+    $("#navbarTogglerDemo01").collapse('hide');
+});
+
 $("#footer-menu-right").on("click", ".nav-item", function (event) {
     removeCurrentMenuItem("#footer-menu-right");
 
