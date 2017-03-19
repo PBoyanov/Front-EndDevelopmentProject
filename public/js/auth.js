@@ -23,7 +23,7 @@ let auth = (() => {
                         .catch((e) => {
                             if (e.responseText) {
                                 let response = JSON.parse(e.responseText);
-                                toastr.error(response.result.err);
+                                toastr.error(response.msg);
                             } else {
                                 toastr.error(e.message);
                             }
@@ -64,7 +64,7 @@ let auth = (() => {
                         .catch((e) => {
                             if (e.responseText) {
                                 let response = JSON.parse(e.responseText);
-                                toastr.error(response.errMsg);
+                                toastr.error(response.msg);
                             } else {
                                 toastr.error(e.message);
                             }
@@ -94,7 +94,7 @@ let auth = (() => {
         $("#create-link").removeClass("hidden");
         $("#profile-link").removeClass("hidden")
             .attr("href", `#/profiles/${username}`);
-        $("#home-link").addClass("current-menu-item");
+        $(".home-link").addClass("current-menu-item");
     }
 
     return {
