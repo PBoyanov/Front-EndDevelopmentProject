@@ -140,6 +140,10 @@ h2 a:hover span {
     display: none;
 }
 
+#wrap {
+    margin: 20px auto;
+}
+
 .basic-container {
     width: 940px;
     margin: 0 auto;
@@ -156,6 +160,22 @@ h2 a:hover span {
     height: 390px;
     margin: 20px auto;
     background: #373737 url("../imgs/home-flex-loader.gif") center center no-repeat;
+}
+
+.basic-link, .basic-link:hover {
+    color: #dc3410;
+    text-decoration: none;
+}
+
+.basic-btn {
+    background-color: #474747;
+    color: #fff;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.basic-btn:hover {
+    background-color: #f26c4f;
 }
 
 /*Header
@@ -269,12 +289,9 @@ h2 a:hover span {
     margin-right: 0;
 }
 
-/*Home Page
+                /*Home Page
+==================================================
 ================================================== */
-#wrap {
-    margin: 20px auto;
-}
-
 #featured-flexslider {
     position: relative;
     min-height: 60px;
@@ -694,6 +711,28 @@ h2 a:hover span {
     border-color: #dc3410;
 }
 
+            /*Login and Registration
+==================================================
+================================================== */
+.auth-form-inner {
+    background: #fff;
+    padding: 40px;
+}
+
+.auth-form-inner h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.auth-form-inner .auth-form {
+    padding: 30px;
+    background: #eaeaea;
+}
+
+.auth-form .form-control {
+    width: 50%;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {
@@ -924,6 +963,10 @@ h2 a:hover span {
 
     #footer-content .footer-content-item { 
         padding-right: 20%
+    }
+
+    .auth-form .form-control {
+        width: 100%;
     }
 
 	#sidebar { width: 100%; max-width: 100%; }

@@ -1,15 +1,20 @@
-<form action="post">
-    <div class="form-group">
-        <label for="username">Username: </label>
-        <input type="text" class="form-control" id="username" placeholder="username">
+<div id="wrap" class="basic-container">
+    <div class="auth-form-inner">
+        <h2 class="auth-form-heading">Регистрация</h2>
+        <form class="auth-form" action="post">
+            <div class="form-group">
+                <label for="username">Потребителско име: </label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Парола: </label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <div class="form-group">
+                <label for="password">Повтори парола: </label>
+                <input type="password" class="form-control" id="confirm-password">
+            </div>
+            <button type="submit" id="register-btn" class="btn basic-btn">Регистрирай</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="password">Password: </label>
-        <input type="password" class="form-control" id="password" placeholder="password">
-    </div>
-    <div class="form-group">
-        <label for="password">Confirm password: </label>
-        <input type="password" class="form-control" id="confirm-password" placeholder="confirm password">
-    </div>
-    <button type="submit" id="register-btn" class="btn btn-info">Register</button>
-</form>
+</div>
