@@ -16,7 +16,7 @@ let router = (() => {
 
             this.get("#/logout", controllers.logout.execute);
 
-            // this.get("#/create", controllers.createMaterial.all);
+            this.get("#/sites", controllers.sites.getSitesPage);
 
             // this.get("#/materials/:id", controllers.materialProfile.all);
 

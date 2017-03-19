@@ -733,6 +733,14 @@ h2 a:hover span {
     width: 50%;
 }
 
+            /*Sites
+==================================================
+================================================== */
+.img-container {
+    width: 100%;
+    height: auto;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {
@@ -909,6 +917,10 @@ h2 a:hover span {
 
     .flex-direction-nav .flex-prev {
         left: 0;
+    }
+
+    .news-item .news-item-wrap {
+        text-align: center;
     }
 
     .main-ad-box .main-ad-content,
