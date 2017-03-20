@@ -1023,6 +1023,14 @@ h2 a:hover span {
         width: 100%;
     }
 
+    .site .site-info {
+        padding: 10px 15px 0;
+    }
+
+    .site .site-wrap.hover .site-info {
+        padding-bottom: 10px;
+    }
+
 	#sidebar { width: 100%; max-width: 100%; }
 	#mobile-search { width: 100%; height: 70px; line-height: 70px; margin-bottom: 20px; }
 	#sidebar { margin-top: 50px; padding: 0 40px; }
