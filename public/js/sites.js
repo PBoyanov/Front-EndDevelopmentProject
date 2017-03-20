@@ -3,6 +3,7 @@ import { data } from './data';
 
 let sites = (() => {
     let templateItems = {};
+    const DROPDOWN_DEFAULT_VALUE = "Изберете област";
 
     function getSitesPage(context) {
         let serverResponseSites;
@@ -10,12 +11,19 @@ let sites = (() => {
         Promise.all([data.getSites(), templateLoader.get("all-sites")])
             .then(([serverResponseSites, template]) => {
                 let sites = serverResponseSites.data;
-                //console.log(sites);
+                templateItems.filteredOnThis = DROPDOWN_DEFAULT_VALUE;
+
+                if(context.params["region"]) {
+                    let region = context.params["region"];
+                    sites = sites.filter(site => site.region === region);
+
+                    templateItems.filteredOnThis = region;
+                }
+
                 processSitesData(sites);
                 templateItems.sites = sites;
 
                 let pageHtml = template(templateItems);
-                console.log(pageHtml);
                 context.$element().html(pageHtml);
 
                 $(".site").hover(
@@ -39,13 +47,24 @@ let sites = (() => {
                         plusItem.removeClass("hover");
                     }
                 );
+
+                $('#filter-by-region .dropdown-item').on('click', function () {
+                    let dropdownItem = $(this);
+                    let filterOnThis = dropdownItem.text();
+
+                    console.log(filterOnThis);
+                    if(!dropdownItem.hasClass("default")) {
+                        context.redirect(`#/sites?region=${filterOnThis}`);
+                    } else {
+                        context.redirect("#/sites");
+                    }
+                });
             });
     }
 
     function processSitesData(sites) {
         for (let site of sites) {
             site.description = site.description.slice(0, 120) + "...";
-            site.commentsLength = site.comments.length;
         }
     }
 

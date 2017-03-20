@@ -178,6 +178,22 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
+.dropdown-value {
+    background-color: #fff;
+    color: #4f4f4f;
+}
+
+.basic-dropdown-btn {
+    background-color: #474747;
+    color: #fff;
+    cursor: pointer
+}
+
+.basic-dropdown-btn:hover {
+    background-color: #f26c4f;
+}
+
+
 /*Header
 ================================================== */
 #top-bar-wrap {
@@ -741,6 +757,15 @@ h2 a:hover span {
     margin-bottom: 15px;
 }
 
+#filter-by-region {
+    margin-left: 5px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+#sites-list {
+    margin-top: 20px;
+}
+
 .site-wrap {
     background: #fff;
     margin-bottom: 15px;
@@ -1028,7 +1053,7 @@ h2 a:hover span {
     }
 
     .site .site-wrap.hover .site-info {
-        padding-bottom: 10px;
+        padding: 0 15px 10px;
     }
 
 	#sidebar { width: 100%; max-width: 100%; }
