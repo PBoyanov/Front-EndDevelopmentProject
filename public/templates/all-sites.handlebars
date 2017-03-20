@@ -3,4 +3,84 @@
         <img src="https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg" alt="Велики Преслав">
         {{!--<img src="https://imgrabo.com/design/_opoznai.bg/index_header/tsarevets.jpg" alt="Царевец">--}}
     </div>
+    <div class="row">
+        <div id="sites" class="col col-12 col-lg-8">
+            <ul id="sites-list">
+                {{#each sites}}
+                <li class="site">
+                    <div class="site-wrap">
+                        <div class="row">
+                            <div class="col col-12 col-md-11">
+                                <h2><a href="/api/sites/{{_id}}">{{number}}. {{name}} - {{town}}</a></h2>
+                            </div>
+                            <div class="site-info col col-12 col-md-1 justify-content-end">
+                                <i class="fa fa-user visits-icon" aria-hidden="true"></i>
+                                <span class="visits">{{numberOfVisits}}</span>
+                                {{!--<span class="comments">{{commentsLength}} comments</span>--}}
+                            </div>
+                        </div>
+                        <div class="site-content">
+                            {{{description}}}
+                            <a href="/api/sites/{{_id}}" title="Виж повече" class="readmore">Виж повече</a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <aside id="ads" class="col col-12 col-lg-4">
+            <div class="side-menu-wrap">
+                <ul class="side-menu-list">
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-button">Обекти</a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-button">Новини</a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-button">За нас</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-ad-box">
+                <a href="#" title="Място за вашата реклама">
+                    <img src="https://www.goabroad.com/images/reviews/fcm16-76-10-1481305282.jpg" alt="your ad here">
+                    <i class="overlay-plus"></i>
+                </a>
+                <div class="main-ad-content">
+                    <h2>Основна реклама</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                    ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                </div>
+            </div>
+            <div class="ad-list-wrap">
+                <ul id="ad-list">
+                    <li class="ad-item">
+                        <div class="ad-box">
+                            <h2>
+                                <a href="#" title="Реклама" class="title">Второстепенна реклама</a>
+                            </h2>
+                            <div class="ad-box-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                                ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                            </div>
+                            <a href="#" title="Виж повече" class="readmore">not visible</a>
+                        </div>
+                    </li>
+                    <li class="ad-item">
+                        <div class="ad-box">
+                            <h2>
+                                <a href="#" title="Реклама" class="title">Второстепенна реклама</a>
+                            </h2>
+                            <div class="ad-box-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                                ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                            </div>
+                            <a href="#" title="Виж повече" class="readmore">not visible</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
 </div>
