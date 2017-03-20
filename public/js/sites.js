@@ -28,6 +28,17 @@ let sites = (() => {
                         itemWrap.removeClass("hover");
                     }
                 );
+
+                $(".main-ad-box").hover(
+                    function mouseIn() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.addClass("hover");
+                    },
+                    function mouseOut() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.removeClass("hover");
+                    }
+                );
             });
     }
 
