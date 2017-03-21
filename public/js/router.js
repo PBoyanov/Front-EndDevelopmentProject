@@ -16,7 +16,11 @@ let router = (() => {
 
             this.get("#/logout", controllers.logout.execute);
 
-            this.get("#/sites", controllers.sites.getSitesPage);
+            this.get("#/sites", function (context) {
+                context.redirect("#/all-sites", {orderby: "number"});
+            });
+
+            this.get("#/all-sites", controllers.sites.getSitesPage);
 
             // this.get("#/materials/:id", controllers.materialProfile.all);
 

@@ -1,6 +1,7 @@
 <div id="wrap" class="basic-container">
     <div class="img-container">
-        <img src="https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg" alt="Велики Преслав">        {{!--
+        <img src="http://bulgarkamagazine.com/wp-content/uploads/2015/10/049420532667.jpg" alt="Плиска">
+        {{!-- https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg
         <img src="https://imgrabo.com/design/_opoznai.bg/index_header/tsarevets.jpg" alt="Царевец">--}}
     </div>
     <div class="row">
@@ -16,18 +17,20 @@
                         <button  class="dropdown-item default">Изберете област</button >
                         <button  class="dropdown-item">Благоевград</button >
                         <button  class="dropdown-item">Видин</button >
+                        <button  class="dropdown-item">Велико Търново</button >
                         <button  class="dropdown-item">Враца</button >
                         <button  class="dropdown-item">Кюстендил</button >
                         <button  class="dropdown-item">Монтана</button >
                         <button  class="dropdown-item">Перник</button >            
                         <button  class="dropdown-item">Пловдив</button >
                         <button  class="dropdown-item">София-град</button >                
-                        <button  class="dropdown-item">Хасково</button >                                    
+                        <button  class="dropdown-item">Хасково</button >
+                        <button  class="dropdown-item">Шумен</button >                                   
                     </div>
                 </div>
                 <div id="order-by" class="btn-group col col-12 col-md-6" role="group" aria-label="Basic example">
-                    <button id="order-by-number" type="button" class="btn order-btn active">Номер</button>
-                    <button id="order-by-visits" type="button" class="btn order-btn">Посещения</button>
+                    <button id="number" type="button" class="btn order-btn {{#if orderByNumber}} active {{/if}}">Номер</button>
+                    <button id="visits" type="button" class="btn order-btn {{#if orderByVisits}} active {{/if}}">Посещения</button>
                 </div>
             </div>
             <ul id="sites-list">
