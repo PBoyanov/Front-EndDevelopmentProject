@@ -5,23 +5,29 @@
     </div>
     <div class="row">
         <div id="sites" class="col col-12 col-lg-8">
-            <div id="filter-by-region" class="btn-group">
-                <button type="button" class="btn dropdown-value">{{filteredOnThis}}</button>
-                <button type="button" class="btn basic-dropdown-btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                    <button  class="dropdown-item default">Изберете област</button >
-                    <button  class="dropdown-item">Благоевград</button >
-                    <button  class="dropdown-item">Видин</button >
-                    <button  class="dropdown-item">Враца</button >
-                    <button  class="dropdown-item">Кюстендил</button >
-                    <button  class="dropdown-item">Монтана</button >
-                    <button  class="dropdown-item">Перник</button >            
-                    <button  class="dropdown-item">Пловдив</button >
-                    <button  class="dropdown-item">София-град</button >                
-                    <button  class="dropdown-item">Хасково</button >                                    
+            <div class="row">
+                <div id="filter-by-region" class="btn-group col col-12 col-md-6">
+                    <button type="button" class="btn dropdown-value">{{filteredOnThis}}</button>
+                    <button type="button" class="btn basic-dropdown-btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button  class="dropdown-item default">Изберете област</button >
+                        <button  class="dropdown-item">Благоевград</button >
+                        <button  class="dropdown-item">Видин</button >
+                        <button  class="dropdown-item">Враца</button >
+                        <button  class="dropdown-item">Кюстендил</button >
+                        <button  class="dropdown-item">Монтана</button >
+                        <button  class="dropdown-item">Перник</button >            
+                        <button  class="dropdown-item">Пловдив</button >
+                        <button  class="dropdown-item">София-град</button >                
+                        <button  class="dropdown-item">Хасково</button >                                    
+                    </div>
+                </div>
+                <div id="order-by" class="btn-group col col-12 col-md-6" role="group" aria-label="Basic example">
+                    <button id="order-by-number" type="button" class="btn order-btn active">Номер</button>
+                    <button id="order-by-visits" type="button" class="btn order-btn">Посещения</button>
                 </div>
             </div>
             <ul id="sites-list">

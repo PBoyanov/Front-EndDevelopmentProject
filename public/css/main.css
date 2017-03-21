@@ -181,6 +181,7 @@ h2 a:hover span {
 .dropdown-value {
     background-color: #fff;
     color: #4f4f4f;
+    border-bottom: 1px solid #cacaca;
 }
 
 .basic-dropdown-btn {
@@ -759,7 +760,33 @@ h2 a:hover span {
 
 #filter-by-region {
     margin-left: 5px;
-    box-shadow: 0 1px 1px #cacaca;
+}
+
+#order-by {
+    margin-right: -5px;
+    padding-right: 18px;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.order-btn {
+    background-color: #fff;
+    color: #474747;
+    cursor: pointer;
+    border: 1px solid #cacaca;
+}
+
+.order-btn:hover {
+    background-color: #f26c4f;
+    color: #fff;
+}
+
+.order-btn.active {
+    background-color: #474747;
+    color: #fff;
+    cursor: initial;
 }
 
 #sites-list {
@@ -1046,6 +1073,14 @@ h2 a:hover span {
 
     .auth-form .form-control {
         width: 100%;
+    }
+
+    #order-by {
+        margin: 10px 0 0 5px;
+        -webkit-box-pack: initial;
+        -webkit-justify-content: initial;
+        -ms-flex-pack: initial;
+        justify-content: initial;
     }
 
     .site .site-info {
