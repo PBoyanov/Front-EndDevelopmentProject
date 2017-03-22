@@ -1075,6 +1075,10 @@ h2 a:hover span {
         width: 100%;
     }
 
+    #sites {
+        padding: 0 6%;
+    }
+
     #order-by {
         margin: 10px 0 0 5px;
         -webkit-box-pack: initial;
