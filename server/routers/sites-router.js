@@ -9,6 +9,7 @@ module.exports = function({ app, controllers }) {
     router
         // .post('/register', controllers.register)
         // .post('/login', controllers.login)
+        .get('/sites/:id', controllers.getSiteById)
         .get('/sites', controllers.getAllSites);
 
     app.use("/api", router);

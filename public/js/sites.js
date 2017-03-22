@@ -102,6 +102,18 @@ let sites = (() => {
             });
     }
 
+    function getSingleSitePage(context) {
+        let serverResponse;
+        let siteId = context.params["id"];
+        Promise.all([data.getSiteById(siteId), templateLoader.get("single-site")])
+            .then(([serverResponse, template]) => { 
+                let site = serverResponse.data;
+
+                let pageHtml = template(site);
+                context.$element().html(pageHtml);
+            });
+    }
+
     function processSitesData(sites, orderBy) {
         if (orderBy === ORDER_BY_VALUES.number) {
             sites.sort(sortSitesByNumber);
@@ -125,7 +137,8 @@ let sites = (() => {
     }
 
     return {
-        getSitesPage
+        getSitesPage,
+        getSingleSitePage
     }
 })();
 

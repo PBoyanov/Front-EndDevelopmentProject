@@ -1,5 +1,6 @@
 /* globals module */
 'use strict';
+//var mongo = require('mongodb'); 
 
 module.exports = {
     update(model) {
@@ -48,11 +49,11 @@ module.exports = {
     },
     getOneById(model, id) {
         return new Promise((resolve, reject) => {
-                model.findOne({ _id: id }, (err, singleRecord) => {
+                model.findOne({ id: id }, (err, singleRecord) => {
                     if (err) {
                         return reject(err);
                     }
-
+                    
                     return resolve(singleRecord);
                 });
             });

@@ -4,7 +4,7 @@
             {{#each topSites}}
             <li>
                 <div class="featured-flexslider-img">
-                    <a href="/api/sites/{{_id}}" title="{{name}}">
+                    <a href="/#/all-sites/{{id}}" title="{{name}}">
                         <img src="{{imgUrl}}" alt="{{name}}" height="200" width="300">
                     </a>
                     <div class="img-caption">
@@ -14,7 +14,7 @@
 
                 <div class="text-caption">
                     <div class="description-container">
-                        <h2><a href="/api/sites/{{_id}}" title="{{name}}" rel="bookmark">{{name}}</a></h2>
+                        <h2><a href="/#/all-sites/{{id}}" title="{{name}}" rel="bookmark">{{name}}</a></h2>
                         {{{description}}}
                     </div>
                     <div class="slider-meta">
@@ -35,13 +35,13 @@
                 <ul id="sites-carousel" class="slides">
                     {{#each popularSites}}
                     <li class="sites-carousel-item">
-                        <a href="/api/sites/{{_id}}" title="{{name}}" class="posts-carousel-item">
+                        <a href="/#/all-sites/{{id}}" title="{{name}}" class="posts-carousel-item">
                             <img src="{{imgUrl}}" alt="{{name}}">
                             <i class="overlay-plus"></i>
                         </a>
                         <div class="sites-carousel-article">
                             <h2>
-                                <a href="/api/sites/{{_id}}">{{name}}<span> - {{town}}</span></a>
+                                <a href="/#/all-sites/{{id}}">{{name}}<span> - {{town}}</span></a>
                             </h2>
                             <p>{{description}}</p>
                         </div>

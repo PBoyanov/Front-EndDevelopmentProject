@@ -20,9 +20,9 @@ let router = (() => {
                 context.redirect("#/all-sites", {orderby: "number"});
             });
 
-            this.get("#/all-sites", controllers.sites.getSitesPage);
+            this.get("#/all-sites/:id", controllers.sites.getSingleSitePage);
 
-            // this.get("#/materials/:id", controllers.materialProfile.all);
+            this.get("#/all-sites", controllers.sites.getSitesPage);
 
             // this.get("#/profiles/:username", controllers.userProfile.all);
 

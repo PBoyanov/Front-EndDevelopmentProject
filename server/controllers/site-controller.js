@@ -13,7 +13,7 @@ module.exports = function(params) {
                     res.json(err);
                 });
         },
-        getNewsById(req, res) {
+        getSiteById(req, res) {
             data.getSiteById(req.params.id)
                 .then((site) => {
                     res.json({ data: site });

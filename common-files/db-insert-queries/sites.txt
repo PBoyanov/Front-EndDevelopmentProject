@@ -1,5 +1,6 @@
 db.sites.insertMany([
     {
+        "id": 1,
         "number": "1",
         "name": "Музей \"Никола Вапцаров\"",
         "town": "гр. Банско",
@@ -11,6 +12,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 11,
         "number": "11",
         "name": "\"Царевец\"",
         "town": "гр. Велико Търново",
@@ -22,6 +24,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 13,
         "number": "13",
         "name": "Крепост \"Баба Вида\"",
         "town": "гр. Видин",
@@ -33,6 +36,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 15,
         "number": "15",
         "name": "Белоградчишки скали",
         "town": "гр. Белоградчик",
@@ -44,6 +48,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 18,
         "number": "18",
         "name": "Национален музей \"Параход Радецки\"",
         "town": "гр. Козлодуй",
@@ -55,6 +60,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 28,
         "number": "28",
         "name": "Музей Рилски манастир в Рилска света обител",
         "town": "Рила",
@@ -66,6 +72,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 39,
         "number": "39",
         "name": "Подземен минен музей",
         "town": "гр. Перник",
@@ -77,6 +84,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 41,
         "number": "41",
         "name": "Античен театър",
         "town": "гр. Пловдив",
@@ -88,6 +96,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 59,
         "number": "59",
         "name": "Храм-паметник \"Александър Невски\" с крипта",
         "town": "гр. София",
@@ -99,6 +108,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 69,
         "number": "69",
         "name": "Манастир \"Св. Ив. Рилски\"",
         "town": "гр. Чипровци",
@@ -110,6 +120,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 72,
         "number": "72",
         "name": "Монумент \"Света Богородица\"",
         "town": "гр. Хасково",
@@ -121,6 +132,7 @@ db.sites.insertMany([
         "comments": []
     },
     {
+        "id": 96,
         "number": "96",
         "name": "Археологически резерват",
         "town": "гр. Плиска",

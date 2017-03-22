@@ -1,7 +1,7 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('Site', {
-    _id: String,
+    id: Number,
     number: String,
     name: String,
     town: String,

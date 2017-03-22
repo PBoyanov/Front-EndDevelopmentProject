@@ -9,12 +9,12 @@ let data = (() => {
         return requester.getJSON("api/sites");
     }
 
-    function getNews() {
-        return requester.getJSON("api/news");
+    function getSiteById(id) {
+        return requester.getJSON(`api/sites/${id}`);
     }
 
-    function getMaterialById(id) {
-        return requester.getJSON(`api/materials/${id}`);
+    function getNews() {
+        return requester.getJSON("api/news");
     }
 
     function getUserByUsername(username) {
@@ -115,8 +115,8 @@ let data = (() => {
 
     return {
         getSites,
+        getSiteById,
         getNews,
-        getMaterialById,
         getUserByUsername,
         loginUser,
         registerUser,
