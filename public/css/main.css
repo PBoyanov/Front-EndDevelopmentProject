@@ -901,11 +901,6 @@ h2 a:hover span {
 
 
 @media only screen and (max-width: 991px) {
-    /*nav toggles*/
-
-	#responsive-toggles { background: #474747; padding: 0 40px; -webkit-touch-callout: none; -webkit-user-select: none;-khtml-user-select: none;-moz-user-select: moz-none; -ms-user-select: none; user-select: none; }
-	#responsive-toggles span:hover { opacity: 0.8; }
-
 	/*Navigation
     ================================================== */
 
@@ -1094,37 +1089,10 @@ h2 a:hover span {
     .site .site-wrap.hover .site-info {
         padding: 0 15px 10px;
     }
-
-	#sidebar { width: 100%; max-width: 100%; }
-	#mobile-search { width: 100%; height: 70px; line-height: 70px; margin-bottom: 20px; }
-	#sidebar { margin-top: 50px; padding: 0 40px; }
-	#comments { padding: 0 40px; }
-	#footer-copy { padding: 0 40px; }
-	#logo h2 { margin-left: 40px; }
-	.single-format-status #post { margin-bottom: 0; }
-	.single #post-status { padding: 10px 40px 0; margin-bottom: 0; }
-	.quote-entry { border-left: 0; }
-	.post-entry { margin-bottom: 40px; }
-	#comments .children { margin-left: 0; }
-	#single-nav { display: none; }
-	#footer-logo { display: none; }
-	.footer-nav-links { float: left; margin-left: 20px; }
-	#page-heading { margin-top: 20px; }
-	#archive-post-count { position: inherit; top: auto; left: auto; right: auto; margin-top: 10px; display: inline-block; }
-	.contributor-entry { padding-left: 0; padding-bottom: 40px; border-bottom: 1px solid #ebebeb; }
-	.contributor-entry-desc { padding-left: 0; border-left: 0; }
-	.contributor-entry-desc:before { display: none; }
-	.contributor-entry-avatar { position: inherit; top: auto; left: auto; margin-bottom: 20px; }
-	.contributor-entry-footer li { float: none; }
-	#mobile-search input[type="search"] { font-size: 14px; }
-	.comment-details { margin-left: 0; margin-right: 0; }
-	.comment-details:before { display: none; }
-	.comment-author { display: none; }
-
 }
 
 /* Mobile (Landscape)
 ================================================== */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-	#mobile-search input[type="search"] { font-size: 18px; }
+	
 }
