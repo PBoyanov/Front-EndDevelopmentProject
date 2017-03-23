@@ -71,7 +71,7 @@ let sites = (() => {
                     if (regionUrlPartIndex > 0) {
                         context.path = context.path.slice(0, regionUrlPartIndex);
                     }
-                    
+
                     let dropdownItem = $(this);
                     let filterOnThis = dropdownItem.text();
                     if (!dropdownItem.hasClass("default")) {
@@ -107,19 +107,33 @@ let sites = (() => {
         let serverResponse;
         let siteId = context.params["id"];
 
-        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), templateLoader.get("single-site")])
-            .then(([serverResponse, loggedUser, template]) => { 
-                let site = serverResponse.data;
+        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("single-site")])
+            .then(([serverResponseSite, loggedUser, serverResponseVisitedSites, template]) => {
+                let site = serverResponseSite.data;
                 countComments(site);
                 templateItems.site = site;
 
                 templateItems.isLoggedIn = !!(loggedUser.username);
-                templateItems.isSiteVisited = data.isSiteVisitedByCurrentUser(site.number);
+
+                let visitedSitesNumbers = (serverResponseVisitedSites.siteNumbers ? 
+                    serverResponseVisitedSites.siteNumbers : []);
+                templateItems.isSiteVisited = visitedSitesNumbers.includes(site.number);
 
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
 
-                $(".site-content .site-btn").on("click", function(event) {
+                $(".main-ad-box").hover(
+                    function mouseIn() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.addClass("hover");
+                    },
+                    function mouseOut() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.removeClass("hover");
+                    }
+                );
+
+                $(".site-content .site-btn").on("click", function (event) {
                     let siteId = site.id;
                     let username = loggedUser.username;
                     let isReverse = $(event.target).hasClass("reverse");
@@ -127,9 +141,9 @@ let sites = (() => {
                     document.location.reload(true);
                 });
 
-                $("#post-comment").on("click", function() {
+                $("#post-comment").on("click", function () {
                     let commentContent = $("#comment").val();
-                    if(commentContent.length === 0) {
+                    if (commentContent.length === 0) {
                         toastr.error("Коментарът не може да бъде празен!");
                     } else {
                         let siteId = site.id;
@@ -138,7 +152,7 @@ let sites = (() => {
                         data.addSiteComment(siteId, commentContent, date, username);
                         document.location.reload(true);
                     }
-                }); 
+                });
             });
     }
 

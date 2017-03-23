@@ -25,8 +25,7 @@ module.exports = function ({ data, validator }) {
                                 success: true,
                                 body: {
                                     token: token,
-                                    username: user.username,
-                                    visitedSites: user.visitedSites
+                                    username: user.username
                                 }
                             });
                         } else {
@@ -81,6 +80,17 @@ module.exports = function ({ data, validator }) {
             });
 
 
+        },
+        getUserVisitedSites(req, res) {
+            let username = req.params["username"];
+
+            data.getUserVisitedSites(username)
+                .then((siteNumbers) => {
+                    res.status(200).send({ success: true, siteNumbers })
+                })
+                .catch(err => {
+                    return res.send(error);
+                });
         },
         getLoggedUser(req, res) {
             const token = req.headers.authorization;

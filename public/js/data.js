@@ -16,20 +16,7 @@ let data = (() => {
 
     function markSiteAsVisited(siteId, username, isReverse) {
         let putData = { siteId: siteId, username: username, isReverse: isReverse };
-        return requester.putJSON(`api/sites/${siteId}`, putData)
-                .then((serverResponseObj) => {
-                    let userVisitedSites = serverResponseObj.visitedSites;
-                    localStorage.setItem(VISITED_SITES, JSON.stringify(userVisitedSites));
-                });
-    }
-
-    function isSiteVisitedByCurrentUser(siteNumber) {
-        let visitedSites = JSON.parse(localStorage.getItem(VISITED_SITES));
-        if(!visitedSites) {
-            return false;
-        }
-        
-        return visitedSites.some(site => site.number === siteNumber);
+        return requester.putJSON(`api/sites/${siteId}`, putData);
     }
 
     function addSiteComment(siteId, content, date, username ) {
@@ -62,7 +49,6 @@ let data = (() => {
                 let userInfo = result.body;
                 localStorage.setItem(USERNAME_KEY, userInfo.username);
                 localStorage.setItem(AUTH_KEY, userInfo.token);
-                localStorage.setItem(VISITED_SITES, JSON.stringify(userInfo.visitedSites));
                 return { username: userInfo.username };
             });
     }
@@ -81,24 +67,39 @@ let data = (() => {
             let result = {};
             if (localStorage.getItem(USERNAME_KEY) && localStorage.getItem(AUTH_KEY)) {
                 result.username = localStorage.getItem(USERNAME_KEY);
-                result.visitedSites = localStorage.getItem(VISITED_SITES);
             }
             resolve(result);
         })
+    }
+
+    function getUserVisitedSites() {
+        return new Promise((resolve, reject) => {
+            this.isLoggedIn()
+                .then((result) => {
+                    if(result.username) {
+                        let username = result.username;
+                        let serverResponse = requester.getJSON(`api/profiles/${username}/sites`);
+                        resolve(serverResponse);
+                    } else {
+                        let emptyArray = [];
+                        resolve(emptyArray);
+                    }
+                })
+        });
     }
 
     return {
         getSites,
         getSiteById,
         markSiteAsVisited,
-        isSiteVisitedByCurrentUser,
         addSiteComment,
         getNews,
         getUserByUsername,
         loginUser,
         registerUser,
         logoutUser,
-        isLoggedIn
+        isLoggedIn,
+        getUserVisitedSites
     }
 })();
 

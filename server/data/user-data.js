@@ -49,6 +49,22 @@ module.exports = function (models, validator) {
         getUserByUsername(username) {
             return dataUtils.getOneByUsername(User, username);
         },
+        getUserVisitedSites(username) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        let siteNumbers = [];
+                        
+                        for (let i = 0; i < user.visitedSites.length; i++) {
+                            let site = user.visitedSites[i];
+
+                            siteNumbers.push(site.number);
+                        }
+
+                        return resolve(siteNumbers);
+                    });
+            });
+        },
         markSiteAsVisited(username, site) {
             return new Promise((resolve, reject) => {
                 dataUtils.getOneByUsername(User, username)
