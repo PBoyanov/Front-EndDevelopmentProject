@@ -81,7 +81,7 @@ let home = (() => {
         for (let newsItem of news) {
             newsItem.content = newsItem.content.slice(0, 200) + "...";
             newsItem.date = new Date(newsItem.date);
-            newsItem.commentsLength = newsItem.comments.length;
+            newsItem.commentsCount = newsItem.comments.length;
         }
 
         news.sort(sortNewsByDate);
