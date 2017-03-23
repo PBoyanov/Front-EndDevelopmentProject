@@ -108,6 +108,7 @@ let sites = (() => {
         Promise.all([data.getSiteById(siteId), templateLoader.get("single-site")])
             .then(([serverResponse, template]) => { 
                 let site = serverResponse.data;
+                countComments(site);
 
                 let pageHtml = template(site);
                 context.$element().html(pageHtml);
@@ -134,6 +135,10 @@ let sites = (() => {
 
     function sortSitesByVisits(a, b) {
         return b.numberOfVisits - a.numberOfVisits;
+    }
+
+    function countComments(site) {
+        site.commentsCount = site.comments.length;
     }
 
     return {

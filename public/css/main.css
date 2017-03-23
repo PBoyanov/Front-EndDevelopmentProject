@@ -835,6 +835,73 @@ h2 a:hover span {
     color: #ce4e32;
 }
 
+                /*Single Site
+==================================================
+================================================== */
+.img-container {
+    position: relative;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+#site-img {
+    width: 940px;
+}
+
+.img-container .img-caption {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 70%;
+    background: rgba(0,0,0,0.6);
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.site-content {
+    margin-bottom: 20px;
+}
+
+.site-content-inner {
+    background-color: #fff;
+    padding: 40px 50px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+.site-content .site-info {
+    color: #8f8f8f;
+    font-weight: 300;
+    text-align: right;
+}
+
+.site-content .site-info .visits {
+    margin-right: 35px;
+}
+
+.site-content .site-info .comments {
+    margin-left: 35px;
+}
+
+.site-content .site-header {
+    margin: 20px 0 10px;
+    color: #f26c4f;
+}
+
+.site-content .site-region {
+    color: #8f8f8f;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.site-content .site-description {
+    font-size: 16px;
+    font-stretch: semi-condensed;
+    text-indent: 20px;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {
@@ -987,7 +1054,8 @@ h2 a:hover span {
          float: none;
     }
 
-	#featured-flexslider .img-caption {
+	#featured-flexslider .img-caption,
+    .img-container .img-caption {
         height: auto;
         padding: 3% 4%;
     }
@@ -1008,6 +1076,8 @@ h2 a:hover span {
         left: 0;
     }
 
+    /* News and Ads
+    ================================================== */
     .news-item .news-item-wrap {
         text-align: center;
     }
@@ -1070,6 +1140,8 @@ h2 a:hover span {
         width: 100%;
     }
 
+    /* Sites
+    ================================================== */
     #sites {
         padding: 0 6%;
     }
@@ -1088,6 +1160,16 @@ h2 a:hover span {
 
     .site .site-wrap.hover .site-info {
         padding: 0 15px 10px;
+    }
+
+    /* Single Site
+    ================================================== */
+    .site-content-inner {
+        padding: 40px 5%;
+    }
+
+    .site-content .site-description {
+        text-align: justify;
     }
 }
 

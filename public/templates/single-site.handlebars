@@ -1,1 +1,84 @@
-{{name}}
+<div id="wrap" class="basic-container">
+    <div class="img-container">
+        <img id="site-img" src="{{imgUrl}}" alt="{{name}}">
+        <div class="img-caption">
+            {{town}}
+        </div>
+    </div>
+    <div class="row">
+        <article class="site-content col col-12 col-lg-8">
+            <div class="site-content-inner">
+                <div class="site-info">
+                    <span class="visits">
+                        <i class="fa fa-user visits-icon" aria-hidden="true"></i>
+                        {{numberOfVisits}}
+                    </span> |
+                    <span class="comments">{{commentsCount}} comments</span>
+                </div>
+                <div class="site-header">
+                    <h2>{{name}}</h2>
+                </div>
+                <div class="site-region">
+                    Област {{region}}
+                </div>
+                <div class="site-description">
+                    {{{description}}}
+                </div>
+            </div>
+        </article>
+        <aside id="ads" class="col col-12 col-lg-4">
+            <div class="main-ad-box">
+                <a href="#" title="Място за вашата реклама">
+                    <img src="https://www.goabroad.com/images/reviews/fcm16-76-10-1481305282.jpg" alt="your ad here">
+                    <i class="overlay-plus"></i>
+                </a>
+                <div class="main-ad-content">
+                    <h2>Основна реклама</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                    ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                </div>
+            </div>
+            <div class="side-menu-wrap">
+                <ul class="side-menu-list">
+                    <li class="side-menu-item">
+                        <a href="#/sites" class="side-menu-button">Обекти</a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-button">Новини</a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-button">За нас</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ad-list-wrap">
+                <ul id="ad-list">
+                    <li class="ad-item">
+                        <div class="ad-box">
+                            <h2>
+                                <a href="#" title="Реклама" class="title">Второстепенна реклама</a>
+                            </h2>
+                            <div class="ad-box-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                                ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                            </div>
+                            <a href="#" title="Виж повече" class="readmore">not visible</a>
+                        </div>
+                    </li>
+                    <li class="ad-item">
+                        <div class="ad-box">
+                            <h2>
+                                <a href="#" title="Реклама" class="title">Второстепенна реклама</a>
+                            </h2>
+                            <div class="ad-box-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos hic minima, error ut fugiat aperiam veniam consequuntur
+                                ex at voluptatibus, adipisci deserunt. Delectus tempore non, magni ab, doloremque eveniet.
+                            </div>
+                            <a href="#" title="Виж повече" class="readmore">not visible</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
