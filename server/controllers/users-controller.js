@@ -3,7 +3,7 @@
 let jwt = require('jwt-simple');
 const encrypt = require("../utils/encryption");
 let secret = "Secret unicorns";
-const DEFAULT_IMAGE = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqhN3-lNH2F8f_eCb0wBD650zauwEIBNsIyzgVHa1kJh72dGGjRw';
+const DEFAULT_IMAGE = 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/076/07f/0d01ca8.jpg';
 
 module.exports = function ({ data, validator }) {
     return {
@@ -61,20 +61,21 @@ module.exports = function ({ data, validator }) {
             newUser.salt = salt;
             let hashPass = encrypt.generateHashedPassword(salt, pass);
             newUser.hashPass = hashPass;
+            newUser.profileImg = DEFAULT_IMAGE;
             newUser.visitedSites = [];
 
             // console.log(newUser);
 
             data.getUserByUsername(newUser.username).then((user) => {
                 if (user) {
-                    return res.status(400).send({ success: false, errMsg: 'Потребител с това потребителско име вече съществува!' });
+                    return res.status(400).send({ success: false, msg: 'Потребител с това потребителско име вече съществува!' });
                 } else {
                     data.createUser(newUser)
                         .then((data) => {
                             res.status(201).send({ success: true, data })
                         })
                         .catch(err => {
-                            return res.status(400).send({ success: false, errMsg: 'Не е създаден потребител!' });
+                            return res.status(400).send({ success: false, msg: 'Не е създаден потребител!' });
                         });
                 }
             });

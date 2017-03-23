@@ -7,18 +7,12 @@ module.exports = function (models, validator) {
     return {
         createUser(user) {
             return new Promise((resolve, reject) => {
-
                 let newUser = new User({
                     username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    profileImgURL: user.profileImgURL,
-                    email: user.email,
-                    hashPass: user.hashPass,
                     salt: user.salt,
-                    recipes: user.recipes,
-                    forumPoints: user.forumPoints,
-                    isAdmin: user.isAdmin
+                    hashPass: user.hashPass,
+                    profileImg: user.profileImg,
+                    visitedSites: user.visitedSites
                 });
 
                 resolve(newUser);

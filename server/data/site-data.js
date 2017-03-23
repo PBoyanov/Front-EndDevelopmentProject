@@ -30,6 +30,16 @@ module.exports = function (models) {
                     return resolve(site);
                 });
             });
+        },
+        addSiteComment(id, comment) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneById(Site, id)
+                .then((site) => {
+                    site.comments.push(comment);
+                    dataUtils.update(site);
+                    return resolve(site);
+                });
+            });
         }
     };
 };

@@ -928,6 +928,30 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
+.write-comment {
+    margin-bottom: 20px;
+}
+
+.write-comment-inner {
+    background-color: #fff;
+    padding: 40px 50px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+.write-comment-header,
+.write-comment .textarea-wrap {
+    margin-bottom: 15px;
+}
+
+.write-comment-header h3 {
+    font-size: 24px;
+    color: #4f4f4f;
+}
+
+.write-comment textarea {
+    width: 100%;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {

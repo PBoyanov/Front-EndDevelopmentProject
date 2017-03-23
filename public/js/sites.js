@@ -126,6 +126,19 @@ let sites = (() => {
                     data.markSiteAsVisited(siteId, username, isReverse);
                     document.location.reload(true);
                 });
+
+                $("#post-comment").on("click", function() {
+                    let commentContent = $("#comment").val();
+                    if(commentContent.length === 0) {
+                        toastr.error("Коментарът не може да бъде празен!");
+                    } else {
+                        let siteId = site.id;
+                        let date = new Date();
+                        let username = loggedUser.username;
+                        data.addSiteComment(siteId, commentContent, date, username);
+                        document.location.reload(true);
+                    }
+                }); 
             });
     }
 

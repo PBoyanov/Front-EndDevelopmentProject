@@ -32,6 +32,11 @@ let data = (() => {
         return visitedSites.some(site => site.number === siteNumber);
     }
 
+    function addSiteComment(siteId, content, date, username ) {
+        let putData = { commentContent: content, commentDate: date, username: username };
+        return requester.putJSON(`api/sites/${siteId}/comment`, putData);
+    }
+
     function getNews() {
         return requester.getJSON("api/news");
     }
@@ -82,72 +87,18 @@ let data = (() => {
         })
     }
 
-    function createMaterial(title, description, img = "") {
-        return isLoggedIn()
-            .then((result) => {
-                if (!result.username) {
-                    throw new Error("You have to be logged in to create material");
-                }
-            })
-            .then(() => {
-                validator.validateTitle(title);
-                validator.validateDescription(description);
-
-                let postData = { title, description };
-                if (img !== "") {
-                    postData.img = img;
-                }
-
-                return postData;
-            })
-            .then((postData) => {
-                let headers = { [AUTH_KEY]: localStorage.getItem(AUTH_KEY) };
-                return requester.postJSON("api/materials", postData, headers);
-            });
-    }
-
-    function addComment(id, text) {
-        return isLoggedIn()
-            .then((result) => {
-                if (!result.username) {
-                    throw new Error("You have to be logged in to comment!");
-                }
-            })
-            .then(() => {
-                let postData = { "commentText": text };
-                let headers = { [AUTH_KEY]: localStorage.getItem(AUTH_KEY) };
-                return requester.putJSON(`api/materials/${id}/comments`, postData, headers);
-            });
-    }
-
-    function addToCategory(id, category) {
-        return isLoggedIn()
-            .then((result) => {
-                if (!result.username) {
-                    throw new Error("You have to be logged in to add material to category!");
-                }
-            })
-            .then(() => {
-                let postData = { id, category };
-                let headers = { [AUTH_KEY]: localStorage.getItem(AUTH_KEY) };
-                return requester.postJSON("api/user-materials", postData, headers);
-            });
-    }
-
     return {
         getSites,
         getSiteById,
         markSiteAsVisited,
         isSiteVisitedByCurrentUser,
+        addSiteComment,
         getNews,
         getUserByUsername,
         loginUser,
         registerUser,
         logoutUser,
-        isLoggedIn,
-        createMaterial,
-        addComment,
-        addToCategory
+        isLoggedIn
     }
 })();
 

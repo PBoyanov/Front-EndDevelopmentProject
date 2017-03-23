@@ -6,35 +6,52 @@
         </div>
     </div>
     <div class="row">
-        <article class="site-content col col-12 col-lg-8">
-            <div class="site-content-inner">
-                <div class="site-info">
-                    <span class="visits">
+        <div class="content-wrap col col-12 col-lg-8">
+            <article class="site-content">
+                <div class="site-content-inner">
+                    <div class="site-info">
+                        <span class="visits">
                         <i class="fa fa-user visits-icon" aria-hidden="true"></i>
                         {{site.numberOfVisits}}
                     </span> |
-                    <span class="comments">{{site.commentsCount}} comments</span>
-                </div>
-                <div class="site-header">
-                    <h2>{{site.name}}</h2>
-                </div>
-                <div class="site-region">
-                    Област {{site.region}}
-                </div>
-                <div class="site-description">
-                    {{{site.description}}}
-                </div>
-                {{#if isLoggedIn}}
-                <div class="site-btn-wrap">
-                    {{#if isSiteVisited}}
-                    <button type="button" id="checkSite" class="btn site-btn reverse">Отмаркирай</button>
-                    {{else}}
-                    <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
+                        <span class="comments">{{site.commentsCount}} comments</span>
+                    </div>
+                    <div class="site-header">
+                        <h2>{{site.name}}</h2>
+                    </div>
+                    <div class="site-region">
+                        Област {{site.region}}
+                    </div>
+                    <div class="site-description">
+                        {{{site.description}}}
+                    </div>
+                    {{#if isLoggedIn}}
+                    <div class="site-btn-wrap">
+                        {{#if isSiteVisited}}
+                        <button type="button" id="checkSite" class="btn site-btn reverse">Отмаркирай</button>
+                        {{else}}
+                        <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
+                        {{/if}}
+                    </div>
                     {{/if}}
                 </div>
-                {{/if}}
+            </article>
+            {{#if isLoggedIn}}
+            <div class="write-comment">
+                <div class="write-comment-inner">
+                    <div class="write-comment-header">
+                        <h3>Напишете коментар:</h3>
+                    </div>
+                    <div class="textarea-wrap">
+                        <textarea id="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea>
+                    </div>
+                    <div class="post-commment-wrap">
+                        <button type="button" id="post-comment" class="btn basic-btn">Публикувай</button>
+                    </div>
+                </div>
             </div>
-        </article>
+            {{/if}}
+        </div>
         <aside id="ads" class="col col-12 col-lg-4">
             <div class="main-ad-box">
                 <a href="#" title="Място за вашата реклама">
