@@ -20,6 +20,16 @@ module.exports = function (models) {
                     return resolve(site);
                 });
             });
+        },
+        decrementSiteVisits(id) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneById(Site, id)
+                .then((site) => {
+                    site.numberOfVisits--;
+                    dataUtils.update(site);
+                    return resolve(site);
+                });
+            });
         }
     };
 };

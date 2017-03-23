@@ -119,10 +119,11 @@ let sites = (() => {
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
 
-                $(".site-content .site-btn").on("click", function() {
+                $(".site-content .site-btn").on("click", function(event) {
                     let siteId = site.id;
                     let username = loggedUser.username;
-                    data.markSiteAsVisited(siteId, username);
+                    let isReverse = $(event.target).hasClass("reverse");
+                    data.markSiteAsVisited(siteId, username, isReverse);
                     document.location.reload(true);
                 });
             });

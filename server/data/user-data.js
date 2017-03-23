@@ -70,6 +70,24 @@ module.exports = function (models, validator) {
                         return resolve(user.visitedSites);
                     });
             });
+        },
+        unmarkSiteAsVisited(username, site) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        let siteNumber = site.number;
+                        for (let i = 0; i < user.visitedSites.length; i++) {
+                            let site = user.visitedSites[i];
+
+                            if (site.number === siteNumber) {
+                                user.visitedSites.splice(i, 1);
+                            }
+                        }
+
+                        dataUtils.update(user);
+                        return resolve(user.visitedSites);
+                    });
+            });
         }
     };
 };

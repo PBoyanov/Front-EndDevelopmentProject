@@ -14,8 +14,8 @@ let data = (() => {
         return requester.getJSON(`api/sites/${id}`);
     }
 
-    function markSiteAsVisited(siteId, username) {
-        let putData = { siteId: siteId, username: username };
+    function markSiteAsVisited(siteId, username, isReverse) {
+        let putData = { siteId: siteId, username: username, isReverse: isReverse };
         return requester.putJSON(`api/sites/${siteId}`, putData)
                 .then((serverResponseObj) => {
                     let userVisitedSites = serverResponseObj.visitedSites;

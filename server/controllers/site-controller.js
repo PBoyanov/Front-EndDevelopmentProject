@@ -26,7 +26,9 @@ module.exports = function (params) {
             let putData = req.body;
             let siteId = putData.siteId;
             let username = putData.username;
+            let isReverse = putData.isReverse;
 
+            if(!isReverse) {
             data.incrementSiteVisits(siteId)
                 .then((site) => {
                     data.markSiteAsVisited(username, site)
@@ -40,6 +42,21 @@ module.exports = function (params) {
                 .catch(err => {
                     res.json(err);
                 });
+            } else {
+                data.decrementSiteVisits(siteId)
+                .then((site) => {
+                    data.unmarkSiteAsVisited(username, site)
+                        .then((visitedSites) => {
+                            res.status(200).send({ success: true, visitedSites });
+                        })
+                        .catch(err => {
+                            res.json(err);
+                        });
+                })
+                .catch(err => {
+                    res.json(err);
+                });
+            }
         }
     };
 };

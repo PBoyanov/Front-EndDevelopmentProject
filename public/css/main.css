@@ -918,11 +918,14 @@ h2 a:hover span {
     background-color: #006400;
 }
 
-.site-btn.inactive {
-    background-color: #cacaca;
+.site-btn.reverse {
+    background-color: #ce4e32;
     color: #fff;
     margin-bottom: 15px;
-    cursor: initial;
+}
+
+.site-btn.reverse:hover {
+    background-color: #f26c4f;
 }
 
 /*Footer
