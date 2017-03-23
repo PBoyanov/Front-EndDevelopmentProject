@@ -2,7 +2,6 @@ import { templateLoader } from './template-loader';
 import { data } from './data';
 
 let sites = (() => {
-    let templateItems = {};
     const DROPDOWN_DEFAULT_VALUE = "Изберете област";
     const ORDER_BY_VALUES = {
         number: "number",
@@ -10,6 +9,7 @@ let sites = (() => {
     };
 
     function getSitesPage(context) {
+        let templateItems = {};
         let serverResponseSites;
 
         Promise.all([data.getSites(), templateLoader.get("all-sites")])
@@ -103,15 +103,28 @@ let sites = (() => {
     }
 
     function getSingleSitePage(context) {
+        let templateItems = {};
         let serverResponse;
         let siteId = context.params["id"];
-        Promise.all([data.getSiteById(siteId), templateLoader.get("single-site")])
-            .then(([serverResponse, template]) => { 
+
+        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), templateLoader.get("single-site")])
+            .then(([serverResponse, loggedUser, template]) => { 
                 let site = serverResponse.data;
                 countComments(site);
+                templateItems.site = site;
 
-                let pageHtml = template(site);
+                templateItems.isLoggedIn = !!(loggedUser.username);
+                templateItems.isSiteVisited = data.isSiteVisitedByCurrentUser(site.number);
+
+                let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
+
+                $(".site-content .site-btn").on("click", function() {
+                    let siteId = site.id;
+                    let username = loggedUser.username;
+                    data.markSiteAsVisited(siteId, username);
+                    document.location.reload(true);
+                });
             });
     }
 

@@ -13,11 +13,8 @@ let auth = (() => {
                             return data.loginUser(user);
                         })
                         .then((result) => {
-
                             changeStyles(result.username);
-
                             context.redirect("#/home");
-
                             toastr.success("Добре дошъл, пътешественико!");
                         })
                         .catch((e) => {
@@ -50,15 +47,8 @@ let auth = (() => {
                             return data.loginUser(userInfo);
                         })
                         .then((result) => {
-                            console.log(result);
-                            // if (result.result.err) {
-                            //     throw new Error(result.result.err);
-                            // }
-
                             changeStyles(result.username);
-
                             context.redirect("#/home");
-
                             toastr.success("Успешна регистрация!");
                         })
                         .catch((e) => {

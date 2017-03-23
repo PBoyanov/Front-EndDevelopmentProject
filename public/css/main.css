@@ -900,6 +900,29 @@ h2 a:hover span {
     font-size: 16px;
     font-stretch: semi-condensed;
     text-indent: 20px;
+    margin-bottom: 20px;
+}
+
+.site-btn-wrap {
+    text-align: right;
+}
+
+.site-btn {
+    background-color: #008000;
+    color: #fff;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.site-btn:hover {
+    background-color: #006400;
+}
+
+.site-btn.inactive {
+    background-color: #cacaca;
+    color: #fff;
+    margin-bottom: 15px;
+    cursor: initial;
 }
 
 /*Footer

@@ -1,6 +1,6 @@
 /* globals module */
 
-module.exports = function(params) {
+module.exports = function (params) {
     let { data } = params;
 
     return {
@@ -17,6 +17,25 @@ module.exports = function(params) {
             data.getSiteById(req.params.id)
                 .then((site) => {
                     res.json({ data: site });
+                })
+                .catch(err => {
+                    res.json(err);
+                });
+        },
+        markSiteAsVisited(req, res) {
+            let putData = req.body;
+            let siteId = putData.siteId;
+            let username = putData.username;
+
+            data.incrementSiteVisits(siteId)
+                .then((site) => {
+                    data.markSiteAsVisited(username, site)
+                        .then((visitedSites) => {
+                            res.status(200).send({ success: true, visitedSites });
+                        })
+                        .catch(err => {
+                            res.json(err);
+                        });
                 })
                 .catch(err => {
                     res.json(err);

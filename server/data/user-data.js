@@ -1,28 +1,28 @@
 /* globals module */
 let dataUtils = require('./utils/data-utils');
 
-module.exports = function(models, validator) {
+module.exports = function (models, validator) {
     let { User } = models;
 
     return {
         createUser(user) {
             return new Promise((resolve, reject) => {
 
-                    let newUser = new User({
-                        username: user.username,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                        profileImgURL: user.profileImgURL,
-                        email: user.email,
-                        hashPass: user.hashPass,
-                        salt: user.salt,
-                        recipes: user.recipes,
-                        forumPoints: user.forumPoints,
-                        isAdmin: user.isAdmin
-                    });
+                let newUser = new User({
+                    username: user.username,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    profileImgURL: user.profileImgURL,
+                    email: user.email,
+                    hashPass: user.hashPass,
+                    salt: user.salt,
+                    recipes: user.recipes,
+                    forumPoints: user.forumPoints,
+                    isAdmin: user.isAdmin
+                });
 
-                    resolve(newUser);
-                })
+                resolve(newUser);
+            })
                 .then((newUser) => {
                     return dataUtils.save(newUser);
                 })
@@ -53,15 +53,23 @@ module.exports = function(models, validator) {
             });
         },
         getUserByUsername(username) {
-            return new Promise((resolve, reject) => {
-                User.findOne({ username }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    return resolve(user);
-                });
-            });
+            return dataUtils.getOneByUsername(User, username);
         },
+        markSiteAsVisited(username, site) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        let siteData = {
+                            number: site.number,
+                            name: site.name,
+                            town: site.town
+                        };
+
+                        user.visitedSites.push(siteData);
+                        dataUtils.update(user);
+                        return resolve(user.visitedSites);
+                    });
+            });
+        }
     };
 };

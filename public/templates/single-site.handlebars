@@ -1,8 +1,8 @@
 <div id="wrap" class="basic-container">
     <div class="img-container">
-        <img id="site-img" src="{{imgUrl}}" alt="{{name}}">
+        <img id="site-img" src="{{site.imgUrl}}" alt="{{site.name}}">
         <div class="img-caption">
-            {{town}}
+            {{site.town}}
         </div>
     </div>
     <div class="row">
@@ -11,19 +11,28 @@
                 <div class="site-info">
                     <span class="visits">
                         <i class="fa fa-user visits-icon" aria-hidden="true"></i>
-                        {{numberOfVisits}}
+                        {{site.numberOfVisits}}
                     </span> |
-                    <span class="comments">{{commentsCount}} comments</span>
+                    <span class="comments">{{site.commentsCount}} comments</span>
                 </div>
                 <div class="site-header">
-                    <h2>{{name}}</h2>
+                    <h2>{{site.name}}</h2>
                 </div>
                 <div class="site-region">
-                    Област {{region}}
+                    Област {{site.region}}
                 </div>
                 <div class="site-description">
-                    {{{description}}}
+                    {{{site.description}}}
                 </div>
+                {{#if isLoggedIn}}
+                <div class="site-btn-wrap">
+                    {{#if isSiteVisited}}
+                    <button type="button" id="checkSite" class="btn site-btn inactive">Посетено</button>
+                    {{else}}
+                    <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
+                    {{/if}}
+                </div>
+                {{/if}}
             </div>
         </article>
         <aside id="ads" class="col col-12 col-lg-4">

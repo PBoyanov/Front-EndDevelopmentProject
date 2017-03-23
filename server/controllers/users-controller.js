@@ -25,8 +25,8 @@ module.exports = function ({ data, validator }) {
                                 success: true,
                                 body: {
                                     token: token,
-                                    username: user.username
-                                    //isAdmin: user.isAdmin
+                                    username: user.username,
+                                    visitedSites: user.visitedSites
                                 }
                             });
                         } else {
@@ -56,16 +56,12 @@ module.exports = function ({ data, validator }) {
                 newUser[property] = postData[property];
             });
 
-            // console.log(req.body);
-
-            //for safety
-            //newUser.isAdmin = false;
-
             let pass = postData.password;
             let salt = encrypt.generateSalt();
             newUser.salt = salt;
             let hashPass = encrypt.generateHashedPassword(salt, pass);
             newUser.hashPass = hashPass;
+            newUser.visitedSites = [];
 
             // console.log(newUser);
 

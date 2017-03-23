@@ -10,6 +10,7 @@ module.exports = function({ app, controllers }) {
         // .post('/register', controllers.register)
         // .post('/login', controllers.login)
         .get('/sites/:id', controllers.getSiteById)
+        .put('/sites/:id', controllers.markSiteAsVisited)
         .get('/sites', controllers.getAllSites);
 
     app.use("/api", router);

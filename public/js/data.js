@@ -4,6 +4,7 @@ import { validator } from './validator';
 let data = (() => {
     const USERNAME_KEY = "username";
     const AUTH_KEY = "auth-key";
+    const VISITED_SITES = "visited-sites";
 
     function getSites() {
         return requester.getJSON("api/sites");
@@ -11,6 +12,24 @@ let data = (() => {
 
     function getSiteById(id) {
         return requester.getJSON(`api/sites/${id}`);
+    }
+
+    function markSiteAsVisited(siteId, username) {
+        let putData = { siteId: siteId, username: username };
+        return requester.putJSON(`api/sites/${siteId}`, putData)
+                .then((serverResponseObj) => {
+                    let userVisitedSites = serverResponseObj.visitedSites;
+                    localStorage.setItem(VISITED_SITES, JSON.stringify(userVisitedSites));
+                });
+    }
+
+    function isSiteVisitedByCurrentUser(siteNumber) {
+        let visitedSites = JSON.parse(localStorage.getItem(VISITED_SITES));
+        if(!visitedSites) {
+            return false;
+        }
+        
+        return visitedSites.some(site => site.number === siteNumber);
     }
 
     function getNews() {
@@ -38,6 +57,7 @@ let data = (() => {
                 let userInfo = result.body;
                 localStorage.setItem(USERNAME_KEY, userInfo.username);
                 localStorage.setItem(AUTH_KEY, userInfo.token);
+                localStorage.setItem(VISITED_SITES, JSON.stringify(userInfo.visitedSites));
                 return { username: userInfo.username };
             });
     }
@@ -56,6 +76,7 @@ let data = (() => {
             let result = {};
             if (localStorage.getItem(USERNAME_KEY) && localStorage.getItem(AUTH_KEY)) {
                 result.username = localStorage.getItem(USERNAME_KEY);
+                result.visitedSites = localStorage.getItem(VISITED_SITES);
             }
             resolve(result);
         })
@@ -116,6 +137,8 @@ let data = (() => {
     return {
         getSites,
         getSiteById,
+        markSiteAsVisited,
+        isSiteVisitedByCurrentUser,
         getNews,
         getUserByUsername,
         loginUser,

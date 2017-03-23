@@ -8,5 +8,6 @@ module.exports = modelRegistrator.register('User', {
         unique: true
     },
     salt: String,
-    hashPass: String
+    hashPass: String,
+    visitedSites: []
 })

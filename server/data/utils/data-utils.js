@@ -57,6 +57,16 @@ module.exports = {
                     return resolve(singleRecord);
                 });
             });
-    }
+    },
+    getOneByUsername(model, username) {
+        return new Promise((resolve, reject) => {
+                model.findOne({ username }, (err, user) => {
+                    if (err) {
+                        return reject(err);
+                    }
 
+                    return resolve(user);
+                });
+            });
+    }
 };
