@@ -164,6 +164,10 @@ let sites = (() => {
                 $("#pagination").twbsPagination({
                     totalPages: site.commentsPagesCount,
                     visiblePages: 5,
+                    first: "Първа",
+                    prev: "Предишна",
+                    next: "Следваща",
+                    last: "Последна",
                     onPageClick: function (event, page) {
                         let currentPage = $("#comments").find(".comment-page:not(.hidden)");
                         currentPage.addClass("hidden");
@@ -202,14 +206,14 @@ let sites = (() => {
 
     function createCommentsPages(commentsArr) {
         let commentsPages = [];
-        let counter = 1;
+        let counter = 0;
         let pagesCount = 0;
         let singlePage = {};
         singlePage.number = pagesCount + 1;
         singlePage.defaultPage = true;
         singlePage.comments = [];
         for (let i = 0; i < commentsArr.length; i += 1) {
-            if (counter < COMMENTS_ON_PAGE + 1 && i !== commentsArr.length - 1) {
+            if (counter < COMMENTS_ON_PAGE && i !== commentsArr.length - 1) {
                 //if < 4 comments on the current page, push comment to current page
                 singlePage.comments.push(commentsArr[i]);
                 counter = counter + 1;
@@ -227,8 +231,8 @@ let sites = (() => {
                         pagesCount += 1;
                         singlePage.number = pagesCount + 1;
                         singlePage.comments = [];
-                        counter = 1;
                         singlePage.comments.push(commentsArr[i]);
+                        counter = 1;
                         commentsPages.push(singlePage);
                     }
                 } else {
@@ -238,13 +242,13 @@ let sites = (() => {
                     pagesCount += 1;
                     singlePage.number = pagesCount + 1;
                     singlePage.comments = [];
-                    counter = 1;
                     singlePage.comments.push(commentsArr[i]);
+                    counter = 1;
                 }
             }
         }
 
-        console.log(commentsPages);
+        //console.log(commentsPages);
 
         return commentsPages;
     }

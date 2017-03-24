@@ -193,6 +193,35 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
+#pagination {
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#pagination .page-item {
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+#pagination .page-item .page-link {
+    color: #474747;
+}
+
+#pagination .page-item .page-link:hover {
+    background-color: #f26c4f;
+    color: #fff;
+}
+
+#pagination .page-item.active .page-link {
+    background-color: #474747;
+    border-color: #474747;
+    color: #fff;
+}
+
+#pagination .page-item.disabled .page-link {
+    color: #f26c4f;
+}
+
 
 /*Header
 ================================================== */
@@ -1007,6 +1036,7 @@ h2 a:hover span {
 
 .comment-item .content {
     color: #474747;
+    word-wrap: break-word;
 }
 
 /*Footer
@@ -1074,7 +1104,7 @@ h2 a:hover span {
 }
 
 
-@media only screen and (max-width: 991px) {
+@media screen and (max-width: 991px) {
 	/*Navigation
     ================================================== */
 
@@ -1213,13 +1243,13 @@ h2 a:hover span {
 
 /* Tablet (Portrait)
 ================================================== */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 	.basic-container { width: 700px; }
 }
 
 /* Mobile (Portrait)
 ================================================== */
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .visible-on-mobile {
         display: block;
     }
@@ -1278,10 +1308,15 @@ h2 a:hover span {
     .site-content .site-description {
         text-align: justify;
     }
+
+    .comment-item .circle {
+        width: 90%;
+        margin-left: 15px;
+    }
 }
 
 /* Mobile (Landscape)
 ================================================== */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
 	
 }
