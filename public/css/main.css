@@ -958,6 +958,54 @@ h2 a:hover span {
     width: 100%;
 }
 
+.comment-item {
+    margin-bottom: 15px;
+}
+
+.comment-item .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 2px solid #ce4e32;
+    border-radius: 50%;
+    overflow: hidden;
+    --margin-left: 30px;
+}
+
+.comment-item .comment-content-inner {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+.comment-item .comment-content-inner:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 1px;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-right: 14px solid #fff;
+}
+
+.comment-item .username {
+    color: #f26c4f;
+    font-size: 20px;
+}
+
+.comment-item .date {
+    color: #8f8f8f;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px
+}
+
+.comment-item .content {
+    color: #474747;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {
