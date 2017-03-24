@@ -24,6 +24,8 @@ let router = (() => {
 
             this.get("#/all-sites", controllers.sites.getSitesPage);
 
+            this.get("#/news", controllers.news.getNewsPage);
+
             // this.get("#/profiles/:username", controllers.userProfile.all);
 
             // this.get("#/profiles/:username/:category", controllers.userProfile.all);

@@ -60,14 +60,14 @@
                         {{#each news}}
                         <li class="news-item">
                             <div class="news-item-wrap">
-                                <h2>{{heading}}</h2>
+                                <h2><a href="#/news/{{id}}">{{heading}}</a></h2>
                                 <div class="news-item-info">
                                     <span class="date">{{date}}</span> |
                                     <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
                                 </div>
                                 <div class="news-item-content">
                                     {{{content}}}
-                                    <a href="/api/news/{{_id}}" title="Прочети повече" class="readmore">Прочети повече</a>
+                                    <a href="#/news/{{id}}" title="Прочети повече" class="readmore">Прочети повече</a>
                                 </div>
                             </div>
                         </li>

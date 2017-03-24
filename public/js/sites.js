@@ -107,7 +107,6 @@ let sites = (() => {
 
     function getSingleSitePage(context) {
         let templateItems = {};
-        let serverResponse;
         let siteId = context.params["id"];
 
         Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("site-details")])

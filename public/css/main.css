@@ -598,6 +598,10 @@ h2 a:hover span {
     margin: 0 0 15px;
 }
 
+.news-item h2 a:hover {
+    color: #474747;
+}
+
 .news-item .news-item-info {
     color: #8f8f8f;
     font-weight: 300;
@@ -647,6 +651,7 @@ h2 a:hover span {
 
 .main-ad-box img {
     width: 100%;
+    max-height: 400px;
 }
 
 .main-ad-box .overlay-plus {
@@ -1037,6 +1042,40 @@ h2 a:hover span {
 .comment-item .content {
     color: #474747;
     word-wrap: break-word;
+}
+
+                    /*News
+==================================================
+================================================== */
+#news-list .news-item {
+    margin-bottom: 20px;
+}
+
+.news-item-img img {
+    width: 100%;
+    max-height: 300px;
+}
+
+.news-item-data-inner {
+    background-color: #fff;
+    padding: 40px 50px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+#news-list .news-item h2 {
+    color: #707070;
+}
+
+#news-list .news-item h2 a:hover {
+    color: #f26c4f;
+}
+
+.news-item .news-item-content {
+    margin-top: 20px;
+}
+
+.news-item .news-item-content .readmore {
+    color: #ce4e32;
 }
 
 /*Footer

@@ -1,7 +1,7 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('News', {
-    _id: String,
+    id: Number,
     heading: String,
     content: String,
     date: Date,

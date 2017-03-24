@@ -1,59 +1,31 @@
 <div id="wrap" class="basic-container">
     <div class="img-container">
-        <img src="http://bulgarkamagazine.com/wp-content/uploads/2015/10/049420532667.jpg" alt="Плиска">
-        {{!-- https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg
+        <img src="http://bulgarkamagazine.com/wp-content/uploads/2015/10/049420532667.jpg" alt="Плиска"> {{!-- https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg
         <img src="https://imgrabo.com/design/_opoznai.bg/index_header/tsarevets.jpg" alt="Царевец">--}}
     </div>
     <div class="row">
-        <div id="sites" class="col col-12 col-lg-8">
-            <div class="row">
-                <div id="filter-by-region" class="btn-group col col-12 col-md-6">
-                    <button type="button" class="btn dropdown-value">{{filteredOnThis}}</button>
-                    <button type="button" class="btn basic-dropdown-btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <button  class="dropdown-item default">Всички области</button >
-                        <button  class="dropdown-item">Благоевград</button >
-                        <button  class="dropdown-item">Видин</button >
-                        <button  class="dropdown-item">Велико Търново</button >
-                        <button  class="dropdown-item">Враца</button >
-                        <button  class="dropdown-item">Кюстендил</button >
-                        <button  class="dropdown-item">Монтана</button >
-                        <button  class="dropdown-item">Перник</button >            
-                        <button  class="dropdown-item">Пловдив</button >
-                        <button  class="dropdown-item">София-град</button >                
-                        <button  class="dropdown-item">Хасково</button >
-                        <button  class="dropdown-item">Шумен</button >                                   
+        <div id="news" class="col col-12 col-lg-8">
+            <ul id="news-list">
+                {{#each news}}
+                <li class="news-item">
+                    <div class="news-item-img">
+                        <a href="#/news/{{id}}">
+                            <img src="{{imgUrl}}" alt="Заглавие">
+                        </a>
                     </div>
-                </div>
-                <div id="order-by" class="btn-group col col-12 col-md-6" role="group" aria-label="Basic example">
-                    <button id="number" type="button" class="btn order-btn {{#if orderByNumber}} active {{/if}}">Номер</button>
-                    <button id="visits" type="button" class="btn order-btn {{#if orderByVisits}} active {{/if}}">Посещения</button>
-                </div>
-            </div>
-            {{#if regionSelected}}
-            <div class="sites-count">
-                {{sitesCount}} {{#if isSingleSite}}обект{{else}}обекта{{/if}}
-            </div>
-            {{/if}}
-            <ul id="sites-list">
-                {{#each sites}}
-                <li class="site">
-                    <div class="site-wrap">
-                        <div class="row">
-                            <div class="col col-12 col-md-11">
-                                <h2><a href="/#/all-sites/{{id}}">{{number}}. {{name}} - {{town}}</a></h2>
+                    <div class="news-item-data">
+                        <div class="news-item-data-inner">
+                            <div class="news-item-header">
+                                <h2><a href="#/news/{{id}}">{{heading}}</a></h2>
                             </div>
-                            <div class="site-info col col-12 col-md-1 justify-content-end">
-                                <i class="fa fa-user visits-icon" aria-hidden="true"></i>
-                                <span class="visits">{{numberOfVisits}}</span>
+                            <div class="news-item-info">
+                                <span class="date">{{date}}</span> |
+                                <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
                             </div>
-                        </div>
-                        <div class="site-content">
-                            {{{description}}}
-                            <a href="/#/all-sites/{{id}}" title="Виж повече" class="readmore">Виж повече</a>
+                            <div class="news-item-content">
+                                {{{content}}}
+                                <a href="#/news/{{id}}" title="Виж повече" class="readmore">Виж повече</a>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -78,7 +50,7 @@
                         <a href="#/home" class="side-menu-button">Начало</a>
                     </li>
                     <li class="side-menu-item">
-                        <a href="#/news" class="side-menu-button">Новини</a>
+                        <a href="#/sites" class="side-menu-button">Обекти</a>
                     </li>
                     <li class="side-menu-item">
                         <a href="#" class="side-menu-button">За нас</a>
