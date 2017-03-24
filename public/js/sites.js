@@ -116,6 +116,7 @@ let sites = (() => {
                 templateItems.isSingleComment = (site.comments.length === 1);
                 processComments(site.comments);
                 site.commentsPages = createCommentsPages(site.comments);
+                let commentsPagesCount = site.commentsPages.length;
 
                 templateItems.site = site;
 
@@ -161,12 +162,12 @@ let sites = (() => {
                 });
 
                 $("#pagination").twbsPagination({
-                    totalPages: site.commentsPagesCount,
+                    totalPages: commentsPagesCount,
                     visiblePages: 5,
-                    first: "Първа",
-                    prev: "Предишна",
-                    next: "Следваща",
-                    last: "Последна",
+                    first: "<<",
+                    prev: "<",
+                    next: ">",
+                    last: ">>",
                     onPageClick: function (event, page) {
                         let currentPage = $("#comments").find(".comment-page:not(.hidden)");
                         currentPage.addClass("hidden");
@@ -283,7 +284,6 @@ let sites = (() => {
 
     function countComments(site) {
         site.commentsCount = site.comments.length;
-        site.commentsPagesCount = Math.ceil(site.commentsCount / COMMENTS_ON_PAGE);
     }
 
     return {
