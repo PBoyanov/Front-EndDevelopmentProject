@@ -77,7 +77,6 @@ let home = (() => {
     }
 
     function processNewsData(news) {
-        news.sort(sortNewsByDate);
         for (let newsItem of news) {
             newsItem.content = newsItem.content.slice(0, 200) + "...";
             newsItem.date = new Date(newsItem.date);

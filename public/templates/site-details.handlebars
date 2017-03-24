@@ -43,7 +43,7 @@
                         <h3>Напишете коментар:</h3>
                     </div>
                     <div class="textarea-wrap">
-                        <textarea id="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea>
+                        <textarea id="comment" cols="45" rows="6" maxlength="65525" aria-required="true" required="required"></textarea>
                     </div>
                     <div class="post-commment-wrap">
                         <button type="button" id="post-comment" class="btn basic-btn">Публикувай</button>
@@ -51,35 +51,42 @@
                 </div>
             </div>
             {{/if}}
-            <div class="comments">
-                <ul>          
-                    {{#each site.comments}}
-                    <li class="comment-item">
-                        <div class="comment-wrap">
-                            <div class="row">
-                                <div class="user-img-wrap col col-2">
-                                    <div class="circle">
-                                        <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
+            <div id="comments">
+                {{#each site.commentsPages}}
+                    <div id="comment-page-{{number}}" class="comment-page {{#unless defaultPage}}hidden{{/unless}}">
+                        <ul class="comment-page-list">
+                        {{#each comments}}
+                            <li class="comment-item">
+                                <div class="comment-wrap">
+                                    <div class="row">
+                                        <div class="user-img-wrap col col-2">
+                                            <div class="circle">
+                                                <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
+                                            </div>
+                                        </div>
+                                        <div class="comment-content col col-10">
+                                            <div class="comment-content-inner">
+                                                <div class="username">
+                                                    {{username}}
+                                                </div>
+                                                <div class="date">
+                                                    В {{date}}
+                                                </div>
+                                                <div class="content">
+                                                    {{content}}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="comment-content col col-10">
-                                    <div class="comment-content-inner">
-                                        <div class="username">
-                                            {{username}}
-                                        </div>
-                                        <div class="date">
-                                            {{date}}
-                                        </div>
-                                        <div class="content">
-                                            {{content}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    {{/each}}
-                </ul>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="pagination-wrap">
+                <ul id="pagination"></ul>
             </div>
         </div>
         <aside id="ads" class="col col-12 col-lg-4">

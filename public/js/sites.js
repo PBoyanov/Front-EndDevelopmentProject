@@ -3,6 +3,7 @@ import { data } from './data';
 
 let sites = (() => {
     const DROPDOWN_DEFAULT_VALUE = "Всички области";
+    const COMMENTS_ON_PAGE = 4;
     const ORDER_BY_VALUES = {
         number: "number",
         visits: "visits"
@@ -114,11 +115,14 @@ let sites = (() => {
                 let site = serverResponseSite.data;
                 countComments(site);
                 templateItems.isSingleComment = (site.comments.length === 1);
+                processComments(site.comments);
+                site.commentsPages = createCommentsPages(site.comments);
+
                 templateItems.site = site;
 
                 templateItems.isLoggedIn = !!(loggedUser.username);
 
-                let visitedSitesNumbers = (serverResponseVisitedSites.siteNumbers ? 
+                let visitedSitesNumbers = (serverResponseVisitedSites.siteNumbers ?
                     serverResponseVisitedSites.siteNumbers : []);
                 templateItems.isSiteVisited = visitedSitesNumbers.includes(site.number);
 
@@ -156,6 +160,17 @@ let sites = (() => {
                         document.location.reload(true);
                     }
                 });
+
+                $("#pagination").twbsPagination({
+                    totalPages: site.commentsPagesCount,
+                    visiblePages: 5,
+                    onPageClick: function (event, page) {
+                        let currentPage = $("#comments").find(".comment-page:not(.hidden)");
+                        currentPage.addClass("hidden");
+                        let visiblePage = $('#comments').find(`#comment-page-${page}`);
+                        visiblePage.removeClass("hidden");
+                    }
+                });
             });
     }
 
@@ -173,6 +188,84 @@ let sites = (() => {
         }
     }
 
+    function processComments(commentsArr) {
+        for (let comment of commentsArr) {
+            comment.date = new Date(comment.date);
+        }
+
+        commentsArr.sort(sortCommentsByDate);
+
+        for (let comment of commentsArr) {
+            comment.date = formatDate(comment.date);
+        }
+    }
+
+    function createCommentsPages(commentsArr) {
+        let commentsPages = [];
+        let counter = 1;
+        let pagesCount = 0;
+        let singlePage = {};
+        singlePage.number = pagesCount + 1;
+        singlePage.defaultPage = true;
+        singlePage.comments = [];
+        for (let i = 0; i < commentsArr.length; i += 1) {
+            if (counter < COMMENTS_ON_PAGE + 1 && i !== commentsArr.length - 1) {
+                //if < 4 comments on the current page, push comment to current page
+                singlePage.comments.push(commentsArr[i]);
+                counter = counter + 1;
+            } else {
+                //if last comment
+                if (i === commentsArr.length - 1) {
+                    //and < 4 comments on current page, push comment to current page and push page
+                    if (counter < COMMENTS_ON_PAGE) {
+                        singlePage.comments.push(commentsArr[i]);
+                        commentsPages.push(singlePage);
+                        //if >= 4 comments on current page, push page create new page and push it
+                    } else {
+                        commentsPages.push(singlePage);
+                        singlePage = {};
+                        pagesCount += 1;
+                        singlePage.number = pagesCount + 1;
+                        singlePage.comments = [];
+                        counter = 1;
+                        singlePage.comments.push(commentsArr[i]);
+                        commentsPages.push(singlePage);
+                    }
+                } else {
+                    //if >= 4 comments on current page, push page and create new page
+                    commentsPages.push(singlePage);
+                    singlePage = {};
+                    pagesCount += 1;
+                    singlePage.number = pagesCount + 1;
+                    singlePage.comments = [];
+                    counter = 1;
+                    singlePage.comments.push(commentsArr[i]);
+                }
+            }
+        }
+
+        console.log(commentsPages);
+
+        return commentsPages;
+    }
+
+    function formatDate(date) {
+        let monthNames = [
+            "Януари", "Февруари", "Март",
+            "Април", "Май", "Юни", "Юли",
+            "Август", "Септевмри", "Октомври",
+            "Ноември", "Декевмври"
+        ];
+
+        let day = date.getDate();
+        let monthIndex = date.getMonth();
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+
+        return hour + ":" + minute + " на " + day + " " + monthNames[monthIndex] + " " + year;
+    }
+
     function sortSitesByNumber(a, b) {
         return a.number - b.number;
     }
@@ -181,8 +274,13 @@ let sites = (() => {
         return b.numberOfVisits - a.numberOfVisits;
     }
 
+    function sortCommentsByDate(a, b) {
+        return b.date - a.date;
+    }
+
     function countComments(site) {
         site.commentsCount = site.comments.length;
+        site.commentsPagesCount = Math.ceil(site.commentsCount / COMMENTS_ON_PAGE);
     }
 
     return {

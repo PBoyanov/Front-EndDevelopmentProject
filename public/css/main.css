@@ -170,7 +170,6 @@ h2 a:hover span {
 .basic-btn {
     background-color: #474747;
     color: #fff;
-    margin-bottom: 15px;
     cursor: pointer;
 }
 
@@ -749,6 +748,10 @@ h2 a:hover span {
     width: 50%;
 }
 
+.auth-form p {
+    margin-top: 15px;
+}
+
             /*Sites
 ==================================================
 ================================================== */
@@ -998,7 +1001,7 @@ h2 a:hover span {
 .comment-item .date {
     color: #8f8f8f;
     font-size: 12px;
-    font-style: italic;
+    --font-style: italic;
     margin-bottom: 10px
 }
 
