@@ -107,10 +107,11 @@ let sites = (() => {
         let serverResponse;
         let siteId = context.params["id"];
 
-        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("single-site")])
+        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("site-details")])
             .then(([serverResponseSite, loggedUser, serverResponseVisitedSites, template]) => {
                 let site = serverResponseSite.data;
                 countComments(site);
+                templateItems.isSingleComment = (site.comments.length === 1);
                 templateItems.site = site;
 
                 templateItems.isLoggedIn = !!(loggedUser.username);

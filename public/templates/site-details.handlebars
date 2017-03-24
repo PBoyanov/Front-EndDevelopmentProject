@@ -14,7 +14,7 @@
                         <i class="fa fa-user visits-icon" aria-hidden="true"></i>
                         {{site.numberOfVisits}}
                     </span> |
-                        <span class="comments">{{site.commentsCount}} comments</span>
+                        <span class="comments">{{site.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
                     </div>
                     <div class="site-header">
                         <h2>{{site.name}}</h2>

@@ -82,6 +82,7 @@ let home = (() => {
             newsItem.content = newsItem.content.slice(0, 200) + "...";
             newsItem.date = new Date(newsItem.date);
             newsItem.commentsCount = newsItem.comments.length;
+            newsItem.isSingleComment = (newsItem.comments.length === 1);
         }
 
         news.sort(sortNewsByDate);

@@ -63,7 +63,7 @@
                                 <h2>{{heading}}</h2>
                                 <div class="news-item-info">
                                     <span class="date">{{date}}</span> |
-                                    <span class="comments">{{commentsCount}} comments</span>
+                                    <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
                                 </div>
                                 <div class="news-item-content">
                                     {{{content}}}
