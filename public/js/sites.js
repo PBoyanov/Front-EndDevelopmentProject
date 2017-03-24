@@ -2,7 +2,7 @@ import { templateLoader } from './template-loader';
 import { data } from './data';
 
 let sites = (() => {
-    const DROPDOWN_DEFAULT_VALUE = "Изберете област";
+    const DROPDOWN_DEFAULT_VALUE = "Всички области";
     const ORDER_BY_VALUES = {
         number: "number",
         visits: "visits"
@@ -20,8 +20,10 @@ let sites = (() => {
                 if (context.params["region"]) {
                     let region = context.params["region"];
                     sites = sites.filter(site => site.region === region);
-
                     templateItems.filteredOnThis = region;
+                    templateItems.sitesCount = sites.length;
+                    templateItems.isSingleSite = (sites.length === 1);
+                    templateItems.regionSelected = true;
                 }
 
                 //default orderBy

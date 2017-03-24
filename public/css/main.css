@@ -789,6 +789,12 @@ h2 a:hover span {
     cursor: initial;
 }
 
+.sites-count {
+    margin: 20px 10px 0px;
+    font-size: 16px;
+    color: #3f3f3f;
+}
+
 #sites-list {
     margin-top: 20px;
 }

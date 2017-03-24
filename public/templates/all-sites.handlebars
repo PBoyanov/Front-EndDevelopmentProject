@@ -14,7 +14,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu">
-                        <button  class="dropdown-item default">Изберете област</button >
+                        <button  class="dropdown-item default">Всички области</button >
                         <button  class="dropdown-item">Благоевград</button >
                         <button  class="dropdown-item">Видин</button >
                         <button  class="dropdown-item">Велико Търново</button >
@@ -33,6 +33,11 @@
                     <button id="visits" type="button" class="btn order-btn {{#if orderByVisits}} active {{/if}}">Посещения</button>
                 </div>
             </div>
+            {{#if regionSelected}}
+            <div class="sites-count">
+                {{sitesCount}} {{#if isSingleSite}}обект{{else}}обекта{{/if}}
+            </div>
+            {{/if}}
             <ul id="sites-list">
                 {{#each sites}}
                 <li class="site">
