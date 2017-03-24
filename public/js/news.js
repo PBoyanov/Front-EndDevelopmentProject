@@ -2,7 +2,8 @@ import { templateLoader } from './template-loader';
 import { data } from './data';
 
 let news = (() => {
-     let templateItems = {};
+    let templateItems = {};
+    const NEWS_ON_PAGE = 5;
 
     function getNewsPage(context) {
 
@@ -11,21 +12,11 @@ let news = (() => {
                 let news = serverResponseNews.data;
 
                 processNewsData(news);
-                templateItems.news = news;
+                templateItems.newsPages = createPages(news, NEWS_ON_PAGE);
+                let newsPagesCount = templateItems.newsPages.length;
 
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
-
-                $(".site").hover(
-                    function mouseIn() {
-                        let itemWrap = $(this).find(".site-wrap");
-                        itemWrap.addClass("hover");
-                    },
-                    function mouseOut() {
-                        let itemWrap = $(this).find(".site-wrap");
-                        itemWrap.removeClass("hover");
-                    }
-                );
 
                 $(".main-ad-box").hover(
                     function mouseIn() {
@@ -37,6 +28,21 @@ let news = (() => {
                         plusItem.removeClass("hover");
                     }
                 );
+
+                $(".sync-pagination").twbsPagination({
+                    totalPages: newsPagesCount,
+                    visiblePages: 5,
+                    first: "<<",
+                    prev: "<",
+                    next: ">",
+                    last: ">>",
+                    onPageClick: function (event, page) {
+                        let currentPage = $("#news").find(".news-page:not(.hidden)");
+                        currentPage.addClass("hidden");
+                        let visiblePage = $('#news').find(`#news-page-${page}`);
+                        visiblePage.removeClass("hidden");
+                    }
+                });
             });
     }
 
@@ -53,8 +59,6 @@ let news = (() => {
         for (let newsItem of news) {
             newsItem.date = formatDate(newsItem.date);
         }
-
-        templateItems.news = news.slice(0, 6);
     }
 
     function sortNewsByDate(a, b) {
@@ -74,6 +78,55 @@ let news = (() => {
         let year = date.getFullYear();
 
         return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+    function createPages(elements, maxItemsOnPage) {
+        let pages = [];
+        let counter = 0;
+        let pagesCount = 0;
+        let singlePage = {};
+        singlePage.number = pagesCount + 1;
+        singlePage.defaultPage = true;
+        singlePage.items = [];
+        for (let i = 0; i < elements.length; i += 1) {
+            if (counter < maxItemsOnPage && i !== elements.length - 1) {
+                //if < maxItemsOnPage on the current page, push comment to current page
+                singlePage.items.push(elements[i]);
+                counter = counter + 1;
+            } else {
+                //if last comment
+                if (i === elements.length - 1) {
+                    //and < maxItemsOnPage on current page, push comment to current page and push page
+                    if (counter < maxItemsOnPage) {
+                        singlePage.items.push(elements[i]);
+                        pages.push(singlePage);
+                        //if >= maxItemsOnPage on current page, push page create new page and push it
+                    } else {
+                        pages.push(singlePage);
+                        singlePage = {};
+                        pagesCount += 1;
+                        singlePage.number = pagesCount + 1;
+                        singlePage.items = [];
+                        singlePage.items.push(elements[i]);
+                        counter = 1;
+                        pages.push(singlePage);
+                    }
+                } else {
+                    //if >= maxItemsOnPage on current page, push page and create new page
+                    pages.push(singlePage);
+                    singlePage = {};
+                    pagesCount += 1;
+                    singlePage.number = pagesCount + 1;
+                    singlePage.items = [];
+                    singlePage.items.push(elements[i]);
+                    counter = 1;
+                }
+            }
+        }
+
+        //console.log(pages);
+
+        return pages;
     }
 
     return {

@@ -1078,6 +1078,10 @@ h2 a:hover span {
     color: #ce4e32;
 }
 
+#news .sync-pagination.top {
+    margin-top: 10px;
+}
+
 /*Footer
 ================================================== */
 #footer-wrap {
@@ -1304,7 +1308,7 @@ h2 a:hover span {
         margin: 0 auto;
     }
 
-    #news, #ads {
+    #home-news, #ads {
         padding: 0 10%;
     }
 

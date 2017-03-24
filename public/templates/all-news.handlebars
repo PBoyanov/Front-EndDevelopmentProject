@@ -1,41 +1,50 @@
 <div id="wrap" class="basic-container">
     <div class="img-container">
-        <img src="http://bulgarkamagazine.com/wp-content/uploads/2015/10/049420532667.jpg" alt="Плиска"> {{!-- https://imgrabo.com/design/_opoznai.bg/index_header/istoriko-arheologicheski-rezervat-weliki-preslav.jpg
-        <img src="https://imgrabo.com/design/_opoznai.bg/index_header/tsarevets.jpg" alt="Царевец">--}}
+        <img src="http://panomagic.eu/vt3/skin/preview.jpg" alt="Царевец">
     </div>
     <div class="row">
         <div id="news" class="col col-12 col-lg-8">
-            <ul id="news-list">
-                {{#each news}}
-                <li class="news-item">
-                    <div class="news-item-img">
-                        <a href="#/news/{{id}}">
-                            <img src="{{imgUrl}}" alt="Заглавие">
-                        </a>
-                    </div>
-                    <div class="news-item-data">
-                        <div class="news-item-data-inner">
-                            <div class="news-item-header">
-                                <h2><a href="#/news/{{id}}">{{heading}}</a></h2>
-                            </div>
-                            <div class="news-item-info">
-                                <span class="date">{{date}}</span> |
-                                <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
-                            </div>
-                            <div class="news-item-content">
-                                {{{content}}}
-                                <a href="#/news/{{id}}" title="Виж повече" class="readmore">Виж повече</a>
+            <div class="pagination-wrap">
+                <ul id="pagination" class="sync-pagination top"></ul>
+            </div>
+            {{#each newsPages}}
+            <div id="news-page-{{number}}" class="news-page {{#unless defaultPage}}hidden{{/unless}}">
+                <ul id="news-list">
+                    {{#each items}}
+                    <li class="news-item">
+                        <div class="news-item-img">
+                            <a href="#/news/{{id}}">
+                                <img src="{{imgUrl}}" alt="Заглавие">
+                            </a>
+                        </div>
+                        <div class="news-item-data">
+                            <div class="news-item-data-inner">
+                                <div class="news-item-header">
+                                    <h2><a href="#/news/{{id}}">{{heading}}</a></h2>
+                                </div>
+                                <div class="news-item-info">
+                                    <span class="date">{{date}}</span> |
+                                    <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+                                </div>
+                                <div class="news-item-content">
+                                    {{{content}}}
+                                    <a href="#/news/{{id}}" title="Виж повече" class="readmore">Виж повече</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+            <div class="pagination-wrap">
+                <ul id="pagination" class="sync-pagination"></ul>
+            </div>
         </div>
         <aside id="ads" class="col col-12 col-lg-4">
             <div class="main-ad-box">
                 <a href="#" title="Място за вашата реклама">
-                    <img src="https://www.goabroad.com/images/reviews/fcm16-76-10-1481305282.jpg" alt="your ad here">
+                    <img src="http://www.nikona.net/images/GREECE/santorini_with_the_greek_flag.jpg" alt="вашата реклама">
                     <i class="overlay-plus"></i>
                 </a>
                 <div class="main-ad-content">
