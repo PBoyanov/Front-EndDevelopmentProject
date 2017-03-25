@@ -1,4 +1,49 @@
 <div id="wrap" class="basic-container">
-    <img id="user-img" src="{{profileImg}}">
-    {{description}}
+    <div class="profile-wrap">
+        <div class="profile-top">
+            <div class="profile-top-inner">
+                <div class="row">
+                    <div class="profile-img-wrap col col-lg-3">
+                        <div class="circle">
+                            <img id="user-img" src="{{profileImg}}">
+                            <div class="username">
+                                {{username}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visited-sites-count col col-lg-9">
+                        {{visitedSitesCount}}/100
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-data">
+            <div class="profile-tabs">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item profile-tab-item">
+                        <a class="nav-link active" href="#">Информация</a>
+                    </li>
+                    <li class="nav-item profile-tab-item">
+                        <a class="nav-link" href="#">Посетени обекти</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile-content">
+                <div class="profile-content-inner">
+                    <div class="first-name">
+                        Име: <span>{{firstName}}</span>
+                    </div>
+                    <div class="last-name">
+                        Фамилия: <span>{{lastName}}</span>
+                    </div>
+                    <div class="age">
+                        Години: <span>{{age}}</span>
+                    </div>
+                    <div class="description">
+                        Описание: <span>{{description}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

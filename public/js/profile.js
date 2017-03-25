@@ -6,6 +6,7 @@ let profiles = (() => {
         Promise.all([data.getUserData(), templateLoader.get("profile")])
             .then(([serverResponseUser, template]) => {
                 let userData = (serverResponseUser.user ? serverResponseUser.user : []);
+                userData.visitedSitesCount = userData.visitedSites.length;
 
                 let pageHtml = template(userData);
                 context.$element().html(pageHtml);

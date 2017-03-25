@@ -1101,6 +1101,96 @@ h2 a:hover span {
     margin-top: 10px;
 }
 
+                /*Profile
+==================================================
+==================================================*/
+.profile-top {
+    padding: 20px;
+    background-color: #d9d9d9;
+    //border-top: 2px solid #fff;
+    /*border-left: 2px solid #f26c4f;
+    border-right: 2px solid #f26c4f;*/
+}
+
+.profile-top .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 5px solid #f26c4f;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-top .circle img {
+    width: 100%;
+}
+
+.profile-top .circle .username {
+    position: absolute;
+    right: -50px;
+    bottom: 15px;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #474747;
+}
+
+.profile-top .visited-sites-count {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 70px;
+    color: #474747;
+    text-shadow: 1px 0px 1px rgba(50, 50, 50, 0.6);
+}
+
+.profile-tabs .profile-tab-item {
+    width: 50%;
+    text-align: center;
+}
+
+.profile-tabs .profile-tab-item a {
+    background-color: #fff;
+    color: #474747;
+    font-size: 20px;
+    border-bottom: 1px solid #cacaca;
+}
+
+.profile-tabs .profile-tab-item a:hover {
+    background-color: #f26c4f;
+    color: #fff;
+}
+
+.profile-tabs .profile-tab-item a.active {
+    background-color: #474747;
+    color: #fff;
+    border-left: 5px solid #f26c4f;
+}
+
+.profile-content {
+    margin-bottom: 20px;
+}
+
+.profile-content-inner {
+    background-color: #fff;
+    color: #474747;
+    font-size: 18px;
+    font-style: italic;
+    padding: 50px;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+.profile-content-inner span {
+    color: #a7a7a7;
+    font-weight: 700;
+}
+
+.profile-content-inner .first-name,
+.profile-content-inner .last-name,
+.profile-content-inner .age {
+    margin-bottom: 10px;
+}
+
+
 /*Footer
 ================================================== */
 #footer-wrap {

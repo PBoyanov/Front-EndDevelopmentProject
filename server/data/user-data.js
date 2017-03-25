@@ -59,7 +59,7 @@ module.exports = function (models, validator) {
                     .then((user) => {
                         let userToReturn = {
                             username: user.username,
-                            firstname: user.firstName,
+                            firstName: user.firstName,
                             lastName: user.lastName,
                             age: user.age,
                             description: user.description,
