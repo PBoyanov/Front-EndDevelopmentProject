@@ -9,6 +9,10 @@ module.exports = modelRegistrator.register('User', {
     },
     salt: String,
     hashPass: String,
+    firstName: String,
+    lastName: String,
+    age: Number,
+    description: String,
     profileImg: String,
     visitedSites: []
 })

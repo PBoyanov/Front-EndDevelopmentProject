@@ -37,10 +37,6 @@ let data = (() => {
         return requester.putJSON(`api/news/${newsItemId}/comment`, putData);
     }
 
-    function getUserByUsername(username) {
-        return requester.getJSON(`api/profiles/${username}`);
-    }
-
     function registerUser(user) {
         validator.validateUsername(user.username);
         validator.validatePassword(user.password);
@@ -81,13 +77,14 @@ let data = (() => {
         })
     }
 
-    function getUserVisitedSites() {
+    function getUserData(sitesOnly = false) {
         return new Promise((resolve, reject) => {
             this.isLoggedIn()
                 .then((result) => {
                     if(result.username) {
                         let username = result.username;
-                        let serverResponse = requester.getJSON(`api/profiles/${username}/sites`);
+                        let sitesUrlPart = (sitesOnly ? "/sites" : "");
+                        let serverResponse = requester.getJSON(`api/profiles/${username}${sitesUrlPart}`);
                         resolve(serverResponse);
                     } else {
                         let emptyArray = [];
@@ -105,12 +102,11 @@ let data = (() => {
         getNews,
         getNewsItemById,
         addNewsItemComment,
-        getUserByUsername,
         loginUser,
         registerUser,
         logoutUser,
         isLoggedIn,
-        getUserVisitedSites
+        getUserData
     }
 })();
 

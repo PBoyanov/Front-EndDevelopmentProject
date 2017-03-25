@@ -60,6 +60,10 @@ module.exports = function ({ data, validator }) {
             newUser.salt = salt;
             let hashPass = encrypt.generateHashedPassword(salt, pass);
             newUser.hashPass = hashPass;
+            newUser.firstName = "";
+            newUser.lastName = "";
+            newUser.age = 0;
+            newUser.description = "";
             newUser.profileImg = DEFAULT_IMAGE;
             newUser.visitedSites = [];
 
@@ -80,6 +84,17 @@ module.exports = function ({ data, validator }) {
             });
 
 
+        },
+        getUser(req, res) {
+            let username = req.params["username"];
+
+            data.getUserProfile(username)
+                .then((user) => {
+                    res.status(200).send({ success: true, user })
+                })
+                .catch(err => {
+                    return res.send(error);
+                });
         },
         getUserVisitedSites(req, res) {
             let username = req.params["username"];

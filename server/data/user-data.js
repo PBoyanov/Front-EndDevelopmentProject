@@ -11,6 +11,10 @@ module.exports = function (models, validator) {
                     username: user.username,
                     salt: user.salt,
                     hashPass: user.hashPass,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    age: user.age,
+                    description: user.description,
                     profileImg: user.profileImg,
                     visitedSites: user.visitedSites
                 });
@@ -48,6 +52,24 @@ module.exports = function (models, validator) {
         },
         getUserByUsername(username) {
             return dataUtils.getOneByUsername(User, username);
+        },
+        getUserProfile(username) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        let userToReturn = {
+                            username: user.username,
+                            firstname: user.firstName,
+                            lastName: user.lastName,
+                            age: user.age,
+                            description: user.description,
+                            profileImg: user.profileImg,
+                            visitedSites: user.visitedSites
+                        }
+
+                        return resolve(userToReturn);
+                    });
+            });
         },
         getUserVisitedSites(username) {
             return new Promise((resolve, reject) => {

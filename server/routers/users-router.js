@@ -7,10 +7,11 @@ module.exports = function({ app, controllers }) {
     let router = new Router();
 
     router
-        .post('/register', controllers.register)
-        .post('/login', controllers.login)
+        .post("/register", controllers.register)
+        .post("/login", controllers.login)
         .get("/profiles/:username/sites", controllers.getUserVisitedSites)
-        .get('/user', controllers.getLoggedUser);
+        .get("/profiles/:username", controllers.getUser)
+        .get("/user", controllers.getLoggedUser);
 
 
     app.use("/api", router);

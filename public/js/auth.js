@@ -82,8 +82,9 @@ let auth = (() => {
         $("#login-link").addClass("hidden");
         $("#logout-link").removeClass("hidden");
         $("#create-link").removeClass("hidden");
-        $("#profile-link").removeClass("hidden")
-            .attr("href", `#/profiles/${username}`);
+        $("#profile-link").removeClass("hidden");
+        let profileLink = $("#profile-link").find("#profile-link-ref");
+            profileLink.attr("href", `#/profiles/${username}`);
         $(".home-link").addClass("current-menu-item");
     }
 

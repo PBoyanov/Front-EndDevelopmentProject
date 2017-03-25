@@ -109,7 +109,7 @@ let sites = (() => {
         let templateItems = {};
         let siteId = context.params["id"];
 
-        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("site-details")])
+        Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserData(true), templateLoader.get("site-details")])
             .then(([serverResponseSite, loggedUser, serverResponseVisitedSites, template]) => {
                 let site = serverResponseSite.data;
                 countComments(site);

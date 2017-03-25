@@ -1,0 +1,13 @@
+db.users.insertMany([
+    {
+        "username": "tourist1",
+        "salt": "rPheXTkCG/PWcw+YZLeIPrjZFgS5pNjpAmUeWYpuuGEVyDNExLovIvUFjH+9OVDw+G5TlrAWDGtl0uNYPBqUe+yuFeldwooLDQGEQ77maEFjXDAmv/GkDC8E/BNbvEXbD1G9k8UhaeH2HtIJ42T/X0xUTloYJnGxhJntThIjFHU=",
+        "hashPass": "c6bb89ef5c814d72ce2594d05d4ff62f742ed33b",
+        "firstName": "Петър",
+        "lastName": "Игнатов",
+        "age": 32,
+        "description": "Пътуването е неизменна част от живота ми. Мечтата ми е да посетя държавите от Латинска Америка.",
+        "profileImg": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/076/07f/0d01ca8.jpg",
+        "visitedSites": []
+    }
+])
