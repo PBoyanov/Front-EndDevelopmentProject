@@ -105,7 +105,7 @@ let sites = (() => {
             });
     }
 
-    function getSingleSitePage(context) {
+    function getSiteDetailsPage(context) {
         let templateItems = {};
         let siteId = context.params["id"];
 
@@ -288,7 +288,7 @@ let sites = (() => {
 
     return {
         getSitesPage,
-        getSingleSitePage
+        getSiteDetailsPage
     }
 })();
 
