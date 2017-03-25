@@ -22,9 +22,12 @@
                                 <div class="news-item-header">
                                     <h2><a href="#/news/{{id}}">{{heading}}</a></h2>
                                 </div>
-                                <div class="news-item-info">
-                                    <span class="date">{{date}}</span> |
-                                    <span class="comments">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+                                <div class="news-item-stats">
+                                    <div class="row center-on-tablet">
+                                        <span class="date col col-12 col-sm-3">{{date}}</span>
+                                        <span class="devider col col-12 col-sm-1 not-visible-on-mobile">|</span>
+                                        <span class="comments col col-12 col-sm-3">{{commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+                                    </div>
                                 </div>
                                 <div class="news-item-content">
                                     {{{content}}}
@@ -62,7 +65,7 @@
                         <a href="#/sites" class="side-menu-button">Обекти</a>
                     </li>
                     <li class="side-menu-item">
-                        <a href="#" class="side-menu-button">За нас</a>
+                        <a href="#/news" class="side-menu-button">Новини</a>
                     </li>
                 </ul>
             </div>

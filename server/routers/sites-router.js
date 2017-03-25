@@ -7,8 +7,6 @@ module.exports = function({ app, controllers }) {
     let router = new Router();
 
     router
-        // .post('/register', controllers.register)
-        // .post('/login', controllers.login)
         .put("/sites/:id/comment", controllers.addSiteComment)
         .get("/sites/:id", controllers.getSiteById)
         .put("/sites/:id", controllers.markSiteAsVisited)

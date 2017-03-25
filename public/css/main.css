@@ -602,9 +602,13 @@ h2 a:hover span {
     color: #474747;
 }
 
+#news-list .news-item-wrap.active h2 a:hover {
+    color: #474747;
+    text-decoration: underline;
+}
+
 .news-item .news-item-info {
     color: #8f8f8f;
-    font-weight: 300;
 }
 
 .news-item .news-item-wrap.active .news-item-info {
@@ -613,15 +617,11 @@ h2 a:hover span {
 
 .news-item .news-item-info span {
     font-style: italic;
-    font-size: 10px;
+    font-size: 12px;
 }
 
-.news-item .news-item-info .date {
-    margin-right: 35px;
-}
-
-.news-item .news-item-info .comments {
-    margin-left: 35px;
+.news-item .news-item-info span.devider {
+    font-style: initial;
 }
 
 .news-item .news-item-wrap .news-item-content {
@@ -917,24 +917,15 @@ h2 a:hover span {
     box-shadow: 0 1px 1px #cacaca;
 }
 
-.site-content .site-info,
-.news-item-content .news-item-comments-count {
+.site-content .site-visits-count {
     color: #8f8f8f;
-    font-weight: 300;
+    font-size: 30px;
     text-align: right;
-}
-
-.site-content .site-info .visits {
-    margin-right: 35px;
-}
-
-.site-content .site-info .comments {
-    margin-left: 35px;
 }
 
 .site-content .site-heading,
 .news-item-content .news-item-heading {
-    margin: 20px 0 10px;
+    margin: 10px 0;
     color: #f26c4f;
 }
 
@@ -960,7 +951,9 @@ h2 a:hover span {
     margin-bottom: 20px;
 }
 
+.site-content .site-comments-count,
 .news-item-content .news-item-comments-count {
+    color: #8f8f8f;
     text-align: left;
 }
 
@@ -971,7 +964,7 @@ h2 a:hover span {
 .site-btn {
     background-color: #008000;
     color: #fff;
-    margin-bottom: 15px;
+    margin: 15px 0;
     cursor: pointer;
 }
 
@@ -1086,8 +1079,18 @@ h2 a:hover span {
     color: #f26c4f;
 }
 
-.news-item .news-item-content {
-    margin-top: 20px;
+#news-list .news-item-stats {
+    color: #8f8f8f;
+    margin-bottom: 20px;
+}
+
+.news-item .news-item-stats span {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.news-item .news-item-stats span.devider {
+    font-style: initial;
 }
 
 .news-item .news-item-content .readmore {
@@ -1166,7 +1169,6 @@ h2 a:hover span {
 @media screen and (max-width: 991px) {
 	/*Navigation
     ================================================== */
-
 	#navigation-wrap { height: auto; }
 
 	#navigation { 
@@ -1278,6 +1280,10 @@ h2 a:hover span {
         text-align: center;
     }
 
+    .news-item-info .center-on-tablet {
+        justify-content: center;
+    }
+
     .main-ad-box .main-ad-content,
     .ad-box {
         text-align: center;
@@ -1371,6 +1377,12 @@ h2 a:hover span {
     .comment-item .circle {
         width: 90%;
         margin-left: 15px;
+    }
+
+    /* News
+    ================================================== */
+    .news-item-data-inner {
+        padding: 40px 8%;
     }
 }
 

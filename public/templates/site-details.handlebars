@@ -9,12 +9,11 @@
         <div class="content-wrap col col-12 col-lg-8">
             <article class="site-content">
                 <div class="site-content-inner">
-                    <div class="site-info">
+                    <div class="site-visits-count">
                         <span class="visits">
-                        <i class="fa fa-user visits-icon" aria-hidden="true"></i>
-                        {{site.numberOfVisits}}
-                    </span> |
-                        <span class="comments">{{site.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+                            <i class="fa fa-user visits-icon" aria-hidden="true"></i>
+                            {{site.numberOfVisits}}
+                        </span>
                     </div>
                     <div class="site-heading">
                         <h2>{{site.name}}</h2>
@@ -34,6 +33,9 @@
                         {{/if}}
                     </div>
                     {{/if}}
+                    <div class="site-comments-count">
+                        <span class="comments">{{site.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+                    </div>
                 </div>
             </article>
             {{#if isLoggedIn}}
@@ -104,13 +106,13 @@
             <div class="side-menu-wrap">
                 <ul class="side-menu-list">
                     <li class="side-menu-item">
+                        <a href="#/home" class="side-menu-button">Начало</a>
+                    </li>
+                    <li class="side-menu-item">
                         <a href="#/sites" class="side-menu-button">Обекти</a>
                     </li>
                     <li class="side-menu-item">
-                        <a href="#" class="side-menu-button">Новини</a>
-                    </li>
-                    <li class="side-menu-item">
-                        <a href="#" class="side-menu-button">За нас</a>
+                        <a href="#/news" class="side-menu-button">Новини</a>
                     </li>
                 </ul>
             </div>
