@@ -5,7 +5,8 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
-    "debug": "./node_modules/.bin/nodemon server/app.js"
+    "debug": "./node_modules/.bin/nodemon server/app.js",
+    "install": "cd public && npm install"
   },
   "author": "P.Boyanov",
   "license": "HelloWorld",
