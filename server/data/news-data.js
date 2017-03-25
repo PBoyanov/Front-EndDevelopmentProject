@@ -10,6 +10,16 @@ module.exports = function(models) {
         },
         getNewsItemById(id) {
             return dataUtils.getOneById(News, id)
+        },
+        addNewsItemComment(id, comment) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneById(News, id)
+                .then((newsItem) => {
+                    newsItem.comments.push(comment);
+                    dataUtils.update(newsItem);
+                    return resolve(newsItem);
+                });
+            });
         }
     };
 };

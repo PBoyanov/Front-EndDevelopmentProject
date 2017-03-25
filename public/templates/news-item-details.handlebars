@@ -1,39 +1,20 @@
 <div id="wrap" class="basic-container">
     <div class="img-container">
-        <img id="site-img" src="{{site.imgUrl}}" alt="{{site.name}}">
-        <div class="img-caption">
-            {{site.town}}
-        </div>
+        <img id="news-item-img" src="{{newsItem.imgUrl}}" alt="Новина">
     </div>
     <div class="row">
         <div class="content-wrap col col-12 col-lg-8">
-            <article class="site-content">
-                <div class="site-content-inner">
-                    <div class="site-info">
-                        <span class="visits">
-                        <i class="fa fa-user visits-icon" aria-hidden="true"></i>
-                        {{site.numberOfVisits}}
-                    </span> |
-                        <span class="comments">{{site.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
+            <article class="news-item-content">
+                <div class="news-item-content-inner">
+                    <div class="news-item-heading">
+                        <h2>{{newsItem.heading}}</h2>
                     </div>
-                    <div class="site-heading">
-                        <h2>{{site.name}}</h2>
+                    <div class="news-item-description">
+                        {{{newsItem.content}}}
                     </div>
-                    <div class="site-region">
-                        Област {{site.region}}
+                    <div class="news-item-comments-count">
+                        <span class="comments">{{newsItem.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
                     </div>
-                    <div class="site-description">
-                        {{{site.description}}}
-                    </div>
-                    {{#if isLoggedIn}}
-                    <div class="site-btn-wrap">
-                        {{#if isSiteVisited}}
-                        <button type="button" id="checkSite" class="btn site-btn reverse">Отмаркирай</button>
-                        {{else}}
-                        <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
-                        {{/if}}
-                    </div>
-                    {{/if}}
                 </div>
             </article>
             {{#if isLoggedIn}}
@@ -52,10 +33,10 @@
             </div>
             {{/if}}
             <div id="comments">
-                {{#each site.commentsPages}}
+                {{#each newsItem.commentsPages}}
                     <div id="comment-page-{{number}}" class="comment-page {{#unless defaultPage}}hidden{{/unless}}">
                         <ul class="comment-page-list">
-                        {{#each comments}}
+                        {{#each items}}
                             <li class="comment-item">
                                 <div class="comment-wrap">
                                     <div class="row">
@@ -104,13 +85,13 @@
             <div class="side-menu-wrap">
                 <ul class="side-menu-list">
                     <li class="side-menu-item">
+                        <a href="#/home" class="side-menu-button">Начало</a>
+                    </li>
+                    <li class="side-menu-item">
                         <a href="#/sites" class="side-menu-button">Обекти</a>
                     </li>
                     <li class="side-menu-item">
-                        <a href="#" class="side-menu-button">Новини</a>
-                    </li>
-                    <li class="side-menu-item">
-                        <a href="#" class="side-menu-button">За нас</a>
+                        <a href="#/news" class="side-menu-button">Новини</a>
                     </li>
                 </ul>
             </div>

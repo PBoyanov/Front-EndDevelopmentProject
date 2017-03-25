@@ -21,6 +21,32 @@ module.exports = function(params) {
                 .catch(err => {
                     res.json(err);
                 });
+        },
+        addNewsItemComment(req, res) {
+            let newsItemId = req.params.id;
+            let putData = req.body;
+            let username = putData.username;
+
+            data.getUserByUsername(username)
+                .then((user) => {
+                    let comment = {
+                        content: putData.commentContent,
+                        date: putData.commentDate,
+                        username: username,
+                        userProfileImg: user.profileImg
+                    }
+
+                    data.addNewsItemComment(newsItemId, comment)
+                        .then((site) => {
+                            res.status(200).send({ success: true, msg: "Sucessfully added a comment" });
+                        })
+                        .catch(err => {
+                            res.json(err);
+                        });
+                })
+                .catch(err => {
+                    res.json(err);
+                });
         }
     };
 };

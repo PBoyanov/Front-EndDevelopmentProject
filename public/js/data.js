@@ -28,6 +28,15 @@ let data = (() => {
         return requester.getJSON("api/news");
     }
 
+    function getNewsItemById(id) {
+        return requester.getJSON(`api/news/${id}`);
+    }
+
+    function addNewsItemComment(newsItemId, content, date, username ) {
+        let putData = { commentContent: content, commentDate: date, username: username };
+        return requester.putJSON(`api/news/${newsItemId}/comment`, putData);
+    }
+
     function getUserByUsername(username) {
         return requester.getJSON(`api/profiles/${username}`);
     }
@@ -94,6 +103,8 @@ let data = (() => {
         markSiteAsVisited,
         addSiteComment,
         getNews,
+        getNewsItemById,
+        addNewsItemComment,
         getUserByUsername,
         loginUser,
         registerUser,

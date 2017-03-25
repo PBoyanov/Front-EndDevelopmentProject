@@ -4,9 +4,9 @@ import { data } from './data';
 let news = (() => {
     let templateItems = {};
     const NEWS_ON_PAGE = 5;
+    const COMMENTS_ON_PAGE = 4;
 
     function getNewsPage(context) {
-
         Promise.all([data.getNews(), templateLoader.get("all-news")])
             .then(([serverResponseNews, template]) => {
                 let news = serverResponseNews.data;
@@ -33,6 +33,7 @@ let news = (() => {
                     totalPages: newsPagesCount,
                     visiblePages: 5,
                     first: "<<",
+                    startPage: 1,
                     prev: "<",
                     next: ">",
                     last: ">>",
@@ -40,6 +41,68 @@ let news = (() => {
                         let currentPage = $("#news").find(".news-page:not(.hidden)");
                         currentPage.addClass("hidden");
                         let visiblePage = $('#news').find(`#news-page-${page}`);
+                        visiblePage.removeClass("hidden");
+                    }
+                });
+            });
+    }
+
+    function getNewsItemDetailsPage(context) {
+        let templateItems = {};
+        let newsItemId = context.params["id"];
+
+        Promise.all([data.getNewsItemById(newsItemId), data.isLoggedIn(), templateLoader.get("news-item-details")])
+            .then(([serverResponseNewsItem, loggedUser, template]) => {
+                let newsItem = serverResponseNewsItem.data;
+                countComments(newsItem);
+                templateItems.isSingleComment = (newsItem.comments.length === 1);
+                processComments(newsItem.comments);
+                newsItem.commentsPages = createPages(newsItem.comments, COMMENTS_ON_PAGE);
+                let commentsPagesCount = newsItem.commentsPages.length;
+
+                templateItems.newsItem = newsItem;
+
+                templateItems.isLoggedIn = !!(loggedUser.username);
+
+                let pageHtml = template(templateItems);
+                context.$element().html(pageHtml);
+
+                $(".main-ad-box").hover(
+                    function mouseIn() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.addClass("hover");
+                    },
+                    function mouseOut() {
+                        let plusItem = $(this).find(".overlay-plus");
+                        plusItem.removeClass("hover");
+                    }
+                );
+
+                $("#post-comment").on("click", function () {
+                    let commentContent = $("#comment").val();
+                    if (commentContent.length === 0) {
+                        toastr.error("Коментарът не може да бъде празен!");
+                    } else {
+                        let newsItemId = newsItem.id;
+                        let date = new Date();
+                        let username = loggedUser.username;
+                        data.addNewsItemComment(newsItemId, commentContent, date, username);
+                        document.location.reload(true);
+                    }
+                });
+
+                $("#pagination").twbsPagination({
+                    totalPages: commentsPagesCount,
+                    visiblePages: 5,
+                    startPage: 1,
+                    first: "<<",
+                    prev: "<",
+                    next: ">",
+                    last: ">>",
+                    onPageClick: function (event, page) {
+                        let currentPage = $("#comments").find(".comment-page:not(.hidden)");
+                        currentPage.addClass("hidden");
+                        let visiblePage = $('#comments').find(`#comment-page-${page}`);
                         visiblePage.removeClass("hidden");
                     }
                 });
@@ -54,14 +117,14 @@ let news = (() => {
             newsItem.isSingleComment = (newsItem.comments.length === 1);
         }
 
-        news.sort(sortNewsByDate);
+        news.sort(sortItemsByDate);
 
         for (let newsItem of news) {
             newsItem.date = formatDate(newsItem.date);
         }
     }
 
-    function sortNewsByDate(a, b) {
+    function sortItemsByDate(a, b) {
         return b.date - a.date;
     }
 
@@ -78,6 +141,22 @@ let news = (() => {
         let year = date.getFullYear();
 
         return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+    function countComments(newsItem) {
+        newsItem.commentsCount = newsItem.comments.length;
+    }
+
+    function processComments(commentsArr) {
+        for (let comment of commentsArr) {
+            comment.date = new Date(comment.date);
+        }
+
+        commentsArr.sort(sortItemsByDate);
+
+        for (let comment of commentsArr) {
+            comment.date = formatDate(comment.date);
+        }
     }
 
     function createPages(elements, maxItemsOnPage) {
@@ -130,7 +209,8 @@ let news = (() => {
     }
 
     return {
-        getNewsPage
+        getNewsPage,
+        getNewsItemDetailsPage
     }
 
 })();
