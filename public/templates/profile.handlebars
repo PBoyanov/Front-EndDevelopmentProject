@@ -19,28 +19,51 @@
         </div>
         <div class="profile-data">
             <div class="profile-tabs">
-                <ul class="nav nav-tabs">
+                <ul id="nav-tabs" class="nav nav-tabs">
                     <li class="nav-item profile-tab-item">
-                        <a class="nav-link active" href="#">Информация</a>
+                        <span class="nav-link info active">Информация</span>
                     </li>
                     <li class="nav-item profile-tab-item">
-                        <a class="nav-link" href="#">Посетени обекти</a>
+                        <span class="nav-link visited-sites">Посетени обекти</span>
                     </li>
                 </ul>
             </div>
-            <div class="profile-content">
+            <div id="tabs-data" class="profile-content">
                 <div class="profile-content-inner">
-                    <div class="first-name">
-                        Име: <span>{{firstName}}</span>
+                    <div class="tab-pane">
+                        <div class="first-name">
+                            Име: <span>{{firstName}}</span>
+                        </div>
+                        <div class="last-name">
+                            Фамилия: <span>{{lastName}}</span>
+                        </div>
+                        <div class="age">
+                            Години: <span>{{age}}</span>
+                        </div>
+                        <div class="description">
+                            Описание: <span>{{description}}</span>
+                        </div>
                     </div>
-                    <div class="last-name">
-                        Фамилия: <span>{{lastName}}</span>
-                    </div>
-                    <div class="age">
-                        Години: <span>{{age}}</span>
-                    </div>
-                    <div class="description">
-                        Описание: <span>{{description}}</span>
+                    <div class="tab-pane hidden">
+                        <table id="visited-sites" class="table table-striped">
+                            <thead class="site-table-header">
+                                <tr>
+                                    <th class="visited-sites-heading">#</th>
+                                    <th class="visited-sites-heading">Обект</th>
+                                    <th class="visited-sites-heading">Населено място</th>
+                                </tr>
+                            </thead>
+                            <tbody class="site-table-body">
+                                {{#each visitedSites}}
+                                <tr class="site-row" site-number="{{number}}">
+                                    <th scope="row">{{number}}</th>
+                                    <td>{{name}}</td>
+                                    <td>{{town}}</td>
+                                    <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

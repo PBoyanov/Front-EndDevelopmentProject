@@ -1107,9 +1107,6 @@ h2 a:hover span {
 .profile-top {
     padding: 20px;
     background-color: #d9d9d9;
-    //border-top: 2px solid #fff;
-    /*border-left: 2px solid #f26c4f;
-    border-right: 2px solid #f26c4f;*/
 }
 
 .profile-top .circle {
@@ -1148,22 +1145,34 @@ h2 a:hover span {
     text-align: center;
 }
 
-.profile-tabs .profile-tab-item a {
+.profile-tabs .profile-tab-item span {
     background-color: #fff;
     color: #474747;
     font-size: 20px;
     border-bottom: 1px solid #cacaca;
 }
 
-.profile-tabs .profile-tab-item a:hover {
+.profile-tabs .profile-tab-item span:hover {
     background-color: #f26c4f;
+    color: #fff;
+    cursor: pointer;
+}
+
+.profile-tabs .profile-tab-item span.active {
+    background-color: #474747;
     color: #fff;
 }
 
-.profile-tabs .profile-tab-item a.active {
-    background-color: #474747;
-    color: #fff;
+.profile-tab-item .info.active {
     border-left: 5px solid #f26c4f;
+}
+
+.profile-tab-item .visited-sites.active {
+    border-right: 5px solid #f26c4f;
+}
+
+.profile-tabs .profile-tab-item span.active:hover {
+    cursor: initial;
 }
 
 .profile-content {
@@ -1188,6 +1197,11 @@ h2 a:hover span {
 .profile-content-inner .last-name,
 .profile-content-inner .age {
     margin-bottom: 10px;
+}
+
+#visited-sites .visited-sites-heading {
+    border-top:none;
+    font-style: initial;
 }
 
 

@@ -10,6 +10,29 @@ let profiles = (() => {
 
                 let pageHtml = template(userData);
                 context.$element().html(pageHtml);
+
+                $("#nav-tabs").on("click", ".nav-link:not(.active)", function (event) {
+                    let navLinks = $("#nav-tabs").find(".nav-link");
+
+                    for (let link of navLinks) {
+                        $(link).toggleClass("active");
+                    }
+
+                    let dataContainers = $("#tabs-data").find(".tab-pane");
+
+                    for (let container of dataContainers) {
+                        $(container).toggleClass("hidden");
+                    }
+                });
+
+                $("#visited-sites .site-btn").on("click", function (event) {
+                    let siteId = $(event.target).parentsUntil(".site-table-body", ".site-row")
+                                                .attr("site-number");
+                    let username = userData.username;
+                    let isReverse = $(event.target).hasClass("reverse");
+                    data.markSiteAsVisited(siteId, username, isReverse);
+                    document.location.reload(true);
+                });
             });
     }
 
