@@ -194,6 +194,9 @@ h2 a:hover span {
 }
 
 #pagination {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -223,7 +226,7 @@ h2 a:hover span {
 }
 
 
-/*Header
+/* Header
 ================================================== */
 #top-bar-wrap {
     background-color: #373737
@@ -334,7 +337,7 @@ h2 a:hover span {
     margin-right: 0;
 }
 
-                /*Home Page
+                /* Home Page
 ==================================================
 ================================================== */
 #featured-flexslider {
@@ -482,7 +485,7 @@ h2 a:hover span {
     display: none;
 }
 
-/*Carousel
+/* Carousel
 ================================================== */
 #sites-carousel-section {
     margin: 0 auto 20px auto;
@@ -560,7 +563,7 @@ h2 a:hover span {
     background: url("../imgs/home-carousel-arrow-right.png") center center no-repeat;
 }
 
-/*Home Page News
+/* Home Page News
 ================================================== */
 #news-header {
     font-size: 26px;
@@ -642,7 +645,7 @@ h2 a:hover span {
     display: block;
 }
 
-/*Home Page Ads
+/* Home Page Ads
 ================================================== */
 .main-ad-box {
     position: relative;
@@ -732,7 +735,7 @@ h2 a:hover span {
 }
 
 
-/*Home Page Side Menu
+/* Home Page Side Menu
 ================================================== */
 .side-menu-wrap {
     margin-bottom: 45px;
@@ -760,7 +763,7 @@ h2 a:hover span {
     border-color: #dc3410;
 }
 
-            /*Login and Registration
+            /* Login and Registration
 ==================================================
 ================================================== */
 .auth-form-inner {
@@ -786,7 +789,7 @@ h2 a:hover span {
     margin-top: 15px;
 }
 
-            /*Sites
+            /* Sites
 ==================================================
 ================================================== */
 .img-container {
@@ -878,7 +881,7 @@ h2 a:hover span {
     color: #ce4e32;
 }
 
-            /*Site and News Details
+            /* Site and News Details
 ==================================================
 ================================================== */
 .img-container {
@@ -1013,6 +1016,9 @@ h2 a:hover span {
 .comment-item .circle {
     display: flex;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
     border: 2px solid #ce4e32;
@@ -1053,7 +1059,7 @@ h2 a:hover span {
     word-wrap: break-word;
 }
 
-                    /*News
+                    /* News
 ==================================================
 ================================================== */
 #news-list .news-item {
@@ -1101,7 +1107,7 @@ h2 a:hover span {
     margin-top: 10px;
 }
 
-                /*Profile
+                /* Profile
 ==================================================
 ==================================================*/
 .profile-top {
@@ -1112,6 +1118,9 @@ h2 a:hover span {
 .profile-top .circle {
     display: flex;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
     border: 5px solid #f26c4f;
@@ -1133,6 +1142,9 @@ h2 a:hover span {
 
 .profile-top .visited-sites-count {
     display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     align-items: flex-end;
     font-size: 70px;
@@ -1205,7 +1217,7 @@ h2 a:hover span {
 }
 
 
-/*Footer
+/* Footer
 ================================================== */
 #footer-wrap {
     width: 100%;
@@ -1270,8 +1282,10 @@ h2 a:hover span {
 }
 
 
+/* Large
+================================================== */
 @media screen and (max-width: 991px) {
-	/*Navigation
+	/* Navigation
     ================================================== */
 	#navigation-wrap { height: auto; }
 
@@ -1296,7 +1310,7 @@ h2 a:hover span {
         cursor: pointer;
     }
 
-	/*Responsive Menu
+	/* Responsive Menu
     ================================================== */
     .menu-container {
         background: -o-linear-gradient(top, #3e3e3e, #383838);
@@ -1342,7 +1356,7 @@ h2 a:hover span {
         padding-bottom: 0.45em; 
     }
 
-	/*Home Slider
+	/* Home Slider
     ================================================== */
 	#featured-flexslider {
          height: auto;
@@ -1385,6 +1399,9 @@ h2 a:hover span {
     }
 
     .news-item-info .center-on-tablet {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
@@ -1410,13 +1427,13 @@ h2 a:hover span {
     }
 }
 
-/* Tablet (Portrait)
+/* Medium
 ================================================== */
 @media screen and (min-width: 768px) and (max-width: 991px) {
 	.basic-container { width: 700px; }
 }
 
-/* Mobile (Portrait)
+/* Small
 ================================================== */
 @media screen and (max-width: 767px) {
     .visible-on-mobile {
@@ -1490,8 +1507,10 @@ h2 a:hover span {
     }
 }
 
-/* Mobile (Landscape)
+/* Extra small
 ================================================== */
-@media screen and (min-width: 480px) and (max-width: 767px) {
-	
+@media screen and (max-width: 575px) {
+	.not-visible-on-small-mobile {
+        display: none;
+    }
 }
