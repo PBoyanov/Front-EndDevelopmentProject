@@ -164,6 +164,7 @@ let sites = (() => {
                 $("#pagination").twbsPagination({
                     totalPages: commentsPagesCount,
                     visiblePages: 5,
+                    startPage: 1,
                     first: "<<",
                     prev: "<",
                     next: ">",

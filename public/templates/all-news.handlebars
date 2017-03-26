@@ -4,9 +4,6 @@
     </div>
     <div class="row">
         <div id="news" class="col col-12 col-lg-8">
-            <div class="pagination-wrap">
-                <ul id="pagination" class="sync-pagination top"></ul>
-            </div>
             {{#each newsPages}}
             <div id="news-page-{{number}}" class="news-page {{#unless defaultPage}}hidden{{/unless}}">
                 <ul id="news-list">
@@ -41,7 +38,7 @@
             </div>
             {{/each}}
             <div class="pagination-wrap">
-                <ul id="pagination" class="sync-pagination"></ul>
+                <ul id="pagination"></ul>
             </div>
         </div>
         <aside id="ads" class="col col-12 col-lg-4">

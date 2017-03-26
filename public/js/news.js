@@ -29,7 +29,7 @@ let news = (() => {
                     }
                 );
 
-                $(".sync-pagination").twbsPagination({
+                $("#pagination").twbsPagination({
                     totalPages: newsPagesCount,
                     visiblePages: 5,
                     first: "<<",
