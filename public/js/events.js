@@ -1,5 +1,5 @@
-$("#navbarTogglerDemo01").on("click", ".nav-item", function (event) {
-    removeCurrentMenuItem("#navbarTogglerDemo01");
+$("#navbar-toggler").on("click", ".nav-item", function (event) {
+    removeCurrentMenuItem("#navbar-toggler");
     removeCurrentMenuItem("#footer-menu-right");
 
     var targetListItem = $(event.target).parent();
@@ -13,8 +13,12 @@ $("#navbarTogglerDemo01").on("click", ".nav-item", function (event) {
     }
 });
 
-$("#navbarTogglerDemo01").on("click", "a", function () {
-    $("#navbarTogglerDemo01").collapse('hide');
+$("#navbar-toggler").on("click", "a", function () {
+    $("#navbar-toggler").collapse('hide');
+});
+
+$("body:not(#navbar-toggler)").on("click", function () {
+    $("#navbar-toggler").collapse('hide');
 });
 
 $("#footer-menu-right").on("click", ".nav-item", function (event) {
@@ -26,8 +30,8 @@ $("#footer-menu-right").on("click", ".nav-item", function (event) {
     //header navbar
     var footerMenuClass = checkElementForClass(targetListItem, "-link");
     if (footerMenuClass) {
-        removeCurrentMenuItem("#navbarTogglerDemo01");
-        var headerMenuItem = $("#navbarTogglerDemo01").find("." + footerMenuClass);
+        removeCurrentMenuItem("#navbar-toggler");
+        var headerMenuItem = $("#navbar-toggler").find("." + footerMenuClass);
         headerMenuItem.addClass("current-menu-item");
     }
 });
