@@ -77,14 +77,17 @@ let data = (() => {
         })
     }
 
-    function getUserData(sitesOnly = false) {
+    function getUser(username) {
+        return requester.getJSON(`api/profiles/${username}`);
+    }
+
+    function getUserVisitedSites() {
         return new Promise((resolve, reject) => {
             this.isLoggedIn()
                 .then((result) => {
                     if(result.username) {
                         let username = result.username;
-                        let sitesUrlPart = (sitesOnly ? "/sites" : "");
-                        let serverResponse = requester.getJSON(`api/profiles/${username}${sitesUrlPart}`);
+                        let serverResponse = requester.getJSON(`api/profiles/${username}/sites`);
                         resolve(serverResponse);
                     } else {
                         let emptyArray = [];
@@ -106,7 +109,8 @@ let data = (() => {
         registerUser,
         logoutUser,
         isLoggedIn,
-        getUserData
+        getUser,
+        getUserVisitedSites
     }
 })();
 

@@ -14,7 +14,9 @@ let logout = (() => {
         $("#login-link").removeClass("hidden");
         $("#logout-link").addClass("hidden");
         $("#create-link").addClass("hidden");
-        $("#profile-link").addClass("hidden");
+        let profileLink = $("#profile-link");
+        profileLink.addClass("hidden");
+        profileLink.find("#profile-link-ref").attr("href", `#/profiles/${username}`);
         $(".home-link").addClass("current-menu-item");
     }
 

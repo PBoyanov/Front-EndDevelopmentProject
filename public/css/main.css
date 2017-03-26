@@ -1043,9 +1043,10 @@ h2 a:hover span {
     border-right: 14px solid #fff;
 }
 
-.comment-item .username {
+.comment-item .username a {
     color: #f26c4f;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .comment-item .date {

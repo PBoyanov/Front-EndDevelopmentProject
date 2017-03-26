@@ -28,7 +28,7 @@ let router = (() => {
 
             this.get("#/news", controllers.news.getNewsPage);
 
-            this.get("#/profile", controllers.profiles.getProfilePage);
+            this.get("#/profiles/:username", controllers.profiles.getProfilePage);
 
         });
 

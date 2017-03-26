@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="profile-img-wrap col col-lg-3">
                         <div class="circle">
-                            <img id="user-img" src="{{profileImg}}">
+                            <img id="user-img" src="{{userData.profileImg}}">
                             <div class="username">
-                                {{username}}
+                                {{userData.username}}
                             </div>
                         </div>
                     </div>
                     <div class="visited-sites-count col col-lg-9">
-                        {{visitedSitesCount}}/100
+                        {{userData.visitedSitesCount}}/100
                     </div>
                 </div>
             </div>
@@ -32,16 +32,16 @@
                 <div class="profile-content-inner">
                     <div class="tab-pane">
                         <div class="first-name">
-                            Име: <span>{{firstName}}</span>
+                            Име: <span>{{userData.firstName}}</span>
                         </div>
                         <div class="last-name">
-                            Фамилия: <span>{{lastName}}</span>
+                            Фамилия: <span>{{userData.lastName}}</span>
                         </div>
                         <div class="age">
-                            Години: <span>{{age}}</span>
+                            Години: <span>{{userData.age}}</span>
                         </div>
                         <div class="description">
-                            Описание: <span>{{description}}</span>
+                            Описание: <span>{{userData.description}}</span>
                         </div>
                     </div>
                     <div class="tab-pane hidden">
@@ -54,14 +54,24 @@
                                 </tr>
                             </thead>
                             <tbody class="site-table-body">
-                                {{#each visitedSites}}
-                                <tr class="site-row" site-number="{{number}}">
-                                    <th scope="row">{{number}}</th>
-                                    <td>{{name}}</td>
-                                    <td>{{town}}</td>
-                                    <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
-                                </tr>
-                                {{/each}}
+                                {{#if isCurrentUser}}
+                                    {{#each userData.visitedSites}}
+                                    <tr class="site-row" site-number="{{number}}">
+                                        <th scope="row">{{number}}</th>
+                                        <td>{{name}}</td>
+                                        <td>{{town}}</td>
+                                        <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
+                                    </tr>
+                                    {{/each}}
+                                {{else}}
+                                    {{#each userData.visitedSites}}
+                                    <tr class="site-row" site-number="{{number}}">
+                                        <th scope="row">{{number}}</th>
+                                        <td>{{name}}</td>
+                                        <td>{{town}}</td>
+                                    </tr>
+                                    {{/each}}
+                                {{/if}}
                             </tbody>
                         </table>
                     </div>

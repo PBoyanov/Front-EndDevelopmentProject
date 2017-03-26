@@ -3,12 +3,19 @@ import { data } from './data';
 
 let profiles = (() => {
     function getProfilePage(context) {
-        Promise.all([data.getUserData(), templateLoader.get("profile")])
-            .then(([serverResponseUser, template]) => {
+        let templateItems = {};
+        let username = context.params["username"];
+
+        Promise.all([data.getUser(username), data.isLoggedIn(), templateLoader.get("profile")])
+            .then(([serverResponseUser, currentUserObj, template]) => {
                 let userData = (serverResponseUser.user ? serverResponseUser.user : []);
                 userData.visitedSitesCount = userData.visitedSites.length;
 
-                let pageHtml = template(userData);
+                templateItems.userData = userData;
+                let currentUsername = currentUserObj.username;
+                templateItems.isCurrentUser = (userData.username === currentUsername);
+
+                let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
 
                 $("#nav-tabs").on("click", ".nav-link:not(.active)", function (event) {

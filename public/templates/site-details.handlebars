@@ -63,13 +63,15 @@
                                     <div class="row">
                                         <div class="user-img-wrap col col-4 col-sm-2">
                                             <div class="circle">
-                                                <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
+                                                <a href="#/profiles/{{username}}">
+                                                    <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="comment-content col col-8 col-sm-10">
                                             <div class="comment-content-inner">
                                                 <div class="username">
-                                                    {{username}}
+                                                    <a href="#/profiles/{{username}}">{{username}}</a>
                                                 </div>
                                                 <div class="date">
                                                     В {{date}}
