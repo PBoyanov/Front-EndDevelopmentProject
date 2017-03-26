@@ -28,7 +28,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="tabs-data" class="profile-content">
+            <div id="user-data" class="profile-content">
                 <div class="profile-content-inner">
                     <div class="tab-pane">
                         <div class="first-name">
@@ -44,32 +44,36 @@
                             Описание: <span>{{userData.description}}</span>
                         </div>
                     </div>
-                    <div class="tab-pane hidden">
-                        <table id="visited-sites" class="table table-striped">
-                            <thead class="site-table-header">
-                                <tr>
-                                    <th class="visited-sites-heading">#</th>
-                                    <th class="visited-sites-heading">Обект</th>
-                                    <th class="visited-sites-heading">Населено място</th>
-                                </tr>
-                            </thead>
-                            <tbody class="site-table-body">
-                                {{#if isCurrentUser}} {{#each userData.visitedSites}}
+                    <div id="visited-sites" class="tab-pane hidden">
+                            <div class="table-headings not-visible-on-small-mobile">
+                                <div class="row">
+                                    <div class="col col-1">#</div>
+                                    <div class="col col-5">Обект</div>
+                                    <div class="col col-3">Населено място</div>
+                                </div>
+                            </div>
+                            {{#if isCurrentUser}}
+                            <div class="sites-table-body">   
+                                {{#each userData.visitedSites}}             
+                                    <div class="site-row" site-number="{{number}}">
+                                        <div class="row">          
+                                            <div class="col col-12 col-sm-1" scope="row">{{number}}</div>
+                                            <div class="col col-12 col-sm-5">{{name}}</div>
+                                            <div class="col col-12 col-sm-3">{{town}}</div>
+                                            <div class="col col-12 col-sm-3"><button type="button" class="btn site-btn reverse">Отмаркирай</button></div>           
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>                                
+                            {{else}} 
+                                {{#each userData.visitedSites}}
                                 <tr class="site-row" site-number="{{number}}">
                                     <th scope="row">{{number}}</th>
                                     <td>{{name}}</td>
                                     <td>{{town}}</td>
-                                    <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
                                 </tr>
-                                {{/each}} {{else}} {{#each userData.visitedSites}}
-                                <tr class="site-row" site-number="{{number}}">
-                                    <th scope="row">{{number}}</th>
-                                    <td>{{name}}</td>
-                                    <td>{{town}}</td>
-                                </tr>
-                                {{/each}} {{/if}}
-                            </tbody>
-                        </table>
+                                {{/each}}
+                            {{/if}}
                     </div>
                 </div>
             </div>

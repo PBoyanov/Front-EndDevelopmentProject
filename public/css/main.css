@@ -1212,9 +1212,18 @@ h2 a:hover span {
     margin-bottom: 10px;
 }
 
-#visited-sites .visited-sites-heading {
-    border-top:none;
+#visited-sites .table-headings {
+    border-bottom: 1px solid #f26c4f;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
     font-style: initial;
+    font-weight: 700;
+}
+
+.sites-table-body .site-row {
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 
@@ -1456,8 +1465,12 @@ h2 a:hover span {
         padding: 0 10%;
     }
 
+    #footer-content {
+        padding-left: 8%;
+    }
+
     #footer-content .footer-content-item { 
-        padding-right: 20%
+        padding-right: 15%
     }
 
     .auth-form .form-control {
@@ -1506,6 +1519,20 @@ h2 a:hover span {
     .news-item-data-inner {
         padding: 40px 8%;
     }
+
+    /* Profile
+    ================================================== */
+    .profile-top .username {
+        font-size: 40px;
+    }
+
+    .profile-top .visited-sites-count {
+        font-size: 55px;
+    }
+
+    .profile-content-inner {
+        padding: 8% 7%;
+    }
 }
 
 /* Extra small
@@ -1515,8 +1542,13 @@ h2 a:hover span {
         display: none;
     }
 
+    .profile-top .circle {
+        width: 50%;
+        margin: 0 auto;
+    }
+
     .profile-top .username {
-        font-size: 40px;
+        font-size: 30px;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -1524,10 +1556,22 @@ h2 a:hover span {
     }
 
     .profile-top .visited-sites-count {
-        font-size: 50px;
+        font-size: 40px;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
+    }
+
+    .profile-tabs .profile-tab-item span {
+        font-size: 15px;
+    }
+
+    .profile-content-inner {
+        font-size: 15px;
+    }
+
+    .sites-table-body {
+        text-align: center;
     }
 }

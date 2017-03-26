@@ -11,6 +11,8 @@ let profiles = (() => {
                 let userData = (serverResponseUser.user ? serverResponseUser.user : []);
                 userData.visitedSitesCount = userData.visitedSites.length;
 
+                userData.visitedSites.sort(sortSitesByNumber);
+
                 templateItems.userData = userData;
                 let currentUsername = currentUserObj.username;
                 templateItems.isCurrentUser = (userData.username === currentUsername);
@@ -25,7 +27,7 @@ let profiles = (() => {
                         $(link).toggleClass("active");
                     }
 
-                    let dataContainers = $("#tabs-data").find(".tab-pane");
+                    let dataContainers = $("#user-data").find(".tab-pane");
 
                     for (let container of dataContainers) {
                         $(container).toggleClass("hidden");
@@ -33,7 +35,7 @@ let profiles = (() => {
                 });
 
                 $("#visited-sites .site-btn").on("click", function (event) {
-                    let siteId = $(event.target).parentsUntil(".site-table-body", ".site-row")
+                    let siteId = $(event.target).parentsUntil(".sites-table-body", ".site-row")
                                                 .attr("site-number");
                     let username = userData.username;
                     let isReverse = $(event.target).hasClass("reverse");
@@ -41,6 +43,10 @@ let profiles = (() => {
                     document.location.reload(true);
                 });
             });
+    }
+
+    function sortSitesByNumber(a, b) {
+        return a.number - b.number;
     }
 
     return {
