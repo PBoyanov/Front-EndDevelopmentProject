@@ -3,15 +3,15 @@
         <div class="profile-top">
             <div class="profile-top-inner">
                 <div class="row">
-                    <div class="profile-img-wrap col col-lg-3">
+                    <div class="profile-img-wrap col-12 col-sm-3">
                         <div class="circle">
                             <img id="user-img" src="{{userData.profileImg}}">
-                            <div class="username">
-                                {{userData.username}}
-                            </div>
                         </div>
                     </div>
-                    <div class="visited-sites-count col col-lg-9">
+                    <div class="username col col-sm-6">
+                        {{userData.username}}
+                    </div>
+                    <div class="visited-sites-count col col-sm-3">
                         {{userData.visitedSitesCount}}/100
                     </div>
                 </div>
@@ -54,24 +54,20 @@
                                 </tr>
                             </thead>
                             <tbody class="site-table-body">
-                                {{#if isCurrentUser}}
-                                    {{#each userData.visitedSites}}
-                                    <tr class="site-row" site-number="{{number}}">
-                                        <th scope="row">{{number}}</th>
-                                        <td>{{name}}</td>
-                                        <td>{{town}}</td>
-                                        <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
-                                    </tr>
-                                    {{/each}}
-                                {{else}}
-                                    {{#each userData.visitedSites}}
-                                    <tr class="site-row" site-number="{{number}}">
-                                        <th scope="row">{{number}}</th>
-                                        <td>{{name}}</td>
-                                        <td>{{town}}</td>
-                                    </tr>
-                                    {{/each}}
-                                {{/if}}
+                                {{#if isCurrentUser}} {{#each userData.visitedSites}}
+                                <tr class="site-row" site-number="{{number}}">
+                                    <th scope="row">{{number}}</th>
+                                    <td>{{name}}</td>
+                                    <td>{{town}}</td>
+                                    <td><button type="button" class="btn site-btn reverse">Отмаркирай</button></td>
+                                </tr>
+                                {{/each}} {{else}} {{#each userData.visitedSites}}
+                                <tr class="site-row" site-number="{{number}}">
+                                    <th scope="row">{{number}}</th>
+                                    <td>{{name}}</td>
+                                    <td>{{town}}</td>
+                                </tr>
+                                {{/each}} {{/if}}
                             </tbody>
                         </table>
                     </div>

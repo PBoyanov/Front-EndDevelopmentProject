@@ -1133,11 +1133,11 @@ h2 a:hover span {
     width: 100%;
 }
 
-.profile-top .circle .username {
-    position: absolute;
-    right: -50px;
-    bottom: 15px;
-    font-size: 30px;
+.profile-top .username {
+    font-size: 55px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
     text-shadow: 1px 1px 1px #474747;
 }
 
@@ -1513,5 +1513,21 @@ h2 a:hover span {
 @media screen and (max-width: 575px) {
 	.not-visible-on-small-mobile {
         display: none;
+    }
+
+    .profile-top .username {
+        font-size: 40px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .profile-top .visited-sites-count {
+        font-size: 50px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
     }
 }
