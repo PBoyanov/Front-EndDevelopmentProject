@@ -660,7 +660,7 @@ h2 a:hover span {
     display: block;
 }
 
-/* Home Page Ads
+/* Ads
 ================================================== */
 .main-ad-box {
     position: relative;
@@ -748,7 +748,7 @@ h2 a:hover span {
 }
 
 
-/* Home Page Side Menu
+/* Side Menu
 ================================================== */
 .side-menu-wrap {
     margin-bottom: 45px;
@@ -774,6 +774,57 @@ h2 a:hover span {
     background: #f26c4f;
     color: #fff;
     border-color: #dc3410;
+}
+
+                /* Search
+==================================================
+==================================================*/
+#results .input {
+    margin-bottom: 15px;
+}
+
+#results .input h2 {
+    font-size: 26px;
+    color: #474747;
+    text-shadow: 1px 1px 1px #aaa;
+    padding-left: 30px;
+}
+
+#results .sites-results-item-wrap {
+    background: #fff;
+    margin-bottom: 15px;
+    position: relative;
+    padding: 30px;
+    border-left: 5px solid #d9d9d9;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    box-shadow: 0 1px 1px #cacaca;
+}
+
+#results .sites-results-item-wrap.hover {
+    border-color: #f26c4f;
+    padding: 40px 35px;
+}
+
+#results .item-heading {
+    font-size: 24px;
+}
+
+#results .item-content {
+    margin-top: 15px;
+}
+
+#results .readmore {
+    color: #ce4e32;
+}
+
+#results .key-word {
+    background-color: #f26c4f;
+}
+
+#results .item-heading a:hover .key-word {
+    background-color: transparent;
 }
 
             /* Login and Registration
@@ -1494,6 +1545,18 @@ h2 a:hover span {
 
     .footer-content .footer-content-item { 
         padding-right: 15%
+    }
+
+    #results .input {
+        text-align: center;
+    }
+
+    #results .input h2 {
+        padding-left: 0;
+    }
+
+    #results .sites {
+        padding: 0 2%;
     }
 
     .auth-form .form-control {

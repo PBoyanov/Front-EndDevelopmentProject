@@ -1,4 +1,5 @@
 import { home } from "./home";
+import { search } from "./search";
 import { auth } from "./auth";
 import { logout } from "./logout";
 import { sites } from "./sites";
@@ -7,6 +8,7 @@ import { profiles } from "./profiles";
 
 let controllers = {
     home,
+    search,
     auth,
     logout,
     sites,
