@@ -251,7 +251,7 @@ h2 a:hover span {
 #header-social li {
     display: block;
     float: left;
-    margin-left: 6px;
+    margin-left: 5px;
 }
 
 #header-social a {
@@ -281,6 +281,10 @@ h2 a:hover span {
     padding-left: 80px;
     padding-right: 0px;
     background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
+}
+
+#navigation .search-wrap-mobile {
+    display: none;
 }
 
 #navigation .nav-main > li {
@@ -334,7 +338,22 @@ h2 a:hover span {
 }
 
 .nav-right li.last {
+    background: none;
     margin-right: 0;
+    padding-right: 0;
+}
+
+.nav-right .search-wrap {
+    padding: 15px 0;
+}
+
+#navigation .search-wrap-mobile input,
+.nav-right .search-wrap input {
+    background: #fff url('../imgs/clock.png') 95% no-repeat;
+    border: none;
+    color: #959595;
+    padding-left: 15px;
+    height: 40px;
 }
 
                 /* Home Page
@@ -1306,6 +1325,13 @@ h2 a:hover span {
         padding: 0;
     }
 
+    #navigation .search-wrap-mobile {
+        display: block;
+        position: absolute;
+        right: 2%;
+        top: 15px;
+    }
+
 	#menu-right { 
         display: inline;
     }
@@ -1428,6 +1454,7 @@ h2 a:hover span {
         margin-bottom: 0;
     }
 
+    #menu-right .nav-item.last,
     #featured-flexslider .text-caption:before,
     #featured-flexslider .text-caption .slider-meta,
     #sites-carousel-section,

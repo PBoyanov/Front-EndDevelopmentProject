@@ -13,11 +13,7 @@ $("#navbar-toggler").on("click", ".nav-item", function (event) {
     }
 });
 
-$("#navbar-toggler").on("click", "a", function () {
-    $("#navbar-toggler").collapse('hide');
-});
-
-$("body:not(#navbar-toggler)").on("click", function () {
+$("body:not(.navbar-toggler)").on("click", function () {
     $("#navbar-toggler").collapse('hide');
 });
 

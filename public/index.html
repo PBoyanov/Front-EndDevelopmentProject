@@ -75,7 +75,10 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler"
                         aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
-                        </button>
+                    </button>
+                    <div class="search-wrap-mobile">
+                        <input type="search" placeholder="Търсене">
+                    </div>
                     <div id="navbar-toggler" class="menu-container collapse navbar-collapse">
                         <ul id="main-menu" class="nav nav-main navbar-nav mr-auto mt-lg-0">
                             <li id="home-link" class="nav-item current-menu-item home-link"><a href="#/home">Начало</a></li>
@@ -83,9 +86,14 @@
                             <li id="news-link" class="nav-item news-link no-divider"><a href="#/news">Новини</a></li>
                         </ul>
                         <ul id="menu-right" class="nav nav-right justify-content-end">
-                            <li id="login-link" class="nav-item last"><a href="#/login">Вход или регистрация</a></li>
+                            <li id="login-link" class="nav-item"><a href="#/login">Вход или регистрация</a></li>
                             <li id="profile-link" class="nav-item hidden"><a id="profile-link-ref" href="#/profile">Профил</a></li>
-                            <li id="logout-link" class="nav-item last hidden"><a href="#/logout">Изход</a></li>
+                            <li id="logout-link" class="nav-item hidden"><a href="#/logout">Изход</a></li>
+                            <li class="nav-item last">
+                                <div class="search-wrap">
+                                    <input type="search" placeholder="Търсене">
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <!--Responsive nav-->
