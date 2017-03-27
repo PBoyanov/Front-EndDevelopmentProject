@@ -52,8 +52,8 @@
                                     <div class="col col-3">Населено място</div>
                                 </div>
                             </div>
-                            {{#if isCurrentUser}}
-                            <div class="sites-table-body">   
+                            <div class="sites-table-body">
+                            {{#if isCurrentUser}}   
                                 {{#each userData.visitedSites}}             
                                     <div class="site-row" site-number="{{number}}">
                                         <div class="row">          
@@ -63,17 +63,19 @@
                                             <div class="col col-12 col-sm-3"><button type="button" class="btn site-btn reverse">Отмаркирай</button></div>           
                                         </div>
                                     </div>
-                                {{/each}}
-                            </div>                                
+                                {{/each}}                                
                             {{else}} 
-                                {{#each userData.visitedSites}}
-                                <tr class="site-row" site-number="{{number}}">
-                                    <th scope="row">{{number}}</th>
-                                    <td>{{name}}</td>
-                                    <td>{{town}}</td>
-                                </tr>
+                                {{#each userData.visitedSites}}             
+                                    <div class="site-row" site-number="{{number}}">
+                                        <div class="row">          
+                                            <div class="col col-12 col-sm-1" scope="row">{{number}}</div>
+                                            <div class="col col-12 col-sm-5">{{name}}</div>
+                                            <div class="col col-12 col-sm-3">{{town}}</div>           
+                                        </div>
+                                    </div>
                                 {{/each}}
                             {{/if}}
+                            </div>
                     </div>
                 </div>
             </div>
