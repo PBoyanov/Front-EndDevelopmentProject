@@ -35,24 +35,8 @@ let router = (() => {
         sammyApp.run('#/');
     }
 
-    function navigate(path) {
-        //navigo.navigate(path);
-    }
-
-    //parse query params in object form (paramName: value)
-    function getQueryParams(qstr) {
-        var query = {};
-        var a = qstr.split('&');
-        for (var i = 0; i < a.length; i++) {
-            var b = a[i].split('=');
-            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
-        }
-        return query;
-    }
-
     return {
-        init: init,
-        navigate: navigate
+        init: init
     }
 
 })();

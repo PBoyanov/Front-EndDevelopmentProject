@@ -16,12 +16,6 @@ let validator =(() => {
         if(typeof password !== 'string' || password.length < 6 || password.length > 30){
             throw new Error("Паролата трябва да е между 6 и 30 символа!");
         }
-
-        // let replacedString = password.replace(/[A-Za-z0-9]/g, "");
-
-        // if(replacedString.length > 0){
-        //     throw new Error("Паролата може да се състои само от букви и цифри!");
-        // }
     }
 
     function validateConfirmPassword(password, confirmPassword) {
@@ -30,24 +24,10 @@ let validator =(() => {
         }
     }
 
-     function validateTitle(title){
-        if(typeof title !== "string" || title.length < 6 || title.length > 100){
-            throw new Error("Invalid title length");
-        }
-    }
-
-    function validateDescription(description){
-        if(typeof description !== "string"){
-            throw new Error("Invalid description");
-        }
-    }
-
     return{
         validateUsername,
         validatePassword,
-        validateConfirmPassword,
-        validateTitle,
-        validateDescription
+        validateConfirmPassword
     }
 })();
 

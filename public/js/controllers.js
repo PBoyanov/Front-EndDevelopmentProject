@@ -3,7 +3,7 @@ import { auth } from './auth';
 import { logout } from './logout';
 import { sites } from './sites';
 import { news } from './news';
-import { profiles } from './profile';
+import { profiles } from './profiles';
 
 let controllers = {
     home,
