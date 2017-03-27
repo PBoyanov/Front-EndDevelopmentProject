@@ -14,7 +14,7 @@ $("#navbar-toggler").on("click", ".nav-item", function (event) {
 });
 
 $("body:not(.navbar-toggler)").on("click", function () {
-    $("#navbar-toggler").collapse('hide');
+    $("#navbar-toggler").collapse("hide");
 });
 
 $("#footer-menu-right").on("click", ".nav-item", function (event) {
@@ -38,7 +38,7 @@ function removeCurrentMenuItem(selector) {
 }
 
 function checkElementForClass(element, className) {
-    var elementClasses = element.prop('className').split(' ');
+    var elementClasses = element.prop("className").split(' ');
     var targetClass = elementClasses.find(function(el) {
         return el.indexOf(className) > 0;
     });
@@ -47,5 +47,5 @@ function checkElementForClass(element, className) {
 }
 
 $(window).on("load", function () {
-    $('#content').removeClass("loading");
+    $("#content").removeClass("loading");
 });

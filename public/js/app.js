@@ -1,5 +1,5 @@
-import { router } from './router';
-import { data } from './data';
+import { router } from "./router";
+import { data } from "./data";
 
 (function () {
     router.init();

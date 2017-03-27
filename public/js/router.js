@@ -1,16 +1,16 @@
-import { controllers } from './controllers';
+import { controllers } from "./controllers";
 
 let router = (() => {
 
     function init() {
         let sammyApp = Sammy("#content", function () {
-            this.get('#/', function (context) {
-                context.redirect('#/home');
+            this.get("#/", function (context) {
+                context.redirect("#/home");
             });
 
             this.get("#/home", controllers.home.renderPage);
 
-            this.get('#/register', controllers.auth.register);
+            this.get("#/register", controllers.auth.register);
 
             this.get("#/login", controllers.auth.login);
 
@@ -32,7 +32,7 @@ let router = (() => {
 
         });
 
-        sammyApp.run('#/');
+        sammyApp.run("#/");
     }
 
     return {

@@ -1,5 +1,5 @@
-import { templateLoader } from './template-loader';
-import { data } from './data';
+import { templateLoader } from "./template-loader";
+import { data } from "./data";
 
 let profiles = (() => {
     function getProfilePage(context) {

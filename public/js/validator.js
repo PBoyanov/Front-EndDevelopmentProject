@@ -1,7 +1,7 @@
 let validator =(() => {
     function validateUsername(username){
-        if(typeof username !== 'string' || username.length < 6 || username.length > 30){
-            throw new Error('Потребителското име трябва да е между 6 и 30 символа!');
+        if(typeof username !== "string" || username.length < 6 || username.length > 30){
+            throw new Error("Потребителското име трябва да е между 6 и 30 символа!");
         }
 
         let replacedString = username.replace(/[A-Za-z0-9_.]/g, "");
@@ -13,7 +13,7 @@ let validator =(() => {
     }
 
     function validatePassword(password){
-        if(typeof password !== 'string' || password.length < 6 || password.length > 30){
+        if(typeof password !== "string" || password.length < 6 || password.length > 30){
             throw new Error("Паролата трябва да е между 6 и 30 символа!");
         }
     }

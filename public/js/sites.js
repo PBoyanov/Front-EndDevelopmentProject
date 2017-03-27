@@ -1,5 +1,5 @@
-import { templateLoader } from './template-loader';
-import { data } from './data';
+import { templateLoader } from "./template-loader";
+import { data } from "./data";
 
 let sites = (() => {
     const DROPDOWN_DEFAULT_VALUE = "Всички области";
@@ -11,7 +11,6 @@ let sites = (() => {
 
     function getSitesPage(context) {
         let templateItems = {};
-        let serverResponseSites;
 
         Promise.all([data.getSites(), templateLoader.get("all-sites")])
             .then(([serverResponseSites, template]) => {
@@ -67,7 +66,7 @@ let sites = (() => {
                     }
                 );
 
-                $("#filter-by-region .dropdown-item").on('click', function () {
+                $("#filter-by-region .dropdown-item").on("click", function () {
                     context.path = context.path.replace("&", "");
 
                     let regionUrlPartIndex = context.path.indexOf("region");
@@ -172,7 +171,7 @@ let sites = (() => {
                     onPageClick: function (event, page) {
                         let currentPage = $("#comments").find(".comment-page:not(.hidden)");
                         currentPage.addClass("hidden");
-                        let visiblePage = $('#comments').find(`#comment-page-${page}`);
+                        let visiblePage = $("#comments").find(`#comment-page-${page}`);
                         visiblePage.removeClass("hidden");
                     }
                 });

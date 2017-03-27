@@ -1,5 +1,5 @@
-import { templateLoader } from './template-loader';
-import { data } from './data';
+import { templateLoader } from "./template-loader";
+import { data } from "./data";
 
 let news = (() => {
     let templateItems = {};
@@ -40,7 +40,7 @@ let news = (() => {
                     onPageClick: function (event, page) {
                         let currentPage = $("#news").find(".news-page:not(.hidden)");
                         currentPage.addClass("hidden");
-                        let visiblePage = $('#news').find(`#news-page-${page}`);
+                        let visiblePage = $("#news").find(`#news-page-${page}`);
                         visiblePage.removeClass("hidden");
                     }
                 });
@@ -102,7 +102,7 @@ let news = (() => {
                     onPageClick: function (event, page) {
                         let currentPage = $("#comments").find(".comment-page:not(.hidden)");
                         currentPage.addClass("hidden");
-                        let visiblePage = $('#comments').find(`#comment-page-${page}`);
+                        let visiblePage = $("#comments").find(`#comment-page-${page}`);
                         visiblePage.removeClass("hidden");
                     }
                 });

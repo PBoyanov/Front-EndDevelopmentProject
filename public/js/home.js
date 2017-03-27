@@ -1,6 +1,6 @@
-import { templateLoader } from './template-loader';
-import { data } from './data';
-import { animations } from './animations';
+import { templateLoader } from "./template-loader";
+import { data } from "./data";
+import { animations } from "./animations";
 
 let home = (() => {
     let templateItems = {};
@@ -113,7 +113,7 @@ let home = (() => {
         let monthIndex = date.getMonth();
         let year = date.getFullYear();
 
-        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+        return day + " " + monthNames[monthIndex] + " " + year;
     }
 
     function hoverOverlayPlusItem(selector) {

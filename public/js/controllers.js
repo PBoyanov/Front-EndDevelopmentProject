@@ -1,9 +1,9 @@
-import { home } from './home';
-import { auth } from './auth';
-import { logout } from './logout';
-import { sites } from './sites';
-import { news } from './news';
-import { profiles } from './profiles';
+import { home } from "./home";
+import { auth } from "./auth";
+import { logout } from "./logout";
+import { sites } from "./sites";
+import { news } from "./news";
+import { profiles } from "./profiles";
 
 let controllers = {
     home,

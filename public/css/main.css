@@ -132,10 +132,6 @@ h2 a:hover span {
     text-decoration: none;
 }
 
-.shown-when-logged-in{
-    display: none !important;
-}
-
 .hidden {
     display: none;
 }
@@ -415,8 +411,6 @@ h2 a:hover span {
     position: absolute;
     top: 35px;
     left: 0px;
-    width: 0;
-    height: 0;
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
     border-left: 14px solid #f26c4f;
@@ -702,7 +696,6 @@ h2 a:hover span {
 
 .main-ad-box .main-ad-content h2 {
     font-size: 25px;
-    --line-height: 1.2em;
     color: #fff;
     margin-bottom: 25px;
 }
@@ -720,7 +713,7 @@ h2 a:hover span {
 .ad-box {
     font-size: 13px;
     color: #a7a7a7;
-    line-height: 1.8em;
+    line-height: 24px;
     text-shadow: 1px 1px 1px rgba(255,255,255,1);
     padding-bottom: 40px;
 }
@@ -730,7 +723,6 @@ h2 a:hover span {
     color: #474747;
     font-weight: 400;
     margin-bottom: 25px;
-    line-height: 1.4em;
 }
 
 .ad-box .title:hover{
@@ -1393,13 +1385,7 @@ h2 a:hover span {
     }
 
 	/* Home Slider
-    ================================================== */
-	#featured-flexslider {
-         height: auto;
-    }
-
-	#featured-flexslider .slider-video embed, #featured-flexslider .slider-video iframe { height: auto; width: 100%; }
-	
+    ================================================== */	
     #featured-flexslider .featured-flexslider-img {
          width: 100%;
          height: auto;
@@ -1467,7 +1453,9 @@ h2 a:hover span {
 /* Medium
 ================================================== */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-	.basic-container { width: 700px; }
+	.basic-container { 
+        width: 700px;
+    }
 }
 
 /* Small

@@ -1,11 +1,11 @@
 let animations = (() => {
     function homePageFlex() {
-        $('#featured-flexslider').flexslider({
+        $("#featured-flexslider").flexslider({
             slideshow: true,
-            controlsContainer: '.flex-container',
+            controlsContainer: ".flex-container",
             randomize: false,
-            animation: 'fade',
-            direction: 'horizontal',
+            animation: "fade",
+            direction: "horizontal",
             slideshowSpeed: 7000,
             pauseOnHover: true,
             animationSpeed: 400,
@@ -18,11 +18,11 @@ let animations = (() => {
     }
 
     function homePageCarousel() {
-        $('#carousel-wrap').flexslider({
+        $("#carousel-wrap").flexslider({
             animation: "slide",
             animationLoop: true,
             slideshow: true,
-            controlsContainer: '.flex-container',
+            controlsContainer: ".flex-container",
             slideshowSpeed: 4000,
             pauseOnHover: true,
             itemWidth: 300,
@@ -30,8 +30,8 @@ let animations = (() => {
             minItems: 3,
             maxItems: 3,
             controlNav: false,
-            prevText: 'not-visible',
-            nextText: 'not-visible'
+            prevText: "not-visible",
+            nextText: "not-visible"
         });
     }
 

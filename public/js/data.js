@@ -1,5 +1,5 @@
-import { requester } from './requester';
-import { validator } from './validator';
+import { requester } from "./requester";
+import { validator } from "./validator";
 
 let data = (() => {
     const USERNAME_KEY = "username";
@@ -74,7 +74,7 @@ let data = (() => {
                 result.username = localStorage.getItem(USERNAME_KEY);
             }
             resolve(result);
-        })
+        });
     }
 
     function getUser(username) {
@@ -93,7 +93,7 @@ let data = (() => {
                         let emptyArray = [];
                         resolve(emptyArray);
                     }
-                })
+                });
         });
     }
 
