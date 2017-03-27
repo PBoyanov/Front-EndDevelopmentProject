@@ -228,11 +228,11 @@ h2 a:hover span {
 
 /* Header
 ================================================== */
-#top-bar-wrap {
+.top-bar-wrap {
     background-color: #373737
 }
 
-#top-bar-inner {
+.top-bar-inner {
     position: relative;
 }
 
@@ -240,12 +240,14 @@ h2 a:hover span {
     display: inline-block;
 }
 
-#top-bar-right {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: -12px;
-    height: 24px;
+.top-bar-right {
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    align-items: center;
+    height: 67px;
 }
 
 #header-social li {
@@ -265,12 +267,12 @@ h2 a:hover span {
     opacity: 1;
 }
 
-#navigation-wrap {
+.navigation-wrap {
     height: 70px;
     position: relative;
 }
 
-#navigation-inner {
+.navigation-inner {
     position: relative;
     z-index: 5;
 }
@@ -1248,19 +1250,19 @@ h2 a:hover span {
 
 /* Footer
 ================================================== */
-#footer-wrap {
+.footer-wrap {
     width: 100%;
     background-color: #373737;
     position: relative;
 }
 
-#footer {
+.footer {
     background: #373737;
     color: #7e7e7e;
     padding-bottom: 200px;
 }
 
-#footer .nav-extend {
+.footer .nav-extend {
     height: 65px;
 }
 
@@ -1290,22 +1292,22 @@ h2 a:hover span {
     text-decoration: none;
 }
 
-#footer-content {
+.footer-content {
     margin-top: 55px;
     font-size: 12px;
 }
 
-#footer-content .footer-content-links {
+.footer-content #footer-content-links {
     margin-bottom: 25px;
 }
 
-#footer-content .footer-content-item {
+.footer-content .footer-content-item {
     float: left;
     color: #fff;
     padding-right: 20px;
 }
 
-#footer-content .footer-content-item a {
+.footer-content .footer-content-item a {
     color: #fff;
     text-decoration: none;
 }
@@ -1316,8 +1318,6 @@ h2 a:hover span {
 @media screen and (max-width: 991px) {
 	/* Navigation
     ================================================== */
-	#navigation-wrap { height: auto; }
-
 	#navigation { 
         height: auto;
         line-height: normal;
@@ -1328,7 +1328,7 @@ h2 a:hover span {
     #navigation .search-wrap-mobile {
         display: block;
         position: absolute;
-        right: 2%;
+        right: 0;
         top: 15px;
     }
 
@@ -1488,15 +1488,23 @@ h2 a:hover span {
         margin: 0 auto;
     }
 
+    .top-bar-right {
+        padding-right: 4%;
+    }
+
+    #navigation .search-wrap-mobile {
+        right: 2%;
+    }
+
     #home-news, #ads {
         padding: 0 10%;
     }
 
-    #footer-content {
+    .footer-content {
         padding-left: 8%;
     }
 
-    #footer-content .footer-content-item { 
+    .footer-content .footer-content-item { 
         padding-right: 15%
     }
 
@@ -1567,6 +1575,13 @@ h2 a:hover span {
 @media screen and (max-width: 575px) {
 	.not-visible-on-small-mobile {
         display: none;
+    }
+
+    .top-bar-right {
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
     }
 
     .profile-top .circle {
