@@ -37,8 +37,8 @@ module.exports = function(params) {
                     }
 
                     data.addNewsItemComment(newsItemId, comment)
-                        .then((site) => {
-                            res.status(200).send({ success: true, msg: "Sucessfully added a comment" });
+                        .then((newsItem) => {
+                            res.status(200).send({ success: true, msg: "Успешно добавен коментар" });
                         })
                         .catch(err => {
                             res.json(err);

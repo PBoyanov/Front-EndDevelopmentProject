@@ -56,10 +56,10 @@
                             {{#if isCurrentUser}}   
                                 {{#each userData.visitedSites}}             
                                     <div class="site-row" site-number="{{number}}">
-                                        <div class="row">          
-                                            <div class="col col-12 col-sm-1" scope="row">{{number}}</div>
-                                            <div class="col col-12 col-sm-5">{{name}}</div>
-                                            <div class="col col-12 col-sm-3">{{town}}</div>
+                                        <div class="visited-sites-row row">          
+                                            <div class="visited-site-number col col-12 col-sm-1" scope="row">{{number}}</div>
+                                            <div class="visited-site-name col col-12 col-sm-5"><a href="/#/all-sites/{{number}}">{{name}}</a></div>
+                                            <div class="visited-site-town col col-12 col-sm-3">{{town}}</div>
                                             <div class="col col-12 col-sm-3"><button type="button" class="btn site-btn reverse">Отмаркирай</button></div>           
                                         </div>
                                     </div>
