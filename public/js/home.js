@@ -3,6 +3,8 @@ import { data } from "./data";
 import { animations } from "./animations";
 
 let home = (() => {
+    const IMAGE_SOURCE_BEGINNING = "data:image/jpeg;base64,";
+
     let templateItems = {};
 
     function getHome(context) {
@@ -65,6 +67,7 @@ let home = (() => {
     function processSitesData(sites) {
         for (let site of sites) {
             site.description = site.description.slice(0, 400) + "...";
+            site.img = IMAGE_SOURCE_BEGINNING + site.img;
         }
 
         sites.sort(sortSitesByVisits);

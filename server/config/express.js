@@ -1,7 +1,9 @@
 'use strict';
 var express = require('express'),
     bodyParser = require('body-parser'),
-    cors = require("cors");
+    cors = require('cors'),
+    multer = require('multer');
+    // upload = multer({ dest: './uploads' });
 //cookieParser = require('cookie-parser')
 //session = require('express-session');
 module.exports = function () {
@@ -14,6 +16,13 @@ module.exports = function () {
     // app.use(cookieParser());
     // app.use(session({ secret: 'totally random' }));
     app.use(cors());
+    app.use(multer({dest:'./uploads/'}).single('singleInputFileName'));
+    //var upload = multer({ dest: './uploads' });
+    // app.use(multer({
+    //     rename: function (fieldname, filename) {
+    //       return filename;
+    //     }
+    // }));
     app.use(express.static("public"));
     return app;
 };

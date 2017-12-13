@@ -3,6 +3,7 @@ import { data } from "./data";
 
 let sites = (() => {
     const DROPDOWN_DEFAULT_VALUE = "Всички области";
+    const IMAGE_SOURCE_BEGINNING = "data:image/jpeg;base64,";
     const COMMENTS_ON_PAGE = 4;
     const ORDER_BY_VALUES = {
         number: "number",
@@ -111,14 +112,13 @@ let sites = (() => {
         Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("site-details")])
             .then(([serverResponseSite, loggedUser, serverResponseVisitedSites, template]) => {
                 let site = serverResponseSite.data;
+                site.img = IMAGE_SOURCE_BEGINNING + site.img;
                 countComments(site);
                 templateItems.isSingleComment = (site.comments.length === 1);
                 processComments(site.comments);
                 site.commentsPages = createCommentsPages(site.comments);
                 let commentsPagesCount = site.commentsPages.length;
-
                 templateItems.site = site;
-
                 templateItems.isLoggedIn = !!(loggedUser.username);
 
                 let visitedSitesNumbers = (serverResponseVisitedSites.siteNumbers ?

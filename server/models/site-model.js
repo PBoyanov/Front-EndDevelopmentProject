@@ -6,6 +6,7 @@ module.exports = modelRegistrator.register('Site', {
     name: String,
     town: String,
     imgUrl: String,
+    img: { data: Buffer, contentType: String },
     description: String,
     numberOfVisits: Number,
     likes: Number,
