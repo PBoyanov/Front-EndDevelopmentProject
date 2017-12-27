@@ -11,7 +11,8 @@ module.exports = function({ app, controllers }) {
         .post("/login", controllers.login)
         .get("/profiles/:username/sites", controllers.getUserVisitedSites)
         .get("/profiles/:username", controllers.getUser)
-        .get("/user", controllers.getLoggedUser);
+        .get("/user", controllers.getLoggedUser)
+        .put("/user/:username/visitRequest", controllers.addVisitRequest);
 
 
     app.use("/api", router);

@@ -10,6 +10,14 @@ let sites = (() => {
         visits: "visits"
     };
 
+    const FILE_TYPES = [
+        'image/jpeg',
+        'image/pjpeg',
+        'image/png'
+    ];
+    const FILE_INIT_SIZE = 0;
+    const MAX_FILE_SIZE = 4194304;
+
     function getSitesPage(context) {
         let templateItems = {};
 
@@ -128,6 +136,20 @@ let sites = (() => {
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
 
+                let inputFile = $('#input-visit-document');
+                let label = inputFile.next();
+                let labelVal = label.html();
+
+                inputFile.change(function (event) {
+                    let fileName = '';
+                    fileName = event.target.value.split('\\').pop();
+
+                    if (fileName)
+                        label.find('span').html(fileName);
+                    else
+                        label.html(labelVal);
+                });
+
                 $(".main-ad-box").hover(
                     function mouseIn() {
                         let plusItem = $(this).find(".overlay-plus");
@@ -145,6 +167,42 @@ let sites = (() => {
                     let isReverse = $(event.target).hasClass("reverse");
                     data.markSiteAsVisited(siteId, username, isReverse);
                     document.location.reload(true);
+                });
+
+                $("#visit-site-btn").on("click", function (event) {
+                    let file = inputFile[0].files[0];
+                    let fileSize = (file ? file.size : FILE_INIT_SIZE); //so it can not be undefined
+
+                    if(!file) {
+                        toastr.error("Първо изберете файл!");
+                    } else if(!validFileType(file)) {
+                        toastr.error("Непозволен формат на файла!");
+                    } else if(fileSize > MAX_FILE_SIZE) {
+                        toastr.error("Файлът е с размер по-голям от 4 mb!");
+                    } else {
+                        let visitRequest = {};
+                        visitRequest.siteId = site.id;
+                        visitRequest.date = new Date();
+
+                        let reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            let imgBinStr = reader.result;
+                            visitRequest.fileStr = window.btoa(imgBinStr); //to base-64 encoded ASCII string
+                            data.sendVisitDocument(loggedUser.username, visitRequest)
+                            .then((response) => {
+                                document.location.reload(true);
+                                toastr.success(response.msg);
+                            });
+                        }
+
+                        reader.onerror = function (e) {
+                            console.log("error reading file");
+                        }
+
+                        //this will triger reader.onload event 
+                        let fileBinary = reader.readAsBinaryString(file);                  
+                    }
                 });
 
                 $("#post-comment").on("click", function () {
@@ -191,6 +249,26 @@ let sites = (() => {
             site.description = site.description.slice(0, 120) + "...";
         }
     }
+
+    function validFileType(file) {
+        for (var i = 0; i < FILE_TYPES.length; i++) {
+            if (file.type === FILE_TYPES[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function returnFileSize(number) {
+        if(number < 1024) {
+          return number + 'bytes';
+        } else if(number > 1024 && number < 1048576) {
+          return (number/1024).toFixed(1) + 'KB';
+        } else if(number > 1048576) {
+          return (number/1048576).toFixed(1) + 'MB';
+        }
+      }
 
     function processComments(commentsArr) {
         for (let comment of commentsArr) {

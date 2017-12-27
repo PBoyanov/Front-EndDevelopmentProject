@@ -1051,6 +1051,72 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
+.upload-photo-wrap {
+    /* text-align: -webkit-right;
+    text-align: -moz-right;
+    text-align: -o-right; 
+    text-align: -ms-right;
+    text-align: right; */
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    --position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    padding: 0;
+    font-weight: 700;
+    cursor: pointer;
+    max-width: 60%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    --align-items: flex-end;
+    overflow: hidden;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #008000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin: 0 5px 10px;
+}
+
+.inputfile:focus + label .circle,
+.inputfile + label:hover .circle {
+    background-color: #006400;
+}
+
+.inputfile + label .fa {
+    font-size: 3em;
+    color: #f1e5e6;
+}
+
+.inputfile + label span {
+    color: #008000;
+}
+
+.inputfile:focus + label span,
+.inputfile + label:hover span {
+    color: #006400;
+}
+
 .write-comment {
     margin-bottom: 20px;
 }

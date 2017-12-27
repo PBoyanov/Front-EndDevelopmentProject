@@ -71,6 +71,16 @@ module.exports = function (models, validator) {
                     });
             });
         },
+        addVisitRequest(username, visitRequest) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        user.visitRequests.push(visitRequest);
+                        dataUtils.update(user);
+                        return resolve(user.visitRequests);
+                    });
+            });
+        },
         getUserVisitedSites(username) {
             return new Promise((resolve, reject) => {
                 dataUtils.getOneByUsername(User, username)

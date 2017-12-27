@@ -19,6 +19,11 @@ let data = (() => {
         return requester.putJSON(`api/sites/${siteId}`, putData);
     }
 
+    function sendVisitDocument(username, visitRequest) {
+        let putData = { visitRequest };
+        return requester.putJSON(`api/user/${username}/visitRequest`, visitRequest);
+    } 
+
     function addSiteComment(siteId, content, date, username ) {
         let putData = { commentContent: content, commentDate: date, username: username };
         return requester.putJSON(`api/sites/${siteId}/comment`, putData);
@@ -101,6 +106,7 @@ let data = (() => {
         getSites,
         getSiteById,
         markSiteAsVisited,
+        sendVisitDocument,
         addSiteComment,
         getNews,
         getNewsItemById,

@@ -24,13 +24,23 @@
                     <div class="site-description">
                         {{{site.description}}}
                     </div>
-                    {{#if isLoggedIn}}
+                    {{#if isLoggedIn}} {{!--
                     <div class="site-btn-wrap">
                         {{#if isSiteVisited}}
                         <button type="button" id="checkSite" class="btn site-btn reverse">Отмаркирай</button>
                         {{else}}
                         <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
                         {{/if}}
+                    </div> --}}
+                    <div class="upload-photo-wrap">
+                            <input type="file" name="input-visit-document" id="input-visit-document" class="inputfile" accept=".png, .jpg, .jpeg">
+                            <label for="input-visit-document">
+                                <div class="circle">
+                                    <i class="fa fa-upload" aria-hidden="true"></i>
+                                </div>
+                                <span></span>
+                            </label>
+                            <button type="submit" id="visit-site-btn" class="btn basic-btn">Заявете като посетено</button>
                     </div>
                     {{/if}}
                     <div class="site-comments-count">
@@ -55,38 +65,38 @@
             {{/if}}
             <div id="comments">
                 {{#each site.commentsPages}}
-                    <div id="comment-page-{{number}}" class="comment-page {{#unless defaultPage}}hidden{{/unless}}">
-                        <ul class="comment-page-list">
+                <div id="comment-page-{{number}}" class="comment-page {{#unless defaultPage}}hidden{{/unless}}">
+                    <ul class="comment-page-list">
                         {{#each comments}}
-                            <li class="comment-item">
-                                <div class="comment-wrap">
-                                    <div class="row">
-                                        <div class="user-img-wrap col col-4 col-sm-2">
-                                            <div class="circle">
-                                                <a href="#/profiles/{{username}}">
-                                                    <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
-                                                </a>
-                                            </div>
+                        <li class="comment-item">
+                            <div class="comment-wrap">
+                                <div class="row">
+                                    <div class="user-img-wrap col col-4 col-sm-2">
+                                        <div class="circle">
+                                            <a href="#/profiles/{{username}}">
+                                                <img id="user-img" src="{{userProfileImg}}" alt="{{username}}">
+                                            </a>
                                         </div>
-                                        <div class="comment-content col col-8 col-sm-10">
-                                            <div class="comment-content-inner">
-                                                <div class="username">
-                                                    <a href="#/profiles/{{username}}">{{username}}</a>
-                                                </div>
-                                                <div class="date">
-                                                    В {{date}}
-                                                </div>
-                                                <div class="content">
-                                                    {{content}}
-                                                </div>
+                                    </div>
+                                    <div class="comment-content col col-8 col-sm-10">
+                                        <div class="comment-content-inner">
+                                            <div class="username">
+                                                <a href="#/profiles/{{username}}">{{username}}</a>
+                                            </div>
+                                            <div class="date">
+                                                В {{date}}
+                                            </div>
+                                            <div class="content">
+                                                {{content}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
                         {{/each}}
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
                 {{/each}}
             </div>
             <div class="pagination-wrap">

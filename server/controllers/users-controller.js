@@ -1,9 +1,15 @@
 /* globals module */
 
 let jwt = require('jwt-simple');
+let fs = require('fs');
 const encrypt = require("../utils/encryption");
 let secret = "Secret unicorns";
 const DEFAULT_IMAGE = 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/076/07f/0d01ca8.jpg';
+const VISIT_REQUEST_STATUSES = [
+    "PENDING",
+    "APPROVED",
+    "IGNORED"
+];
 
 module.exports = function ({ data, validator }) {
     return {
@@ -69,19 +75,23 @@ module.exports = function ({ data, validator }) {
 
             // console.log(newUser);
 
-            data.getUserByUsername(newUser.username).then((user) => {
-                if (user) {
-                    return res.status(400).send({ success: false, msg: 'Потребител с това потребителско име вече съществува!' });
-                } else {
-                    data.createUser(newUser)
-                        .then((data) => {
-                            res.status(201).send({ success: true, data })
-                        })
-                        .catch(err => {
-                            return res.status(400).send({ success: false, msg: 'Не е създаден потребител!' });
-                        });
-                }
-            });
+            data.getUserByUsername(newUser.username)
+                .then((user) => {
+                    if (user) {
+                        return res.status(400).send({ success: false, msg: 'Потребител с това потребителско име вече съществува!' });
+                    } else {
+                        data.createUser(newUser)
+                            .then((data) => {
+                                res.status(201).send({ success: true, data })
+                            })
+                            .catch(err => {
+                                return res.status(400).send({ success: false, msg: 'Не е създаден потребител!' });
+                            });
+                    }
+                })
+                .catch(err => {
+                    return res.send(error);
+                });;
 
 
         },
@@ -95,6 +105,38 @@ module.exports = function ({ data, validator }) {
                 .catch(err => {
                     return res.send(error);
                 });
+        },
+        addVisitRequest(req, res) {
+            let username = req.params["username"];
+
+            let visitRequest = req.body;
+            //visitRequest.fileStr = Buffer.from(visitRequest.fileStr, 'utf8');
+
+            let dateFormated = formatDate(visitRequest.date);
+            let filename = "visit-request-" + visitRequest.siteId + "-" + dateFormated + ".jpg";
+            visitRequest.filename = filename;
+
+            visitRequest.status = VISIT_REQUEST_STATUSES[0];
+
+            try {
+                let fileBuf = new Buffer(visitRequest.fileStr, 'base64');
+                fs.writeFileSync( "./uploads/"+ filename, fileBuf );
+            } catch (err) {
+                console.log('Error writing file:' + err.message)
+            }
+
+            data.addVisitRequest(username, visitRequest)
+                .then((visitRequests) => {
+                    res.status(200).send({ success: true, msg: "Заявката ви е успешно изпратена за одобрение." });
+                })
+                .catch(err => {
+                    return res.send(error);
+                });
+
+            function formatDate(date) {
+                let result = new Date(date).toISOString().replace(/:|\./g, ""); //delete all : and . signs
+                return result;
+            }
         },
         getUserVisitedSites(req, res) {
             let username = req.params["username"];
