@@ -85,15 +85,19 @@ module.exports = function (models, validator) {
             return new Promise((resolve, reject) => {
                 dataUtils.getOneByUsername(User, username)
                     .then((user) => {
-                        let siteNumbers = [];
+                        let visitRequests = [];
                         
-                        for (let i = 0; i < user.visitedSites.length; i++) {
-                            let site = user.visitedSites[i];
+                        for (let i = 0; i < user.visitRequests.length; i++) {
+                            let currentRequest = user.visitRequests[i];
 
-                            siteNumbers.push(site.number);
+                            let request = {};
+                            request.siteId = currentRequest.siteId;
+                            request.status = currentRequest.status;
+
+                            visitRequests.push(request);
                         }
 
-                        return resolve(siteNumbers);
+                        return resolve(visitRequests);
                     });
             });
         },

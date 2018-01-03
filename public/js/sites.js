@@ -118,7 +118,7 @@ let sites = (() => {
         let siteId = context.params["id"];
 
         Promise.all([data.getSiteById(siteId), data.isLoggedIn(), data.getUserVisitedSites(), templateLoader.get("site-details")])
-            .then(([serverResponseSite, loggedUser, serverResponseVisitedSites, template]) => {
+            .then(([serverResponseSite, loggedUser, serverResponseVisitRequests, template]) => {
                 let site = serverResponseSite.data;
                 site.img = IMAGE_SOURCE_BEGINNING + site.img;
                 countComments(site);
@@ -129,9 +129,19 @@ let sites = (() => {
                 templateItems.site = site;
                 templateItems.isLoggedIn = !!(loggedUser.username);
 
-                let visitedSitesNumbers = (serverResponseVisitedSites.siteNumbers ?
-                    serverResponseVisitedSites.siteNumbers : []);
-                templateItems.isSiteVisited = visitedSitesNumbers.includes(site.number);
+                let visitedSites = (serverResponseVisitRequests.visitRequests ?
+                    serverResponseVisitRequests.visitRequests : []);
+                
+                let siteHasVisitRequest = false;
+                for (let i = 0; i < visitedSites.length; i++) {
+                    if(visitedSites[i].siteId === site.id) {
+                        siteHasVisitRequest = true;
+                        templateItems.isRequestApproved = (visitedSites[i].status === "VISITED");
+                        break;
+                    }
+                }
+
+                templateItems.hasRequest = siteHasVisitRequest;
 
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);

@@ -142,8 +142,8 @@ module.exports = function ({ data, validator }) {
             let username = req.params["username"];
 
             data.getUserVisitedSites(username)
-                .then((siteNumbers) => {
-                    res.status(200).send({ success: true, siteNumbers })
+                .then((visitRequests) => {
+                    res.status(200).send({ success: true, visitRequests })
                 })
                 .catch(err => {
                     return res.send(error);

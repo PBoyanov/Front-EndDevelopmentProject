@@ -14,6 +14,6 @@ module.exports = modelRegistrator.register('User', {
     age: Number,
     description: String,
     profileImg: String,
-    visitRequests: [],
-    visitedSites: []
+    visitRequests: []
+    //visitedSites: []
 })

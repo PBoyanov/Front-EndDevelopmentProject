@@ -24,24 +24,31 @@
                     <div class="site-description">
                         {{{site.description}}}
                     </div>
-                    {{#if isLoggedIn}} {{!--
-                    <div class="site-btn-wrap">
-                        {{#if isSiteVisited}}
-                        <button type="button" id="checkSite" class="btn site-btn reverse">Отмаркирай</button>
+                    {{#if isLoggedIn}} 
+                        {{#if hasRequest }}
+                            
+                            {{#if isRequestApproved}}
+                            <div class="request-response-wrap visited">
+                                Обектът е посетен от вас
+                            </div>
+                            {{else}}
+                            <div class="request-response-wrap pending">
+                                Заявката ви за посещение се обработва
+                            </div>
+                            {{/if}}
                         {{else}}
-                        <button type="button" id="checkSite" class="btn site-btn">Маркирай като посетено</button>
+                            <div class="upload-photo-wrap">
+                                <p>Прикачете снимка до 4 mb на печата ви от избраната забележителност</p>
+                                <input type="file" name="input-visit-document" id="input-visit-document" class="inputfile" accept=".png, .jpg, .jpeg">
+                                <label for="input-visit-document">
+                                    <div class="circle">
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                    </div>
+                                    <span></span>
+                                </label>
+                                <button type="submit" id="visit-site-btn" class="btn basic-btn">Заявете като посетено</button>
+                            </div>
                         {{/if}}
-                    </div> --}}
-                    <div class="upload-photo-wrap">
-                            <input type="file" name="input-visit-document" id="input-visit-document" class="inputfile" accept=".png, .jpg, .jpeg">
-                            <label for="input-visit-document">
-                                <div class="circle">
-                                    <i class="fa fa-upload" aria-hidden="true"></i>
-                                </div>
-                                <span></span>
-                            </label>
-                            <button type="submit" id="visit-site-btn" class="btn basic-btn">Заявете като посетено</button>
-                    </div>
                     {{/if}}
                     <div class="site-comments-count">
                         <span class="comments">{{site.commentsCount}} {{#if isSingleComment}}коментар{{else}}коментара{{/if}}</span>
@@ -100,7 +107,7 @@
                 {{/each}}
             </div>
             <div class="pagination-wrap">
-                <ul id="pagination"></ul>
+                <ul id="pagination" class="comments-pagination"></ul>
             </div>
         </div>
         <aside id="ads" class="col col-12 col-lg-4">

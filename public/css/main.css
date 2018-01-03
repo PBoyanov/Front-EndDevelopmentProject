@@ -189,11 +189,11 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
-#pagination {
-    -webkit-box-pack: right;
-    -webkit-justify-content: right;
-    -ms-flex-pack: right;
-    justify-content: right;
+.pagination {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 20px;
 }
@@ -1051,12 +1051,40 @@ h2 a:hover span {
     background-color: #f26c4f;
 }
 
+.request-response-wrap {
+    margin: 20px 0;
+    text-align: right;
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.visited {
+    color: #008000;
+}
+
+.pending {
+    color: #f26c4f;
+}
+
 .upload-photo-wrap {
     /* text-align: -webkit-right;
     text-align: -moz-right;
     text-align: -o-right; 
     text-align: -ms-right;
     text-align: right; */
+    margin: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.upload-photo-wrap p {
+    color: #8f8f8f;
+    font-size: 12px;
+    font-style: italic;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .inputfile {
@@ -1066,6 +1094,7 @@ h2 a:hover span {
     overflow: hidden;
     --position: absolute;
     z-index: -1;
+    flex-grow: 0;
 }
 
 .inputfile + label {
@@ -1077,7 +1106,7 @@ h2 a:hover span {
     white-space: nowrap;
     display: flex;
     flex-direction: column;
-    --align-items: flex-end;
+    flex-grow: 5;
     overflow: hidden;
 }
 
@@ -1095,7 +1124,7 @@ h2 a:hover span {
     align-items: center;
     justify-content: center;
     padding: 12px;
-    margin: 0 5px 10px;
+    margin-bottom: 10px;
 }
 
 .inputfile:focus + label .circle,
@@ -1115,6 +1144,10 @@ h2 a:hover span {
 .inputfile:focus + label span,
 .inputfile + label:hover span {
     color: #006400;
+}
+
+.upload-photo-wrap button {
+    flex-grow: 1;
 }
 
 .write-comment {
@@ -1234,6 +1267,13 @@ h2 a:hover span {
 
 .news-item .news-item-content .readmore {
     color: #ce4e32;
+}
+
+.pagination.news-pagination {
+    -webkit-box-pack: right;
+    -webkit-justify-content: right;
+    -ms-flex-pack: right;
+    justify-content: right;
 }
 
 #news .sync-pagination.top {
@@ -1689,6 +1729,13 @@ h2 a:hover span {
     ================================================== */
     .news-item-data-inner {
         padding: 40px 8%;
+    }
+
+    .pagination.news-pagination {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
     }
 
     /* Profile
