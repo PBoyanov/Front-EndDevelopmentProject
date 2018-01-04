@@ -13,6 +13,13 @@ import { data } from "./data";
                 let profileLink = $("#profile-link");
                 profileLink.removeClass("hidden");
                 profileLink.find("#profile-link-ref").attr("href", `#/profiles/${result.username}`);
+
+                data.isAdminLoggedIn()
+                    .then(isAdminloggedIn => {
+                        if(isAdminloggedIn) {
+                            $(".requests-link").removeClass("hidden");
+                        }
+                    });
             }
         });
 }());

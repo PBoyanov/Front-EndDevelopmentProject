@@ -4,6 +4,8 @@ import { validator } from "./validator";
 let data = (() => {
     const USERNAME_KEY = "username";
     const AUTH_KEY = "auth-key";
+    const USER_ROLES = "user-roles";
+    const ADMIN_ROLE = "admin";
     const VISITED_SITES = "visited-sites";
 
     function getSites() {
@@ -59,6 +61,7 @@ let data = (() => {
                 let userInfo = result.body;
                 localStorage.setItem(USERNAME_KEY, userInfo.username);
                 localStorage.setItem(AUTH_KEY, userInfo.token);
+                localStorage.setItem(USER_ROLES, userInfo.roles);
                 return { username: userInfo.username };
             });
     }
@@ -67,7 +70,7 @@ let data = (() => {
         return new Promise((resolve, reject) => {
             localStorage.removeItem(USERNAME_KEY);
             localStorage.removeItem(AUTH_KEY);
-
+            localStorage.removeItem(USER_ROLES);
             resolve();
         });
     }
@@ -78,6 +81,13 @@ let data = (() => {
             if (localStorage.getItem(USERNAME_KEY) && localStorage.getItem(AUTH_KEY)) {
                 result.username = localStorage.getItem(USERNAME_KEY);
             }
+            resolve(result);
+        });
+    }
+
+    function isAdminLoggedIn() {
+        return new Promise((resolve, reject) => {
+            let result = (localStorage.getItem(USER_ROLES).includes(ADMIN_ROLE));
             resolve(result);
         });
     }
@@ -115,6 +125,7 @@ let data = (() => {
         registerUser,
         logoutUser,
         isLoggedIn,
+        isAdminLoggedIn,
         getUser,
         getUserVisitedSites
     }

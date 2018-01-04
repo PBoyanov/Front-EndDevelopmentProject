@@ -4,7 +4,8 @@ let jwt = require('jwt-simple');
 let fs = require('fs');
 const encrypt = require("../utils/encryption");
 let secret = "Secret unicorns";
-const DEFAULT_IMAGE = 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/076/07f/0d01ca8.jpg';
+const DEFAULT_IMAGE = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/076/07f/0d01ca8.jpg";
+const CLIENT_ROLE = "client"
 const VISIT_REQUEST_STATUSES = [
     "PENDING",
     "APPROVED",
@@ -31,7 +32,8 @@ module.exports = function ({ data, validator }) {
                                 success: true,
                                 body: {
                                     token: token,
-                                    username: user.username
+                                    username: user.username,
+                                    roles: user.roles
                                 }
                             });
                         } else {
@@ -71,6 +73,9 @@ module.exports = function ({ data, validator }) {
             newUser.age = 0;
             newUser.description = "";
             newUser.profileImg = DEFAULT_IMAGE;
+            newUser.roles = [];
+            newUser.roles.push(CLIENT_ROLE);
+            newUser.visitRequests = [];
             newUser.visitedSites = [];
 
             // console.log(newUser);

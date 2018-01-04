@@ -16,6 +16,8 @@ module.exports = function (models, validator) {
                     age: user.age,
                     description: user.description,
                     profileImg: user.profileImg,
+                    roles: user.roles,
+                    visitRequests: user.visitRequests,
                     visitedSites: user.visitedSites
                 });
 

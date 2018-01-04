@@ -86,6 +86,13 @@ let auth = (() => {
         profileLink.removeClass("hidden");
         profileLink.find("#profile-link-ref").attr("href", `#/profiles/${username}`);
         $(".home-link").addClass("current-menu-item");
+
+        data.isAdminLoggedIn()
+            .then(isAdminloggedIn => {
+                if(isAdminloggedIn) {
+                    $(".requests-link").removeClass("hidden");
+                }
+            });
     }
 
     return {

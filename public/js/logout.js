@@ -18,6 +18,11 @@ let logout = (() => {
         profileLink.addClass("hidden");
         profileLink.find("#profile-link-ref").attr("href", `#/profiles/${username}`);
         $(".home-link").addClass("current-menu-item");
+
+        let requestsLink = $("#requests-link");
+        if(!requestsLink.hasClass("hidden")) {
+            $(".requests-link").addClass("hidden");
+        }
     }
 
     return {
