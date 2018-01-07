@@ -118,6 +118,8 @@ module.exports = function ({ data, validator }) {
             //visitRequest.fileStr = Buffer.from(visitRequest.fileStr, 'utf8');
 
             let dateFormated = formatDate(visitRequest.date);
+            visitRequest.id = username + "-" + dateFormated;
+            
             let filename = "visit-request-" + visitRequest.siteId + "-" + dateFormated + ".jpg";
             visitRequest.filename = filename;
 

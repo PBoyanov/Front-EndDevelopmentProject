@@ -1,0 +1,74 @@
+<div id="wrap" class="basic-container">
+    <div class="row">
+        <div id="filter-by-status" class="btn-group col col-12 col-md-6">
+            <button type="button" class="btn dropdown-value">{{filteredOnThis}}</button>
+            <button type="button" class="btn basic-dropdown-btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item default">PENDING</button>
+                <button class="dropdown-item">VISITED</button>
+                <button class="dropdown-item">IGNORED</button>
+                <button class="dropdown-item">ALL</button>
+            </div>
+        </div>
+        
+        <div id="order-by" class="btn-group col col-12 col-md-6" role="group">
+            <button id="date" type="button" class="btn order-btn {{#if orderByDate}} active {{/if}}">Дата</button>
+            <button id="number" type="button" class="btn order-btn {{#if orderByNumber}} active {{/if}}">Номер на обект</button>
+        </div>
+    </div>
+    <div class="requests-count">
+        {{requestsCount}} {{#if isSingleRequest}}заявка{{else}}заявки{{/if}}
+    </div>
+    <ul id="requests-list">
+        {{#each requests}}
+        <li class="request">
+            <div class="request-wrap">
+                <div class="row">
+                    <div class="request-left-wrap col col-2">
+                        <div class="request-img-wrap">
+                            <a href="{{fileStr}}" class="request-img-link" data-fancybox data-caption="{{username}} - {{date}} {{siteId}}.{{siteName}}">
+                                <img class="request-img" src="{{fileStr}}" alt="{{siteName}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="request-right-wrap col col-10">
+                        <div class="row half-height">
+                            <div class="sitename-wrap col col-6">
+                                <h2>
+                                    <a href="/#/all-sites/{{siteId}}">{{siteId}}. {{siteName}}</a>
+                                </h2>
+                            </div>
+                            <div class="date-wrap col col-3">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                {{date}}
+                            </div>
+                            <div class="status-wrap col col-3">
+                                {{status}}
+                            </div>
+                        </div>
+                        <div class="row half-height request-bottom-row">
+                            <div class="username-wrap col col-6">
+                                <h2>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <a href="#/profiles/{{username}}">{{username}}</a>
+                                </h2>
+                            </div>
+                            {{#if isPending}}
+                            <div class="approve-btn-wrap col col-3">
+                                <button class="btn approve-btn">Одобри</button>
+                            </div>
+                            <div class="reject-btn-wrap col col-3">
+                                <button class="btn reject-btn">Отхърли</button>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>

@@ -913,7 +913,7 @@ h2 a:hover span {
     margin-top: 20px;
 }
 
-.site-wrap {
+.site-wrap, .request-wrap {
     background: #fff;
     margin-bottom: 15px;
     position: relative;
@@ -1279,6 +1279,76 @@ h2 a:hover span {
 #news .sync-pagination.top {
     margin-top: 10px;
 }
+
+                /* Requests
+==================================================
+==================================================*/
+.requests-count {
+    margin: 20px 10px;
+    font-size: 16px;
+    color: #3f3f3f;
+}
+
+.request-wrap.hover,
+.request-wrap.active {
+    border-color: #f26c4f;
+    padding: 25px 20px;
+}
+
+.request-wrap.active {
+    box-shadow: 0 2px 1px #a9a9a9;
+    border-color: #ce4e32;
+}
+
+.fancybox-image-wrap {
+	max-width  : 75%;
+    max-height : 75%;
+}
+
+.request-bottom-row {
+    display: none;
+}
+
+.request-wrap.hover .request-bottom-row,
+.request-wrap.active .request-bottom-row {
+    display: flex;
+}
+
+.request-wrap .fa {
+    color: #474747;
+}
+
+.half-height {
+    height: 45%;
+    padding-top: 10px;
+}
+
+.request h2 {
+    font-size: 17px;
+}
+
+.approve-btn {
+    background-color: #008000;
+    color: #fff;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+
+.approve-btn:hover {
+    background-color: #006400;
+}
+
+.reject-btn {
+    background-color: #ce4e32;
+    color: #fff;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+
+.reject-btn:hover {
+    background-color: #f26c4f;
+}
+
 
                 /* Profile
 ==================================================

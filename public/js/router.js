@@ -26,6 +26,12 @@ let router = (() => {
 
             this.get("#/all-sites", controllers.sites.getSitesPage);
 
+            this.get("#/visit-requests", function (context) {
+                context.redirect("#/requests", {status: "PENDING", orderby: "date"});
+            });
+
+            this.get("#/requests", controllers.requests.getRequestsPage);
+
             this.get("#/news/:id", controllers.news.getNewsItemDetailsPage);
 
             this.get("#/news", controllers.news.getNewsPage);

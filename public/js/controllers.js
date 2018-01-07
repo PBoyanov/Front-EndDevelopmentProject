@@ -3,6 +3,7 @@ import { search } from "./search";
 import { auth } from "./auth";
 import { logout } from "./logout";
 import { sites } from "./sites";
+import { requests } from "./visit-requests";
 import { news } from "./news";
 import { profiles } from "./profiles";
 
@@ -12,6 +13,7 @@ let controllers = {
     auth,
     logout,
     sites,
+    requests,
     news,
     profiles
 };

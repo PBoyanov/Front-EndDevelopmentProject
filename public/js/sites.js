@@ -192,6 +192,7 @@ let sites = (() => {
                     } else {
                         let visitRequest = {};
                         visitRequest.siteId = site.id;
+                        visitRequest.siteName = site.name;
                         visitRequest.date = new Date();
 
                         let reader = new FileReader();

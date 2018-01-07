@@ -112,6 +112,10 @@ let data = (() => {
         });
     }
 
+    function getVisitRequests() {
+        return requester.getJSON("api/requests");
+    }
+
     return {
         getSites,
         getSiteById,
@@ -127,7 +131,8 @@ let data = (() => {
         isLoggedIn,
         isAdminLoggedIn,
         getUser,
-        getUserVisitedSites
+        getUserVisitedSites,
+        getVisitRequests
     }
 })();
 
