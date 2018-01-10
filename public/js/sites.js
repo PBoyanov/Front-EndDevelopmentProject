@@ -129,19 +129,23 @@ let sites = (() => {
                 templateItems.site = site;
                 templateItems.isLoggedIn = !!(loggedUser.username);
 
-                let visitedSites = (serverResponseVisitRequests.visitRequests ?
+                let requests = (serverResponseVisitRequests.visitRequests ?
                     serverResponseVisitRequests.visitRequests : []);
                 
-                let siteHasVisitRequest = false;
-                for (let i = 0; i < visitedSites.length; i++) {
-                    if(visitedSites[i].siteId === site.id) {
-                        siteHasVisitRequest = true;
-                        templateItems.isRequestApproved = (visitedSites[i].status === "VISITED");
+                let siteHasNotIgnoredVisitRequest = false;
+                for (let i = 0; i < requests.length; i++) {
+                    if(requests[i].siteId === site.id) {
+                        siteHasNotIgnoredVisitRequest = true;
+                        if(requests[i].status === "APPROVED") {
+                            templateItems.isRequestApproved = true;
+                        } else if(requests[i].status === "IGNORED") {
+                            siteHasNotIgnoredVisitRequest = false;
+                        }
                         break;
                     }
                 }
 
-                templateItems.hasRequest = siteHasVisitRequest;
+                templateItems.hasNotIgnoredRequest = siteHasNotIgnoredVisitRequest;
 
                 let pageHtml = template(templateItems);
                 context.$element().html(pageHtml);
