@@ -32,50 +32,43 @@
                 <div class="profile-content-inner">
                     <div class="tab-pane">
                         <div class="first-name">
-                            Име: <span>{{userData.firstName}}</span>
+                            Име:
+                            <span>{{userData.firstName}}</span>
                         </div>
                         <div class="last-name">
-                            Фамилия: <span>{{userData.lastName}}</span>
+                            Фамилия:
+                            <span>{{userData.lastName}}</span>
                         </div>
                         <div class="age">
-                            Години: <span>{{userData.age}}</span>
+                            Години:
+                            <span>{{userData.age}}</span>
                         </div>
                         <div class="description">
-                            Описание: <span>{{userData.description}}</span>
+                            Описание:
+                            <span>{{userData.description}}</span>
                         </div>
                     </div>
                     <div id="visited-sites" class="tab-pane hidden">
-                            <div class="table-headings not-visible-on-small-mobile">
-                                <div class="row">
-                                    <div class="col col-1">#</div>
-                                    <div class="col col-5">Обект</div>
-                                    <div class="col col-3">Населено място</div>
+                        <div class="table-headings not-visible-on-small-mobile">
+                            <div class="row">
+                                <div class="col col-1">#</div>
+                                <div class="col col-5">Обект</div>
+                                <div class="col col-3">Населено място</div>
+                            </div>
+                        </div>
+                        <div class="sites-table-body">
+                            {{#each userData.visitedSites}}
+                            <div class="site-row" site-number="{{number}}">
+                                <div class="visited-sites-row row">
+                                    <div class="visited-site-number col col-12 col-sm-1" scope="row">{{number}}</div>
+                                    <div class="visited-site-name col col-12 col-sm-5">
+                                        <a href="/#/all-sites/{{number}}">{{name}}</a>
+                                    </div>
+                                    <div class="visited-site-town col col-12 col-sm-3">{{town}}</div>
                                 </div>
                             </div>
-                            <div class="sites-table-body">
-                            {{#if isCurrentUser}}   
-                                {{#each userData.visitedSites}}             
-                                    <div class="site-row" site-number="{{number}}">
-                                        <div class="visited-sites-row row">          
-                                            <div class="visited-site-number col col-12 col-sm-1" scope="row">{{number}}</div>
-                                            <div class="visited-site-name col col-12 col-sm-5"><a href="/#/all-sites/{{number}}">{{name}}</a></div>
-                                            <div class="visited-site-town col col-12 col-sm-3">{{town}}</div>
-                                            <div class="col col-12 col-sm-3"><button type="button" class="btn site-btn reverse">Отмаркирай</button></div>           
-                                        </div>
-                                    </div>
-                                {{/each}}                                
-                            {{else}} 
-                                {{#each userData.visitedSites}}             
-                                    <div class="site-row" site-number="{{number}}">
-                                        <div class="row">          
-                                            <div class="col col-12 col-sm-1" scope="row">{{number}}</div>
-                                            <div class="col col-12 col-sm-5">{{name}}</div>
-                                            <div class="col col-12 col-sm-3">{{town}}</div>           
-                                        </div>
-                                    </div>
-                                {{/each}}
-                            {{/if}}
-                            </div>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>

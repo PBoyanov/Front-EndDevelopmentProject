@@ -7,8 +7,7 @@ module.exports = function({ app, controllers }) {
     let router = new Router();
 
     router
-        //.put("/news/:id/comment", controllers.addNewsItemComment)
-        //.get("/news/:id", controllers.getNewsItemById)
+        .put("/requests/:id/requestResponse", controllers.requestResponse)
         .get("/requests", controllers.getRequests);
 
     app.use("/api", router);

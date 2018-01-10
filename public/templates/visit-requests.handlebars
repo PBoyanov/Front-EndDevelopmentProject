@@ -8,7 +8,7 @@
             </button>
             <div class="dropdown-menu">
                 <button class="dropdown-item default">PENDING</button>
-                <button class="dropdown-item">VISITED</button>
+                <button class="dropdown-item">APPROVED</button>
                 <button class="dropdown-item">IGNORED</button>
                 <button class="dropdown-item">ALL</button>
             </div>
@@ -24,7 +24,7 @@
     </div>
     <ul id="requests-list">
         {{#each requests}}
-        <li class="request">
+        <li id="{{id}}" class="request">
             <div class="request-wrap">
                 <div class="row">
                     <div class="request-left-wrap col col-2">
@@ -38,7 +38,7 @@
                         <div class="row half-height">
                             <div class="sitename-wrap col col-6">
                                 <h2>
-                                    <a href="/#/all-sites/{{siteId}}">{{siteId}}. {{siteName}}</a>
+                                    <a href="/#/all-sites/{{siteId}}" class="site-link">{{siteId}}. {{siteName}}</a>
                                 </h2>
                             </div>
                             <div class="date-wrap col col-3">
@@ -53,15 +53,15 @@
                             <div class="username-wrap col col-6">
                                 <h2>
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <a href="#/profiles/{{username}}">{{username}}</a>
+                                    <a href="#/profiles/{{username}}" class="profile-link">{{username}}</a>
                                 </h2>
                             </div>
                             {{#if isPending}}
                             <div class="approve-btn-wrap col col-3">
-                                <button class="btn approve-btn">Одобри</button>
+                                <button class="btn approve-btn response-btn">Одобри</button>
                             </div>
                             <div class="reject-btn-wrap col col-3">
-                                <button class="btn reject-btn">Отхърли</button>
+                                <button class="btn reject-btn response-btn">Отхърли</button>
                             </div>
                             {{/if}}
                         </div>

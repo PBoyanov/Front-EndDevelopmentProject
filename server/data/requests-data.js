@@ -2,8 +2,7 @@
 
 let dataUtils = require('./utils/data-utils');
 
-module.exports = function(models) {
-    const REQUEST_STATUS = "visitedRequests.status";
+module.exports = function (models) {
     const NOT_EMPTY = "$gt: []";
 
     let { User } = models;
@@ -11,7 +10,7 @@ module.exports = function(models) {
     return {
         getRequests() {
             return new Promise((resolve, reject) => {
-                User.find({ visitRequests : {$gt: []} /* non empty array*/ }, (err, users) => {
+                User.find({ visitRequests: { $gt: [] } /* non empty array*/ }, (err, users) => {
                     if (err) {
                         return reject(err);
                     }
@@ -24,16 +23,26 @@ module.exports = function(models) {
                                 requests.push(users[i].visitRequests[j]);
                             }
                         }
-                        
+
                         return resolve(requests);
                     }
 
                     return reject("no such user");
                 });
             });
+        },
+        requestResponse(requestId, username, newStatus) {
+            return new Promise((resolve, reject) => {
+                dataUtils.getOneByUsername(User, username)
+                    .then((user) => {
+                        let targetRequest = user.visitRequests.find(request => request.id === requestId);
+                        let targetRequestIndex = user.visitRequests.findIndex(request => request.id === requestId);
+                        targetRequest.status = newStatus;
+                        user.visitRequests.splice(targetRequestIndex, 1, targetRequest);
+                        dataUtils.update(user);
+                        return resolve({ targetRequest, username });
+                    })
+            });
         }
-        // getNewsItemById(id) {
-        //     return dataUtils.getOneById(News, id)
-        // },
     };
 };

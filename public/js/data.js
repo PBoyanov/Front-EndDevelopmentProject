@@ -16,9 +16,9 @@ let data = (() => {
         return requester.getJSON(`api/sites/${id}`);
     }
 
-    function markSiteAsVisited(siteId, username, isReverse) {
-        let putData = { siteId: siteId, username: username, isReverse: isReverse };
-        return requester.putJSON(`api/sites/${siteId}`, putData);
+    function requestResponse(requestId, username, responseType) {
+        let putData = { requestId: requestId, username: username, responseType: responseType };
+        return requester.putJSON(`api/requests/${requestId}/requestResponse`, putData);
     }
 
     function sendVisitDocument(username, visitRequest) {
@@ -119,7 +119,7 @@ let data = (() => {
     return {
         getSites,
         getSiteById,
-        markSiteAsVisited,
+        requestResponse,
         sendVisitDocument,
         addSiteComment,
         getNews,

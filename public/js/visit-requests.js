@@ -8,6 +8,10 @@ let requests = (() => {
         "APPROVED",
         "IGNORED"
     ];
+    const RESPONSE_TYPES = [
+        "APPROVE",
+        "IGNORE"
+    ];
     const ORDER_BY_VALUES = {
         date: "date",
         number: "number"
@@ -22,7 +26,7 @@ let requests = (() => {
                 if (context.params["status"]) {
                     let status = context.params["status"];
                     if (!(status === "ALL")) {
-                        requests = requests.filter(request => request.status === status);           
+                        requests = requests.filter(request => request.status === status);
                     }
                     templateItems.filteredOnThis = status;
                     templateItems.requestsCount = requests.length;
@@ -54,20 +58,20 @@ let requests = (() => {
                     let orderByUrlPartIndex = context.path.indexOf("orderby");
                     let orderByPart = context.path.slice(orderByUrlPartIndex);
                     let urlBase = context.path.slice(0, statusUrlPartIndex);
-                    
+
                     let dropdownItem = $(this);
                     let filterOnThis = dropdownItem.text();
 
                     context.redirect(`${urlBase}status=${filterOnThis}&${orderByPart}`);
                 });
 
-                $("#order-by .order-btn:not(.active)").on("click", function (ev) {
+                $("#order-by .order-btn:not(.active)").on("click", function (event) {
                     context.path = context.path.replace("&", "");
 
                     let orderByUrlPartIndex = context.path.indexOf("orderby");
                     let urlBase = context.path.slice(0, orderByUrlPartIndex);
-                    
-                    let orderByThis = ev.target.id;
+
+                    let orderByThis = event.target.id;
 
                     context.redirect(`${urlBase}&orderby=${orderByThis}`);
                 });
@@ -110,6 +114,22 @@ let requests = (() => {
                     ]
                 });
 
+                $(".response-btn").on("click", function (event) {
+                    let target = $(event.target)
+                    let responseType = (target.hasClass("approve-btn") ?
+                        RESPONSE_TYPES[0] : RESPONSE_TYPES[1]);
+
+                    let requestListItem = target.parentsUntil("#requests-list", ".request");
+                    let requestId = requestListItem.attr("id");
+
+                    let requestBottomRow = target.parentsUntil(".request-right-wrap", ".request-bottom-row");
+                    let profileLink = requestBottomRow.find(".profile-link");
+                    let username = profileLink.text();
+
+                    data.requestResponse(requestId, username, responseType);
+                    document.location.reload(true);
+                });
+
 
             });
     }
@@ -128,7 +148,7 @@ let requests = (() => {
             let date = new Date(request.date);
             request.date = formatDate(date);
             request.isPending = false;
-            if(request.status === VISIT_REQUEST_STATUSES[0]) {
+            if (request.status === VISIT_REQUEST_STATUSES[0]) {
                 request.isPending = true;
             }
         }
