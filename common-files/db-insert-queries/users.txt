@@ -1,3 +1,5 @@
+//execute with the Run button not with the keyboard shortcut
+
 db.users.insertMany([
     {
         "username": "tourist1",

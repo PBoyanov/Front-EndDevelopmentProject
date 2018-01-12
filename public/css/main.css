@@ -278,7 +278,7 @@ h2 a:hover span {
     position: relative;
     padding-left: 80px;
     padding-right: 0px;
-    background: #474747 url('../imgs/nav-pin.png') 34px center no-repeat;
+    background: #474747 url('/imgs/nav-pin.png') 34px center no-repeat;
 }
 
 #navigation .search-wrap-mobile {
@@ -330,7 +330,7 @@ h2 a:hover span {
 }
 
 .nav-right li {
-    background: url('../imgs/nav-divider.png') right center no-repeat;
+    background: url('/imgs/nav-divider.png') right center no-repeat;
     padding-right: 24px;
     margin-right: 24px;
 }
