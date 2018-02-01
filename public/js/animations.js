@@ -6,7 +6,7 @@ let animations = (() => {
             randomize: false,
             animation: "fade",
             direction: "horizontal",
-            slideshowSpeed: 7000,
+            slideshowSpeed: 5000,
             pauseOnHover: true,
             animationSpeed: 400,
             smoothHeight: true,
